@@ -1,0 +1,152 @@
+.nav-bar{
+    width: 100%;
+    height: 4rem;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+.nav-bar section,
+section .normal-nav
+section .form-nav{
+    width: 100%;
+    height: 100%;
+}
+section .form-nav{
+    display: grid;
+    place-items: center;
+}
+.form-nav .backButton{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem 2rem;
+    border-radius: 1rem;
+    background: #121212;
+    margin-top: .5rem;
+}
+section .normal-nav{
+    background: #fff;
+    display: flex;
+    align-items: center;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    height: 3.5rem;
+}
+section .normal-nav .logo {
+    width: 9rem;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+section .normal-nav .logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: .5rem;
+}
+section .normal-nav nav {
+    position: relative;
+    grid-auto-flow: column;
+    gap: 2rem;
+}
+nav .icon {
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 0 1rem;
+    color: #121212;
+}
+nav .menubar {
+    font-size: 2rem;
+}
+nav ul {
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    width: 15rem;
+    background: #121212;
+    transform: scale(0);
+    display: grid;
+    padding: 1rem;
+    transform-origin: top right;
+    transition: all 0.3s ease;
+}
+nav ul li {
+    list-style: none;
+    text-transform: uppercase;
+    padding: 1rem;
+    transition: all .3s ease;
+}
+nav ul li:hover{
+    background: var(--brownish);
+    color: #121212;
+}
+nav ul.active {
+    transform: scale(1);
+}
+nav .users-profile{
+    width: 2.5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+    cursor: pointer;
+}
+nav .users-profile img{
+    object-fit: cover;
+}
+
+.nav-bar .user-panel{
+    background: #fff;
+    position: absolute;
+    height: 100vh;
+    width: 40%;
+    /* z-index: -1; */
+    top: 0;
+    left: -60%;
+    padding: 2rem 1rem 2rem 1rem;
+    transition: all .5s ease;
+}
+.nav-bar .user-panel.openPannel{
+    left: 0;
+}
+.nav-bar .user-panel .cross{
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    transform: rotate(45deg);
+}
+
+@media screen and (max-width:1000px){
+    .nav-bar .user-panel{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:500px){
+    nav ul{
+        right: 0;
+    }
+    .nav-bar .user-panel{
+        width: 100%;
+        left: -100%;
+    }
+    section .normal-nav nav {
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width:400px){
+    section .normal-nav .logo{
+        width: 7rem;
+    }
+    nav .icon {
+        margin: 0 .5rem;
+    }
+    nav .users-profile{
+        width: 2.5rem;
+    }
+}
