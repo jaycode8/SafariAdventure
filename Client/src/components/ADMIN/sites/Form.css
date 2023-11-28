@@ -1,0 +1,8 @@
+
+.other-inputs select{
+    cursor: pointer;
+    padding-inline: .3rem;
+}
+.dest-form{
+    height: 90%;
+}

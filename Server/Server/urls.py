@@ -22,6 +22,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users', include('apps.users.urls')),
+    path("locations", include('apps.locations.urls')),
+    path("packages", include('apps.tourPackages.urls')),
+    path("accomodations", include('apps.accomodations.urls')),
+    path("sites/", include('apps.destinations.urls'))
 ]
 
 

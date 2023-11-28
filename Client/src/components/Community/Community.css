@@ -1,11 +1,10 @@
 
 .community{
-    height: 70%;
+    height: 60vh;
     padding: 1rem;
     background: url("../../resources/images/savannah.avif");
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-position: center; */
 }
 .community div{
     width: 30rem;
@@ -14,13 +13,14 @@
 }
 .community div form{
     width: 100%;
+    height: auto;
     display: flex;
     gap: .5rem;
 }
 .community div form input{
     width: 100%;
     padding: .5rem;
-    border-radius: .2rem;
+    border-radius: .4rem;
     font-size: 1rem;
     outline: none;
     border: 1px solid #121212;
@@ -30,12 +30,6 @@
     cursor: pointer;
     background: var(--brownish);
     border: none;
-}
-
-@media screen and (max-width:1000px){
-    /* .community{ */
-    /*     background-size: cover; */
-    /* } */
 }
 
 @media screen and (max-width: 500px){

@@ -14,6 +14,7 @@ from .models import Users
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
+from apps.utils.emails import transporter
 
 # Create your views here.
 def customErrorMessage(error_data):
@@ -25,19 +26,24 @@ def customErrorMessage(error_data):
         return error_message
         break
 
+def create_super_user():
+    username = "admin"
+    password = "admin"
+    email = "admin.app@gmail.com"
+
+
 def modifyUser(req, obj):
     serializer = usersSerializer(obj, data=req.data, partial=True)
+    previousImg = f"media/{req.user.profile}"
     if serializer.is_valid():
-        # if req.data.get('profile'):
-        #     a = serializer.data['profile']
-        #     previousImg = f'../..{a}'
-        #     if os.path.exists(previousImg):
-        #         os.remove(serializer.data['profile'])
-        #         print("image deleted")
-        #     else:
-        #         print(f'file not found {previousImg}')
-        # else:
-        #     print("none")
+        if req.data.get('profile'):
+            try:
+                os.remove(previousImg)
+                print("image file deleted")
+            except:
+                print("an error occured")
+        else:
+            print("none")
         serializer.save()
         return Response({"message": "Successfully updated your account infor","data":serializer.data, "success": "true"})
     return Response({"message": customErrorMessage({"error": serializer.errors}), "success": "false"})
@@ -62,13 +68,14 @@ def signIn(req):
     if not found_user:
         return Response({"message": "The password is incorect", "success": "false", "status": status.HTTP_400_BAD_REQUEST})
 
-    if usr.is_superuser:
-        return Response({"message": "admin logged in"})
     token, _ = Token.objects.get_or_create(user=usr)
     token.created = datetime.now()
     token.save()
     serializer = usersSerializer(instance=usr)
-    return Response({"message": "Successfully loged into your account", "user":serializer.data, "success": "true", "token": token.key, "status": status.HTTP_200_OK})
+    if usr.is_superuser:
+        return Response({"message": "admin logged in", "user":"superuser", "success":"true", "token":token.key, "status": status.HTTP_200_OK})
+    return Response({"message": "Successfully loged into your account", "user":"normal_user", "success": "true", "token": token.key, "status": status.HTTP_200_OK})
+
 
 def SignUp(req):
     serializer = usersSerializer(data=req.data)
@@ -78,7 +85,7 @@ def SignUp(req):
         serializer.save()
         OTP = randint(1000, 9999)
         username = serializer.data["username"]
-        # transporter(serializer.data["email"], OTP)
+        transporter(serializer.data["email"], OTP)
         print(OTP)
         return Response({"message": "An OTP verification code has been sent to your email", "success": "true", "status": status.HTTP_200_OK, "OTP": OTP})
     return Response({"message": customErrorMessage({"error": serializer.errors}), "success": "false", "status": status.HTTP_400_BAD_REQUEST})
@@ -92,7 +99,7 @@ def verifyOTP(req):
         instance.is_active = True
         instance.save()
         return Response({"message": "User successfully added to the system", "success": "true", "status": status.HTTP_200_OK})
-    return Response({"message": "Incorrect Code", "success": "false", "status": status.HTTP_400_BAD_REQUEST})
+    return Response({"message": "Incorrect Code try again...", "success": "false", "status": status.HTTP_400_BAD_REQUEST})
 
 
 @api_view(["GET", "PATCH"])
@@ -105,7 +112,7 @@ def user_route(req):
         return Response({"message": f"{req.user}'s data Successfully fetched", "success": "true", "user": user_data.data, "status": status.HTTP_200_OK})
     
     elif req.method == "PATCH":
-        print(req.data)
+        # print(user_obj.profile)
         return modifyUser(req, user_obj)
 
 

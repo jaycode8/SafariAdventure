@@ -32,9 +32,6 @@ class UsersManager(BaseUserManager):
 def path_and_rename(instance,filename):
     upload_to = 'users/'
     ext = filename.split(".")[-1]
-    # if instance.pk:
-    #     filename= '{}.{}'.format(instance.pk, ext)
-    # else:
     filename = 'user_{}.{}'.format(int(datetime.now().timestamp()), ext)
     return os.path.join(upload_to, filename)
 

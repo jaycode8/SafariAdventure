@@ -1,0 +1,141 @@
+.dest {
+    margin: 6rem 0 1rem;
+    width: 100%;
+}
+.dest .destination-cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1rem;
+    padding-inline: 10%;
+}
+.destination-cards .destination-card {
+    height: 11rem;
+    /* width: 35rem; */
+    display: flex;
+    overflow: hidden;
+    border-radius: .3rem;
+    box-shadow: 0 0 5px #121212;
+}
+.destination-card .card-image {
+    width: 30%;
+}
+.destination-cards .card-img img {
+    width: 100%;
+    height: 100%;
+}
+.destination-card .card-texts {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 10px;
+}
+.card-texts .card-texts-header {
+    display: flex;
+    gap: 5px;
+}
+.card-texts .more-details{
+    border: 1px solid #121212;
+    background: transparent;
+    font-size: .8rem;
+    color: #121212;
+    padding: 8px 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all .6s ease;
+    margin-top: auto;
+    align-self: flex-end;
+}
+.card-texts .more-details:hover{
+    background: #121212;
+    color: #fff;
+}
+
+.pagination-controls{
+    margin-top: 1.5rem;
+    width: 18rem;
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    grid-auto-flow: column;
+    gap: .3rem;
+    position: relative;
+    margin-inline: auto;
+}
+.pagination-controls button{
+    background: transparent;
+    outline: none;
+    border: 0;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    border-radius: .4rem;
+    cursor: pointer;
+}
+.pagination-controls .swiper {
+	width: 100%;
+	height: 100%;
+	margin-top: 0% !important;
+	z-index: 0 !important;
+}
+.pagination-controls .swiperSlide {
+	width: 100%;
+	height: 100%;
+}
+#activepg{
+    padding-bottom: 2px;
+    color: red;
+}
+.pagination-controls .swiper-button-prev.swiper-button-disabled {
+	transform: translate(-50%);
+}
+.pagination-controls .swiper-button-next.swiper-button-disabled {
+	transform: translate(50%);
+}
+.pagination-controls .swiper-button-prev {
+	transform: translate(-50%);
+}
+.pagination-controls .swiper-button-next {
+	transform: translate(50%);
+}
+.pagination-controls .swiper-pagination-bullet{
+    display: none !important;
+}
+.pagination-controls #chevronleft,
+.pagination-controls #chevronRight {
+	font-size: 2rem !important;
+	color: #121212;
+	position: absolute;
+	cursor: pointer;
+}
+.pagination-controls #chevronleft {
+	left: -2rem;
+}
+.pagination-controls #chevronRight {
+	right: -2rem;
+}
+
+
+
+@media screen and (max-width: 1000px){
+    .dest .destination-cards {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        padding-inline: 3%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .dest {
+        margin: 4.5rem 0 1rem;
+    }
+    .destination-cards .destination-card {
+        height: 9rem;
+    }
+    .card-texts .more-details{
+        font-size: .5rem;
+    }
+    .destination-card .card-texts {
+        gap: 3px;
+        padding: .5rem;
+    }
+}

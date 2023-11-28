@@ -64,7 +64,11 @@ const Forms = () => {
             setResponse(res.data);
             if (res.data.success == "true") {
                 localStorage.setItem("DRFAuthToken", res.data.token);
-                window.location.href = "/";
+                if (res.data.user == "superuser") {
+                    window.location.href = "/dashboard";
+                } else {
+                    window.location.href = "/";
+                }
             }
         } catch (error) {
             console.log(error);
@@ -109,7 +113,7 @@ const Forms = () => {
                         <p>Sign in to access your account</p>
                         <input
                             type="text"
-                            placeholder="Email / Username"
+                            placeholder="Username"
                             className="input"
                             name="uname"
                             onChange={handleLogChange}

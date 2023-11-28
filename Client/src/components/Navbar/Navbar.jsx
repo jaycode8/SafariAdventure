@@ -4,12 +4,11 @@ import { BiMenu, BiSearch, BiUserCircle } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 import logo from "../../resources/images/logo.png";
-import avatar from "../../resources/images/avatar.jpeg";
 import Mngt from "../User/Management/Mngt";
 import axios from "axios";
 import { BiCross } from "react-icons/bi";
 
-const sessionToken = localStorage.getItem('DRFAuthToken');
+const sessionToken = localStorage.getItem("DRFAuthToken");
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
 const Navbar = () => {
@@ -22,16 +21,16 @@ const Navbar = () => {
 
     const toggleUserProfile = () => {
         document.querySelector(".user-panel").classList.toggle("openPannel");
-    }
+    };
 
     const fetchLogedUser = async () => {
         try {
             const res = await axios({
-                method: 'get',
+                method: "get",
                 url: `${url_api}/users/user`,
                 headers: {
-                    Authorization: `Token ${sessionToken}`
-                }
+                    Authorization: `Token ${sessionToken}`,
+                },
             });
             setUser(res.data.user);
         } catch (err) {
@@ -44,12 +43,15 @@ const Navbar = () => {
     const location = useLocation();
 
     useEffect(() => {
-        sessionToken ? (fetchLogedUser()) : ("")
+        sessionToken ? fetchLogedUser() : "";
     }, []);
-
+    console.log(basePath.length)
+    let id_name = ''
+    basePath.length >= 5 ? (id_name = "otherRoutes") : (id_name = "home")
+    console.log(id_name)
 
     return (
-        <div className="nav-bar">
+        <div className="nav-bar" id={`${basePath}`}>
             <section>
                 {basePath == "forms" ? (
                     <div className="form-nav">
@@ -59,13 +61,12 @@ const Navbar = () => {
                         </Link>
                     </div>
                 ) : (
-                    <div className="normal-nav">
-                        {/*<h3 className="logo">SafariAdventure</h3>*/}
-                        <span className="logo">
-                            <img src={logo} />
-                        </span>
-                        <nav className="grid-container">
-                            <ul className={`nav ${navActive ? "active" : ""}`}>
+                    <div className="normal-nav grid-container" id={id_name}>
+                        <div className="logo">
+                            <Link to="/"><img src={logo} className="full-div" /></Link>
+                        </div>
+                        <nav>
+                            <ul className={`nav ${navActive ? "active" : ""} ${id_name}`}>
                                 <a href="#home" onClick={toggleMenu}>
                                     <li>Home</li>
                                 </a>
@@ -88,23 +89,29 @@ const Navbar = () => {
                                     <li>Contacts</li>
                                 </a>
                             </ul>
-                            {
-                                sessionToken ? (
-                                    <span className="users-profile" onClick={toggleUserProfile}>
-                                        {
-                                            user ? <img src={`${url_api}/${user.profile}`} className="full-div" /> : ''
-                                        }
-                                    </span>
+                            <div className="user-icon full-div grid-container">
+                                {sessionToken ? (
+                                    <div className="users-profile" onClick={toggleUserProfile}>
+                                        {user ? (
+                                            <img
+                                                src={`${url_api}/${user.profile}`}
+                                                className="full-div"
+                                            />
+                                        ) : (
+                                            ""
+                                        )}
+                                    </div>
                                 ) : (
                                     <Link to="/forms">
                                         <BiUserCircle className="icon user" />
                                     </Link>
-                                )
-                            }
+                                )}
+                            </div>
                             <BiSearch className="icon search" />
                             <BiMenu className="icon menubar" onClick={toggleMenu} />
                         </nav>
                     </div>
+
                 )
                 }
             </section >

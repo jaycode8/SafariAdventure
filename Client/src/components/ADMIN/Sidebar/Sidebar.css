@@ -1,0 +1,39 @@
+
+.aside{
+    padding: 1rem;
+    background: #fff;
+    /* height: 10rem !important; */
+    position: sticky;
+}
+.aside .company .c-logo{
+    height: 5rem;
+    width: 5rem;
+}
+.company img{
+    object-fit: cover;
+    cursor: pointer;
+}
+.aside .nav{
+    margin-top: 5rem;
+}
+.nav ul{
+    list-style: none;
+}
+.nav ul li{
+    width: 100%;
+    margin-block: 1rem; 
+    padding: 1rem;
+    border-radius: .3rem;
+    text-transform: uppercase;
+    color: #121212;
+    background: transparent;
+    transition: all .5s ease;
+}
+.nav ul li:hover{
+    background: #121212;
+    color: #fff;
+}
+.nav ul .active{
+    background: #121212;
+    color: #fff;
+}

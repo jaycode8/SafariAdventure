@@ -41,84 +41,46 @@
     border: 1px solid var(--brownish);
 }
 .packages .coll-2{
-    transform: translateY(-30%);
     position: relative;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1rem .5rem;
 }
-.coll-2 .swiper{
-    height: 50vh;
-    width: 85%;
-    position: relative;
-}
-.swiper {
-	/* height: 350px; */
-	margin-top: 0% !important;
-	z-index: 0 !important;
-}
-.swiperSlide {
-	width: 100%;
-	height: 100%;
-    padding-block: 1rem;
-}
-.swiperSlide .swipperSection {
-	height: 100%;
-	margin: 0 1rem;
-	display: grid;
-    background: #fff;
-    border-radius: .4rem;
-	place-items: center;
-    cursor: pointer;
-    overflow: hidden;
-    grid-template-rows: 50% 50%;
-    transition: all .5s ease;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0,0,0,0.3) 0px 8px 16px -8px;
-}
-.swiperSlide:hover .swipperSection{
-    transform: translateY(-5%);
-}
-.swipperSection .package-img {
-    width: 100%;
-    height: 100%;
+.package-card{
+    width: 20rem;
+    height: 15rem;
+    border-radius: .5rem;
     overflow: hidden;
     position: relative;
 }
-.package-img img{
-    width: 100%;
-    height: 100%;
+.package-card img{
     object-fit: cover;
-    object-position: top;
+}
+.package-card .card-content{
     position: absolute;
-    transform: translateX(40%);
+    top: 0;
+    place-items: unset;
+    grid-template-rows: 45% 55%;
+    background: #121212aa;
+    color: #ccc;
 }
-.swipperSection .package-img .package-overlay{
-    width: auto;
+.card-content .type{
+    width: 50%;
     height: 100%;
-    padding: 1rem !important;
-    position: absolute;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    padding: 2rem .5rem 0;
 }
-.package-overlay .price{
-    font-size: 1.5rem;
+.type > *{
+    margin-block: .5rem;
 }
-.package-overlay .type{
-    font-size: 2rem;
-    font-weight: bolder;
-}
-.swipperSection .package-text{
-    width: 100%;
-    height: 100%;
-    background: #ffd700ca;
+.card-content p{
     padding: .5rem;
-    text-align: center;
-    line-height: 1.8rem;
-    font-style: italic;
+    line-height: 1.3rem;
 }
 
 
 @media screen and (max-width: 1000px){
     .row-container .coll-1{
-        height: 55vh;
+        height: 45vh;
     }
     .coll-2 .swiper{
         height: auto;
@@ -128,18 +90,14 @@
         font-size: 2.5rem;
         text-align: center;
     }
-    .swiperSlide .swipperSection {
-        width: 90%;
-        height: 20rem;
-    }
 }
 
 @media screen and (max-width:500px){
-    .coll-2 .swiper{
-        width: 90%;
-    }
     .coll-1 span h2{
         font-size: 2rem;
+    }
+    .package-card{
+        width: 100%;
     }
 }
 

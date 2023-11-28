@@ -1,0 +1,36 @@
+
+.l-card .card-content{
+    position: absolute;
+    top: 0;
+    place-items: unset;
+    grid-template-rows: 45% 55%;
+    background: #12121255;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: #ccc;
+}
+.card-content .type{
+    width: 100%;
+    height: 100%;
+    padding: 2rem .5rem 0;
+    background: unset;
+}
+.type > *{
+    margin-block: .5rem;
+}
+.card-content p{
+    padding: .5rem;
+    background: unset;
+}
+.l-card .pencil, .l-card .trash{
+    z-index: 1;
+}
+
+@media screen and (max-width: 500px){
+    .location .float{
+        height: 100vh;
+    }
+    form{
+        height: 90%;
+    }
+}

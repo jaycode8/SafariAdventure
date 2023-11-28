@@ -1,115 +1,110 @@
-
-.mngt{
-    position: relative;
-    flex-direction: column;
+.mngt {
+  position: relative;
+  flex-direction: column;
 }
-.mngt .penEdit{
-    cursor: pointer;
-    position: absolute;
-    right: .3rem;
-    top: 3rem;
+.mngt .penEdit {
+  cursor: pointer;
+  position: absolute;
+  right: 0.3rem;
+  top: 3rem;
 }
-.mngt form{
-    justify-content: start;
-    flex-direction: column;
+.mngt form {
+  justify-content: start;
+  flex-direction: column;
 }
-.mngt form .img-bag{
-    width: 50%;
-    height: 15rem;
-    border-radius: .5rem;
-    overflow: hidden;
+.mngt form .img-bag {
+  width: 50%;
+  height: 15rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
-.mngt form .img-bag img{
-    object-fit: cover !important;
+.mngt form .img-bag img {
+  object-fit: cover !important;
 }
-.uploadFile{
-    position: absolute;
-    right: 5rem;
-    font-size: 15rem;
-    height: 1rem;
-    cursor: pointer;
-    display: none;
+.uploadFile {
+  position: absolute;
+  right: 5rem;
+  font-size: 15rem;
+  height: 1rem;
+  cursor: pointer;
+  display: none;
 }
-.img-bag #false{
-    display: unset !important;
+.img-bag #false {
+  display: unset !important;
 }
-#profile{
-    width: .1px;
-    height: .1px;
-    position: absolute;
+#profile {
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
 }
-.mngt form .user-info{
-    width: 100%;
-    height: auto;
-    padding: 1rem 1rem .5rem;
+.mngt form .user-info {
+  width: 100%;
+  height: auto;
+  padding: 1rem 1rem 0.5rem;
 }
-.user-info div{
-    margin: .8rem 0;
+.user-info div {
+  margin: 0.8rem 0;
 }
-.user-info div label{
-    font-weight: bold;
+.user-info div label {
+  font-weight: bold;
 }
-.user-info input{
-    width: 90%;
-    padding: .5rem;
-    outline: none;
-    border: 0;
-    margin-left: 1rem;
-    background: transparent;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: default;
-    transition: all .5s ease;
+.user-info input {
+  width: 90%;
+  padding: 0.5rem;
+  outline: none;
+  border: 0;
+  margin-left: 1rem;
+  background: transparent;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: default;
+  transition: all 0.5s ease;
 }
-.user-info .false{
-    border-bottom: 1px solid #121212;
-    cursor: unset;
+.user-info .false {
+  border-bottom: 1px solid #121212;
+  cursor: unset;
 }
-.user-info input[type="submit"]{
-    border: none;
-    background: #121212;
-    color: #fff;
-    cursor: pointer;
-    margin-top: 1rem;
-    margin-inline: 0;
-    width: 100%;
-    transform: translateX(-200%);
-    transition: all .5s ease;
+.user-info input[type="submit"] {
+  border: none;
+  background: #121212;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-inline: 0;
+  width: 100%;
+  transform: translateX(-200%);
+  transition: all 0.5s ease;
 }
-form #false{
-    transform: translateX(0);
+form #false {
+  transform: translateX(0);
 }
-.mngt .log-btn{
-    padding-inline: 1rem;
-    /* background: red; */
+.mngt .log-btn {
+  padding-inline: 1rem;
 }
-.log-btn .logout{
-    padding: .3rem 3rem;
-    background: #121212;
-    color: #fff;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transform: translateX(0);
-    transition: all .5s ease;
+.log-btn .logout {
+  padding: 0.3rem 3rem;
+  background: #121212;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transform: translateX(0);
+  transition: all 0.5s ease;
 }
-.log-btn #false{
-    transform: translateX(-200%);
+.log-btn #false {
+  transform: translateX(-200%);
 }
 
-
-
-
-@media screen and (max-width:500px){
-    .mngt form .img-bag{
-        width: 70%;
-        height: 20rem;
-    }
-    .uploadFile{
-        right: 1rem;
-        font-size: 20rem;
-    }
+@media screen and (max-width: 500px) {
+  .mngt form .img-bag {
+    width: 70%;
+    height: 20rem;
+  }
+  .uploadFile {
+    right: 1rem;
+    font-size: 20rem;
+  }
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 400px) {
 }

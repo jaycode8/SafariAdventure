@@ -29,6 +29,9 @@
 .false{
     background: red;
 }
+.form{
+    width: 100%;
+}
 .form__title {
     font-weight: bolder;
     margin: 0;
@@ -54,6 +57,7 @@
     height: 100%;
     position: absolute;
     top: 0;
+    background: red;
     transition: all 0.6s ease-in-out;
 }
 .container--signin {
