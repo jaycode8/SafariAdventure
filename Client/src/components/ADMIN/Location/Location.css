@@ -2,6 +2,7 @@
 .location{
     width: 100%;
     height: auto;
+    min-height: 80vh;
     padding: 1rem;
     position: relative;
     overflow: hidden;
@@ -34,6 +35,7 @@
     color: #fff;
     width: 2rem;
     aspect-ratio: 1;
+    z-index: 10;
 }
 .l-card .pencil, .l-card .trash{
     font-size: 1.3rem;

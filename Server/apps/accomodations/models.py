@@ -16,3 +16,18 @@ class AccomodationType(models.Model):
     accomodationType = models.CharField(max_length=200, unique=True)
     accomodationPic = models.ImageField(upload_to=path_and_rename)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class Accomodations(models.Model):
+    _id = models.UUIDField(default=uuid4, primary_key=True, editable=False)
+    acc_name = models.CharField(max_length=200, unique=True)
+    acc_location = models.CharField(max_length=200, blank=False, null=False)
+    ammenities = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
+    pictures = models.JSONField(blank=True, null=True)
+    acc_type = models.ForeignKey(AccomodationType,on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class ImageFiles(models.Model):
+    _id = models.UUIDField(default=uuid4, primary_key=True, editable=False)
+    image = models.FileField(upload_to=path_and_rename)

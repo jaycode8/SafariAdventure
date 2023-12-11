@@ -5,11 +5,53 @@ from rest_framework.decorators import api_view, authentication_classes,permissio
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from apps.utils.errorMsg import customErrorMessage
-from .models import AccomodationType
-from .serializers import AccTypeSerializers
+from .models import AccomodationType, Accomodations, ImageFiles
+from .serializers import AccTypeSerializers, AccomodationSerializers
 import os
 
 # Create your views here.
+
+#-------------------- accomodations views
+
+def newAccomodation(req):
+    serializer = AccomodationSerializers(data=req.data)
+    if serializer.is_valid():
+        files = req.FILES.getlist("files")
+        file_list = []
+        for file in files:
+            new_file = ImageFiles(image = file)
+            new_file.save()
+            file_list.append(new_file.image.url)
+        instance = serializer.save()
+        instance.pictures = file_list
+        instance.save()
+        return Response({"message":"The accomodation was successfully added to DB", "success":"true", "status":status.HTTP_200_OK})
+    return Response({"message":customErrorMessage({"error": serializer.errors}), "success":"false", "status":status.HTTP_404_NOT_FOUND})
+
+
+@api_view(["POST"])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated, IsAdminUser])
+def accomodations(req):
+    if req.method == "POST":
+        return newAccomodation(req)
+
+@api_view(["GET"])
+def specificAccomodation(req, id):
+    obj = Accomodations.objects.get(_id=id)
+    serializer = AccomodationSerializers(obj)
+    return Response({"message":"Specific accomodation data", "accomodation": serializer.data, "status":status.HTTP_200_OK})
+
+@api_view(["GET"])
+def listOfAccomodations(req, id):
+    obj = Accomodations.objects.select_related('acc_type').filter(acc_type=id).order_by("created_at")
+    serializer = AccomodationSerializers(obj, many=True)
+    objType = AccomodationType.objects.get(_id=id)
+    print(objType.accomodationType)
+    return Response({"message":"a list of all accomodations", "accomodation": serializer.data, "type":objType.accomodationType, "status":status.HTTP_200_OK})
+
+
+#----------------- accomodation type views
 
 def updateAccType(req, obj):
     serializer = AccTypeSerializers(obj, data=req.data, partial=True)
@@ -64,5 +106,5 @@ def listOfAccomodationTypes(req):
     return Response({"message":"a list of all accomodation types", "types": serializer.data, "status":status.HTTP_200_OK})
 
 @api_view(["GET"])
-def test(req):
-    return Response({"msg":"hello from accomodations"})
+def test(req, id):
+    return Response({"msg":"hello from accomodations", "id":id})

@@ -5,6 +5,10 @@ import { MdPinDrop } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, A11y, EffectFlip } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
@@ -36,15 +40,25 @@ const Site = () => {
                 details[0] != undefined ? (
                     <div className="site-box full-div grid-container">
                         <div className="pictorals">
-                            <div className="pic-gallery full-div">
+                            <Swiper
+                                modules={[A11y, Pagination, EffectFlip, Autoplay]}
+                                pagination={{ type: "progressbar" }}
+                                effect="flip"
+                                loop
+                                autoplay={{ delay: 5000 }}
+                                a11y={true}
+                                className="full-divs s-swiper"
+                            >
                                 {
-                                    data.map((dt, index) => (
-                                        <div key={index} className={`${classes[index]} full-div`} id={`col${index + 1}`}>
-                                            <img src={pic} className="full-div" />
-                                        </div>
-                                    ))
+                                    details.legth != [] ? (
+                                        details.map((pictures, index) => (
+                                            pictures.pictures.map((pic, index) => (
+                                                <SwiperSlide key={index} className="full-div s-slide">
+                                                    <img src={`${url_api}${pic}`} className="full-div" />
+                                                </SwiperSlide>))
+                                        ))) : ("")
                                 }
-                            </div>
+                            </Swiper>
                         </div>
                         <div className="site-content grid-container">
                             <div className="full-div upper grid-container">

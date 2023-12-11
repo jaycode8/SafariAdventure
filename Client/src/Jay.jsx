@@ -5,7 +5,7 @@ import Home2 from "./components/Landing/Home";
 import LandingPage from "./components/Landing/Landing";
 import Packages from "./components/Packages/Packages";
 import Services from "./components/Services/Services";
-import PropertyTypes from "./components/Sites/Accomodation/Types";
+import PropertyTypes from "./components/Sites/Accomodation/Types/Types";
 import Destinations from "./components/Sites/Destinations/Locations/Destination";
 
 const Home = () => {

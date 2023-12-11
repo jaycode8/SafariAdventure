@@ -131,7 +131,7 @@ def signup_view(req):
         return SignUp(req)
 
 @api_view(['GET', "POST"])
-def test_route(req):
+def lsUsers(req):
     if req.method == "GET":
         return listOfUsers()
     return Response({"message":"hi"})

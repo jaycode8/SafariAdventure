@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'apps.locations',
     'apps.tourPackages',
     'apps.accomodations',
-    'apps.destinations'
+    'apps.Sites'
 ]
 
 MIDDLEWARE = [

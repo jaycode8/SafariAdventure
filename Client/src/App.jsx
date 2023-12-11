@@ -9,6 +9,9 @@ import Site from "./components/Sites/Destinations/SpecificDestination/Site";
 import Footer from "./components/Footer/Footer";
 import Dashboard from "./components/ADMIN/Dashboard/Dashboard";
 import Sites from "./components/ADMIN/sites/Sites";
+import Categorical from "./components/Sites/Accomodation/Categorical/Categorical";
+import Acc from "./components/Sites/Accomodation/SpecificAcc/Acc";
+import AllAcc from "./components/ADMIN/Accom/AllAcc/AllAcc";
 
 const App = () => {
     return (
@@ -20,8 +23,11 @@ const App = () => {
                 <Route path="/verify" element={<Otp />} />
                 <Route path="/:id" element={<LocD />} />
                 <Route path="/:id/:id" element={<Site />} />
+                <Route path="/accomodation/:id" element={<Categorical />} />
+                <Route path="/accomodation/:id/:id" element={<Acc />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/dashboard/msa" element={<Sites />} />
+                <Route path="/dashboard/:id" element={<Sites />} />
+                <Route path="/dashboard/accomodation/:id" element={<AllAcc />} />
             </Routes>
             <Footer />
         </div>

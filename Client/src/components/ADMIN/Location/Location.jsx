@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
-const token = localStorage.getItem("DRFAuthToken")
+const token = localStorage.getItem("DRFAuthToken");
 
 const Location = () => {
     const [file, setFile] = useState(null);
@@ -167,20 +167,20 @@ const Location = () => {
             <div className="location-list full-div grid-container">
                 {
                     locations.map((data, index) => (
-                        <Link to="/dashboard/msa">
-                            <div className="l-card" key={index}>
-                                <div className="pencil grid-container">
-                                    <GiPencil onClick={() => toggleFloatB(data)} />
-                                </div>
-                                <div className="trash grid-container">
-                                    <CiTrash onClick={() => deleteLocation(`${data.locationName}`, `${data._id}`)} />
-                                </div>
+                        <div className="l-card" key={index}>
+                            <div className="pencil grid-container">
+                                <GiPencil onClick={() => toggleFloatB(data)} />
+                            </div>
+                            <div className="trash grid-container">
+                                <CiTrash onClick={() => deleteLocation(`${data.locationName}`, `${data._id}`)} />
+                            </div>
+                            <Link to={`/dashboard/${data._id}`}>
                                 <img src={`${url_api}${data.locationPic}`} className="full-div" />
                                 <div className="l-info">
                                     <h3>{data.locationName}</h3>
                                 </div>
-                            </div>
-                        </Link>
+                            </Link>
+                        </div>
                     ))
                 }
             </div>

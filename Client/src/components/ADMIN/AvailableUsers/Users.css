@@ -1,0 +1,30 @@
+
+.lsusers{
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+.lsusers h3{
+    text-transform: uppercase;
+}
+.lsusers table{
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+}
+.lsusers table th{
+    text-align: left;
+    padding-block: .5rem;
+    text-transform: uppercase;
+}
+.lsusers table td{
+    padding-block: .5rem;
+    background: teal;
+}
+.lsusers table td img{
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}

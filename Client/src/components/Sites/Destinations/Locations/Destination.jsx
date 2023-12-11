@@ -33,7 +33,7 @@ const Destinations = () => {
     useEffect(() => {
         listOfLocations();
     }, []);
-    
+
     return (
         <div className="destinations" id="destination">
             <h2>popular destinations</h2>

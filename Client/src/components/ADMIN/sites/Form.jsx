@@ -9,7 +9,7 @@ const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 const token = localStorage.getItem("DRFAuthToken")
 
 const Form = () => {
-    const [file, setFile] = useState(null);
+    const [files, setFiles] = useState([]);
     const [destination, setDestination] = useState({
         destination_location: "",
         destination_name: "",
@@ -20,9 +20,9 @@ const Form = () => {
     const [locations, setLocations] = useState([]);
 
     const fileChange = (event) => {
-        const image = event.target.files[0];
-        setFile(image);
-        document.getElementById("pkgimagefile").src = URL.createObjectURL(image);
+        const images = event.target.files;
+        setFiles(images);
+        // document.getElementById("pkgimagefile").src = URL.createObjectURL(image);
     };
 
     const handleChange = ({ currentTarget: input }) => {
@@ -37,7 +37,9 @@ const Form = () => {
             formData.append("destination_location", destination.destination_location);
             formData.append("activities", destination.activities);
             formData.append("description", destination.description);
-            formData.append("destinationPic", file);
+            for (let i = 0; i < files.length; i++) {
+                formData.append("files", files[i]);
+            }
             const res = await axios({
                 method: "post",
                 url: `${url_api}/sites/sites`,

@@ -26,7 +26,8 @@ const LocD = () => {
         try {
             const res = await axios({
                 method: "get",
-                url: `${url_api}/sites/sitelist/${id}`,
+                // url: `${url_api}/sites/sitelists/${id}/`,
+                url: `${url_api}/sites/sitelists/${id}`
             });
             setDest(res.data.sites);
         } catch (err) {
@@ -50,6 +51,7 @@ const LocD = () => {
     };
 
     const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
+
     return (
         <div className="dest">
             <div className="destination-cards">
@@ -57,7 +59,7 @@ const LocD = () => {
                     currentItems.map((dt, index) => (
                         <div className="destination-card" key={index}>
                             <div className="card-img">
-                                <img src={`${url_api}/${dt.destinationPic}`} className="" />
+                                <img src={`${url_api}${dt.pictures[0]}`} alt={dt.destination_name} className="full-div" />
                             </div>
                             <div className="card-texts">
                                 <span className="card-texts-header">

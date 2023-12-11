@@ -6,7 +6,8 @@ import { GiCrossMark } from "react-icons/gi";
 import Location from "../Location/Location";
 import Swal from "sweetalert2";
 import Package from "../Package/Package";
-import AccomodationTypes from "../Accom/Accom";
+import AccomodationTypes from "../Accom/Types/Accom";
+import LsUsers from "../AvailableUsers/Users";
 
 const Dashboard = () => {
     const toggleSidebar = () => {
@@ -49,6 +50,9 @@ const Dashboard = () => {
                     <div className="graphs-container full-div grid-container">
                         <div className="bargraph full-div">s</div>
                         <div className="graphs full-div">d</div>
+                    </div>
+                    <div id="users">
+                        <LsUsers />
                     </div>
                     <div className="locations" id="locations">
                         <Location />

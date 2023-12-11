@@ -38,4 +38,37 @@
 .all-destination .dst-list{
     /* background: green; */
     padding: 1rem;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+.dst-list .site_card{
+    width: 20rem;
+    height: 15rem;
+    position: relative;
+    background: red;
+}
+.site_card p{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: .5rem;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.site_card .trash{
+    position: absolute;
+    right: 0;
+    background: #121212;
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+}
+.trash > * {
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.site_card img{
+    object-fit: cover;
 }
