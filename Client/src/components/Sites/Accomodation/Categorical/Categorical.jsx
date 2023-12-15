@@ -55,6 +55,7 @@ const Categorical = () => {
 
     return (
         <div className="dest">
+            <h3 className="dest-heading">{accType}</h3>
             <div className="destination-cards">
                 {
                     currentItems.map((dt, index) => (

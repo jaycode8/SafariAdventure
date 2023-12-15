@@ -42,9 +42,8 @@
 }
 .packages .coll-2{
     position: relative;
-    padding: 1rem;
+    padding: 1rem 2rem;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: 1rem .5rem;
 }
 .package-card{
     width: 20rem;

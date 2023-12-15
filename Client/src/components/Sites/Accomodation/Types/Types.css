@@ -2,7 +2,7 @@
 .properties{
     width: 100%;
     padding: 1rem;
-    padding-top: 4rem;
+    /* padding-top: 4rem; */
 }
 .properties h2{
     text-transform: capitalize;
@@ -23,7 +23,6 @@
     /* width: 20rem; */
     height: 100%;
     width: 100%;
-    /* background: red; */
     position: relative;
     overflow: hidden;
 }

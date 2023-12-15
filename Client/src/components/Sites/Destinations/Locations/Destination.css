@@ -3,8 +3,8 @@
     width: 100%;
     height: auto;
     padding-inline: 1rem;
-    transform: translateY(-15%);
-    padding-top: 4rem;
+    /* transform: translateY(-15%); */
+    /* padding-top: 4rem; */
 }
 .destinations h2{
     text-transform: capitalize;

@@ -26,7 +26,6 @@ const LocD = () => {
         try {
             const res = await axios({
                 method: "get",
-                // url: `${url_api}/sites/sitelists/${id}/`,
                 url: `${url_api}/sites/sitelists/${id}`
             });
             setDest(res.data.sites);

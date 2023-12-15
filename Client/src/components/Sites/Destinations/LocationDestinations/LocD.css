@@ -2,6 +2,11 @@
     margin: 6rem 0 1rem;
     width: 100%;
 }
+.dest .dest-heading{
+    text-transform: uppercase;
+    text-align: center;
+    margin-block: 2rem;
+}
 .dest .destination-cards {
     width: 100%;
     display: grid;

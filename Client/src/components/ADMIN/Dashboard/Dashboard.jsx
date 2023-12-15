@@ -47,9 +47,32 @@ const Dashboard = () => {
                     <button className="admin-btn" onClick={logOut}>Log out</button>
                 </div>
                 <div className="wrapper full-div">
-                    <div className="graphs-container full-div grid-container">
-                        <div className="bargraph full-div">s</div>
-                        <div className="graphs full-div">d</div>
+                    <h3>Statistics</h3>
+                    <div className="graphs-container flex-container">
+                        <div className="stats flex-container">
+                            <h4>10</h4>
+                            <p>Users</p>
+                        </div>
+                        <div className="stats flex-container">
+                            <h4>10</h4>
+                            <p>Users</p>
+                        </div>
+                        <div className="stats flex-container">
+                            <h4>10</h4>
+                            <p>Users</p>
+                        </div>
+                        <div className="stats flex-container">
+                            <h4>10</h4>
+                            <p>Users</p>
+                        </div>
+                        <div className="stats flex-container">
+                            <h4>10</h4>
+                            <p>Users</p>
+                        </div>
+                        <div className="stats flex-container">
+                            <h4>10</h4>
+                            <p>Users</p>
+                        </div>
                     </div>
                     <div id="users">
                         <LsUsers />

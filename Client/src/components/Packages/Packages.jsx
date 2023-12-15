@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import pic from "../../resources/me.webp";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Glider from "react-glider";
+import 'glider-js/glider.min.css';
+import "react-glider/glider.defaults.css";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
@@ -36,20 +39,28 @@ const Packages = () => {
                     </span>
                 </div>
                 <div className="coll-2 grid-container">
-                    {
-                        pkgList.map((pkg, index) => (
-                            <div className="package-card" key={index}>
-                                <img src={`${url_api}${pkg.packagePic}`} className="full-div" />
-                                <div className="card-content full-div grid-container">
-                                    <div className="type">
-                                        <h2>{pkg.title}</h2>
-                                        <h4>ksh. {pkg.price}</h4>
+                    <Glider
+                        draggable
+                        hasArrows
+                        hasDots
+                        slidesToShow={3}
+                        slidesToScroll={1}
+                    >
+                        {
+                            pkgList.map((pkg, index) => (
+                                <div className="package-card" key={index}>
+                                    <img src={`${url_api}${pkg.packagePic}`} className="full-div" />
+                                    <div className="card-content full-div grid-container">
+                                        <div className="type">
+                                            <h2>{pkg.title}</h2>
+                                            <h4>ksh. {pkg.price}</h4>
+                                        </div>
+                                        <p className="full-div">{pkg.description}</p>
                                     </div>
-                                    <p className="full-div">{pkg.description}</p>
                                 </div>
-                            </div>
-                        ))
-                    }
+                            ))
+                        }
+                    </Glider>
                 </div>
             </div>
         </div>
