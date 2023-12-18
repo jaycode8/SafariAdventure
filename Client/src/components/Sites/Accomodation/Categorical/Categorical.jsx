@@ -34,7 +34,6 @@ const Categorical = () => {
             console.log(err);
         }
     };
-    console.log(accType)
 
     useEffect(() => {
         window.scrollTo(0, 0);

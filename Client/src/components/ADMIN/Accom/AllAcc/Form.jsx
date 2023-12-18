@@ -14,7 +14,8 @@ const Form = () => {
         acc_location: "",
         acc_name: "",
         ammenities: "",
-        description: ""
+        description: "",
+        map: ""
     });
     const [msg, setMsg] = useState({});
     const { id } = useParams()
@@ -22,7 +23,6 @@ const Form = () => {
     const fileChange = (event) => {
         const images = event.target.files;
         setFiles(images);
-        // document.getElementById("pkgimagefile").src = URL.createObjectURL(image);
     };
 
     const handleChange = ({ currentTarget: input }) => {
@@ -37,7 +37,8 @@ const Form = () => {
             formData.append("acc_location", accomodation.acc_location);
             formData.append("ammenities", accomodation.ammenities);
             formData.append("description", accomodation.description);
-            formData.append("acc_type", id)
+            formData.append("acc_type", id);
+            formData.append("acc_map", accomodation.map);
             for (let i = 0; i < files.length; i++) {
                 formData.append("files", files[i]);
             }
@@ -60,12 +61,22 @@ const Form = () => {
     };
 
 
+    const renderImages = () => {
+        const imageElements = [];
+        for (let i = 0; i < files.length; i++) {
+            const image = files[i];
+            imageElements.push(<img src={URL.createObjectURL(image)} key={i} />);
+        }
+        return imageElements;
+    }
     return (
         <form className="admin-form dest-form" onSubmit={() => handleSubmit(event)}>
             <h4 className="response" id={`${msg.success}`}>{msg.message}</h4>
             <div className="file-container flex-container full-div">
-                <div className="cover-img">
-                    <img src={locImg} className="full-div" id="pkgimagefile" />
+                <div className="cover-img" id="mlimgs">
+                    {
+                        renderImages()
+                    }
                 </div>
                 <label htmlFor="accImg">
                     <TiCamera className="cam" />
@@ -74,9 +85,15 @@ const Form = () => {
                     type="file"
                     id="accImg"
                     name="image"
+                    className="multiFileInput"
                     multiple
                     onChange={fileChange}
                 />
+                <textarea
+                    placeholder="Map URL"
+                    name="map"
+                    onChange={handleChange}
+                ></textarea>
             </div>
             <div className="other-inputs flex-container full-div">
                 <input
@@ -101,7 +118,7 @@ const Form = () => {
                     name="description"
                     onChange={handleChange}
                 ></textarea>
-                <input type="submit" value="submit destination" />
+                <input type="submit" value="submit accomodation" />
             </div>
         </form>
     )

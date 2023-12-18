@@ -13,6 +13,24 @@ import os
 
 #-------------------- accomodations views
 
+def updateAccomodation(req, obj):
+    serializer = AccomodationSerializers(obj, data=req.data, partial=True)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({"message":"updated accomodation successfully", "success":"true", "status":status.HTTP_200_OK})
+    return Response({"message":customErrorMessage({"error": serializer.errors}), "success":"false", "status":status.HTTP_404_NOT_FOUND})
+
+def deleteAccomodation(req, obj):
+    for img in obj.pictures:
+        try:
+            os.remove(img[1:])
+            print("image file deleted")
+        except:
+            print("an error occured")
+    obj.delete()
+    return Response({"message":"accomodation deleted", "success":"true","status":status.HTTP_200_OK})
+
+
 def newAccomodation(req):
     serializer = AccomodationSerializers(data=req.data)
     if serializer.is_valid():
@@ -29,12 +47,21 @@ def newAccomodation(req):
     return Response({"message":customErrorMessage({"error": serializer.errors}), "success":"false", "status":status.HTTP_404_NOT_FOUND})
 
 
-@api_view(["POST"])
+@api_view(["POST", "PATCH", "DELETE"])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated, IsAdminUser])
 def accomodations(req):
     if req.method == "POST":
         return newAccomodation(req)
+    try:
+        obj = Accomodations.objects.get(_id=req.data["id"])
+    except Accomodations.DoesNotExist:
+        return Response({"message":"The requested accomodation id matches none on the database", "success":"false", "status":status.HTTP_403_FORBIDDEN})
+    if req.method == "PATCH":
+        return updateAccomodation(req, obj)
+    elif req.method == "DELETE":
+        return deleteAccomodation(req, obj)
+
 
 @api_view(["GET"])
 def specificAccomodation(req, id):

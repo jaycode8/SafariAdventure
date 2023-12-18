@@ -26,6 +26,7 @@ class Accomodations(models.Model):
     description = models.CharField(max_length=200)
     pictures = models.JSONField(blank=True, null=True)
     acc_type = models.ForeignKey(AccomodationType,on_delete=models.CASCADE)
+    acc_map = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class ImageFiles(models.Model):

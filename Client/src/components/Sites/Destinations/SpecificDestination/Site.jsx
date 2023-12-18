@@ -1,6 +1,5 @@
 
 import "./Site.css";
-import pic from "../../../../resources/images/14.jpg";
 import { MdPinDrop } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -15,8 +14,6 @@ const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 const Site = () => {
     const [details, setDetails] = useState({});
     const { id } = useParams();
-    const classes = ["vertical", "vertical", "vertical", "horizontal", "horizontal", "square", "square"];
-    const data = [pic, pic, pic, pic, pic, pic, pic];
 
     const fetchSite = async () => {
         try {
@@ -72,7 +69,7 @@ const Site = () => {
                                 </div>
                                 <div className="full-div maps">
                                     <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613507864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sPT%20Kulkul%20Teknologi%20Internasional!5e0!3m2!1sen!2sid!4v1601138221085!5m2!1sen!2sid"
+                                        src={`${details[0].dest_map}`}
                                         width="600"
                                         height="450"
                                         frameBorder="0"

@@ -20,6 +20,7 @@ class Sites(models.Model):
     activities = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     pictures = models.JSONField(blank=True, null=True)
+    dest_map = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class Images(models.Model):

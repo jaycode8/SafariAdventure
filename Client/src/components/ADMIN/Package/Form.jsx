@@ -1,5 +1,4 @@
 
-// import "./Form.css"
 import locImg from "../../../resources/me.webp";
 import { TiCamera } from "react-icons/ti";
 import { useState } from "react";

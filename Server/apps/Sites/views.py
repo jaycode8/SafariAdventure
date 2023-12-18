@@ -7,24 +7,25 @@ from rest_framework.decorators import api_view, authentication_classes,permissio
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from apps.utils.errorMsg import customErrorMessage
+import os
 
 # Create your views here.
 def updateSite(req, obj):
     serializer = SitesSerializer(obj, data=req.data, partial=True)
     if serializer.is_valid():
-        if (req.data.get("destinationPic")):
-            prevImage = f"media/{obj.destinationPic}"
-            try:
-                os.remove(prevImage)
-                print("image file deleted")
-            except:
-                print("an error occured")
         serializer.save()
+        print("updated successfully")
         return Response({"message":"updated site successfull", "success":"true", "status":status.HTTP_200_OK})
     return Response({"message":customErrorMessage({"error": serializer.errors}), "success":"false", "status":status.HTTP_404_NOT_FOUND})
 
 
 def deleteSite(req, obj):
+    for img in obj.pictures:
+        try:
+            os.remove(img[1:])
+            print("image file deleted")
+        except:
+            print("an error occured")
     obj.delete()
     return Response({"message":"site was deleted succeddfully", "success":"true","status":status.HTTP_200_OK})
 

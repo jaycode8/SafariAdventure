@@ -6,3 +6,23 @@
 .dest-form{
     height: 90%;
 }
+#mlimgs{
+    border: 1px solid #121212;
+}
+#mlimgs{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(13rem, 1fr));
+}
+#mlimgs img {
+  object-fit: cover;
+  width: 50%;
+  height: auto;
+}
+.imgs2{
+    overflow-y: scroll !important;
+}
+.imgs2 img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}

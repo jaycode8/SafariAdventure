@@ -1,6 +1,5 @@
 
 import "./Form.css"
-import locImg from "../../../resources/me.webp";
 import { TiCamera } from "react-icons/ti";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -14,15 +13,16 @@ const Form = () => {
         destination_location: "",
         destination_name: "",
         activities: "",
-        description: ""
+        description: "",
+        map: ""
     });
     const [msg, setMsg] = useState({});
     const [locations, setLocations] = useState([]);
 
+
     const fileChange = (event) => {
         const images = event.target.files;
         setFiles(images);
-        // document.getElementById("pkgimagefile").src = URL.createObjectURL(image);
     };
 
     const handleChange = ({ currentTarget: input }) => {
@@ -37,6 +37,7 @@ const Form = () => {
             formData.append("destination_location", destination.destination_location);
             formData.append("activities", destination.activities);
             formData.append("description", destination.description);
+            formData.append("dest_map", destination.map);
             for (let i = 0; i < files.length; i++) {
                 formData.append("files", files[i]);
             }
@@ -73,12 +74,23 @@ const Form = () => {
         listOfLocations();
     }, []);
 
+    const renderImages = () => {
+        const imageElements = [];
+        for (let i = 0; i < files.length; i++) {
+            const image = files[i];
+            imageElements.push(<img src={URL.createObjectURL(image)} key={i} />);
+        }
+        return imageElements;
+    }
+
     return (
         <form className="admin-form dest-form" onSubmit={() => handleSubmit(event)}>
             <h4 className="response" id={`${msg.success}`}>{msg.message}</h4>
             <div className="file-container flex-container full-div">
-                <div className="cover-img">
-                    <img src={locImg} className="full-div" id="pkgimagefile" />
+                <div className="cover-img imgs2" id="mlimgs">
+                    {
+                        renderImages()
+                    }
                 </div>
                 <label htmlFor="pkgImg">
                     <TiCamera className="cam" />
@@ -87,9 +99,15 @@ const Form = () => {
                     type="file"
                     id="pkgImg"
                     name="destinationPic"
+                    className="multiFileInput"
                     multiple
                     onChange={fileChange}
                 />
+                <textarea
+                    placeholder="Map URL"
+                    name="map"
+                    onChange={handleChange}
+                ></textarea>
             </div>
             <div className="other-inputs flex-container full-div">
                 <select required name="destination_location" onChange={handleChange}>

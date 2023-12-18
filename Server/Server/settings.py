@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "SafariAdventure",
+        'NAME': "SafariAdventureB",
         'USER':'root',
         'PASSWORD':'4174',
         'HOST':'localhost'
