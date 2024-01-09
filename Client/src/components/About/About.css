@@ -1,0 +1,68 @@
+
+.about{
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: 50% 50%;
+}
+.about-text{
+    padding: 5rem;
+    flex-direction: column;
+    place-items: start;
+    gap: .5rem;
+}
+.about-text h3{
+    font-size: 1.5rem;
+}
+.about-text p{
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.pictorals{
+    width: 100%;
+}
+.pictorals .pic-swiper{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.pictorals .pic-swiper .pic-slides img{
+    object-fit: cover;
+}
+.pic-swiper .nav-icon{
+    color: #fff;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.pic-swiper #right-arrow-icon{
+    right: 2rem;
+}
+.pic-swiper #left-arrow-icon{
+    left: 2rem;
+}
+
+
+@media screen and (max-width: 800px){
+    .about{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-text{
+        padding: 1rem;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .about{
+        padding-bottom: 3rem;
+    }
+    .pic-swiper #right-arrow-icon{
+        right: .5rem;
+    }
+    .pic-swiper #left-arrow-icon{
+        left: .5rem;
+    }
+}

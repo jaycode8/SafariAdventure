@@ -16,7 +16,7 @@ const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 const Destinations = () => {
     const [locations, setLocations] = useState([]);
     const currentWidth = window.innerWidth;
-    let slides = currentWidth >= 500 ? (currentWidth >= 1000 ? "4" : "3") : "1";
+    let slides = currentWidth >= 500 ? (currentWidth >= 1000 ? "3" : "2") : "1";
 
     const listOfLocations = async () => {
         try {
@@ -42,30 +42,29 @@ const Destinations = () => {
                     modules={[A11y, Navigation]}
                     slidesPerView={slides}
                     spaceBetween={10}
-                    navigation={{ nextEl: "#chevronRight", prevEl: "#chevronLeft" }}
+                    navigation={{ nextEl: "#arrow-right", prevEl: "#arrow-left" }}
                     loop
                     className="swiper"
                 >
                     {
                         locations.map((data, index) => (
                             <SwiperSlide className="swiper-slide" key={index}>
-                                <div className="d-card">
-                                    <h3>{data.locationName}</h3>
-                                    <img src={`${url_api}${data.locationPic}`} />
-                                    <span className="grid-container">
+                                <div className="d-card grid-container">
+                                    <div className="card-img full-div">
+                                        <img src={`${url_api}${data.locationPic}`} className="full-div" />
+                                    </div>
+                                    <div className="card-details flex-container full-div">
+                                        <h3>Enjoy the beauty place in {data.locationName}</h3>
                                         <Link to={`${data._id}`} className="more-btn">
                                             see more
                                         </Link>
-                                    </span>
+                                    </div>
                                 </div>
                             </SwiperSlide>
                         ))
                     }
-                    <BiSolidChevronLeftCircle className="chevronicon" id="chevronLeft" />
-                    <BiSolidChevronRightCircle
-                        className="chevronicon"
-                        id="chevronRight"
-                    />
+                    <BiSolidChevronLeftCircle className="arrow-icon" id="arrow-left" />
+                    <BiSolidChevronRightCircle className="arrow-icon" id="arrow-right" />
                 </Swiper>
             </div>
         </div>

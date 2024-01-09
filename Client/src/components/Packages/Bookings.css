@@ -1,0 +1,80 @@
+
+.site-bookings{
+    width: 100%;
+    margin: 6rem 0 1rem;
+}
+.site-bookings h1{
+    margin-bottom: 1rem;
+}
+.site-bookings h3,
+.site-bookings h4{
+    text-align: center;
+}
+.site-bookings form{
+    background: transparent;
+    margin-top: 1rem;
+    width: 38rem;
+    padding: 2rem 1rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 5px #121212;
+}
+.site-bookings form div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+}
+.site-bookings form input,
+.site-bookings form select{
+    width: 50%;
+    margin-left: 5rem;
+    border: 0;
+    outline: none;
+    padding: .5rem;
+    margin-block: .3rem;
+    background: transparent;
+    border: 1px solid #121212;
+}
+.site-bookings form input[type="submit"]{
+    width: 100%;
+    margin: unset;
+    background: #121212;
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: .5rem;
+    margin-top: 1rem;
+}
+.site-bookings .location-boxes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.site-bookings .checkboxes{
+    width: 10rem;
+    height: 2rem;
+    flex-direction: row;
+    margin: 0;
+}
+
+
+@media screen and (max-width: 600px){
+    .site-bookings form{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .site-bookings form{
+        width: 95%;
+    }
+    .site-bookings form input,
+    .site-bookings form select{
+        width: 100%;
+        margin-left: unset;
+    }
+    .site-bookings form div{
+        margin: .5rem 0;
+    }
+}

@@ -8,7 +8,9 @@ const sessionToken = localStorage.getItem("DRFAuthToken");
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
 const Home2 = () => {
+
     const [user, setUser] = useState();
+
     const fetchLogedUser = async () => {
         try {
             const res = await axios({
@@ -23,6 +25,7 @@ const Home2 = () => {
             console.log(err);
         }
     };
+
     useEffect(() => {
         fetchLogedUser()
     }, []);
@@ -31,7 +34,8 @@ const Home2 = () => {
         user.is_superuser ?
             (window.location.href = "/dashboard")
             : ("")
-    ) : ("")
+    ) : ("");
+
     return (
         <div className="landing grid-container">
             <div className="navigation">

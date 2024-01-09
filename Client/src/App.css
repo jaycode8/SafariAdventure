@@ -4,7 +4,7 @@
 :root {
     --bgCover: url("/src/resources/images/bg3.jpg");
     --formsBg: url("/src/resources/images/forms.jpg");
-    --flamingo: url("./src/resources/images/flamingo.jpg");
+    --flamingo: url("./src/resources/images/18.jpg");
     /* COLORS */
     --white: #e9e9e9;
     --gray: #333;
@@ -50,17 +50,17 @@ a {
     width: 100%;
     height: 100%;
 }
-.chevronicon{
-    color: var(--brownish);
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    font-size: 3rem;
-    cursor: pointer;
-}
-#chevronLeft {
-	left: 2% !important;
-}
-#chevronRight {
-	right: 2%;
-}
+/* .chevronicon{ */
+/*     color: var(--brownish); */
+/*     position: absolute; */
+/*     z-index: 10; */
+/*     top: 50%; */
+/*     font-size: 3rem; */
+/*     cursor: pointer; */
+/* } */
+/* #chevronLeft { */
+/* 	left: 2% !important; */
+/* } */
+/* #chevronRight { */
+/* 	right: 2%; */
+/* } */

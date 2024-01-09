@@ -8,8 +8,20 @@ import Swal from "sweetalert2";
 import Package from "../Package/Package";
 import AccomodationTypes from "../Accom/Types/Accom";
 import LsUsers from "../AvailableUsers/Users";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
 const Dashboard = () => {
+
+    const [locations, setLocations] = useState("");
+    const [users, setUsers] = useState("");
+    const [pkg, setPkg] = useState("");
+    const [accTypes, setAccTypes] = useState("");
+    const [sites, setSites] = useState("");
+    const [accomodations, setAccomodations] = useState("");
+
     const toggleSidebar = () => {
         document.querySelector(".sidebar").classList.toggle("activated");
     };
@@ -35,6 +47,47 @@ const Dashboard = () => {
         }
     };
 
+    const listOfItems = async () => {
+        try {
+            const res = await axios({
+                method: "get",
+                url: `${url_api}/locations/locationlists/`,
+            });
+            const res2 = await axios({
+                method: "get",
+                url: `${url_api}/users/lsusers/`,
+            });
+            const res3 = await axios({
+                method: "get",
+                url: `${url_api}/packages/pkglist/`,
+            });
+            const res4 = await axios({
+                method: "get",
+                url: `${url_api}/accomodations/typelists/`,
+            });
+            const res5 = await axios({
+                method: "get",
+                url: `${url_api}/sites/all/`,
+            });
+            const res6 = await axios({
+                method: "get",
+                url: `${url_api}/accomodations/all/`,
+            });
+            setLocations(res.data.locations.length);
+            setUsers(res2.data.data.length);
+            setPkg(res3.data.packages.length);
+            setAccTypes(res4.data.types.length);
+            setSites(res5.data.sites.length);
+            setAccomodations(res6.data.accomodations.length);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    useEffect(() => {
+        listOfItems();
+    }, [])
+
     return (
         <div className="dashboard full-div grid-container">
             <div className="sidebar full-div">
@@ -50,28 +103,28 @@ const Dashboard = () => {
                     <h3>Statistics</h3>
                     <div className="graphs-container flex-container">
                         <div className="stats flex-container">
-                            <h4>10</h4>
+                            <h4>{users}</h4>
                             <p>Users</p>
                         </div>
                         <div className="stats flex-container">
-                            <h4>10</h4>
-                            <p>Users</p>
+                            <h4>{locations}</h4>
+                            <p>Locations</p>
                         </div>
                         <div className="stats flex-container">
-                            <h4>10</h4>
-                            <p>Users</p>
+                            <h4>{pkg}</h4>
+                            <p>Packages</p>
                         </div>
                         <div className="stats flex-container">
-                            <h4>10</h4>
-                            <p>Users</p>
+                            <h4>{accTypes}</h4>
+                            <p>Accomodation Types</p>
                         </div>
                         <div className="stats flex-container">
-                            <h4>10</h4>
-                            <p>Users</p>
+                            <h4>{sites}</h4>
+                            <p>Sites</p>
                         </div>
                         <div className="stats flex-container">
-                            <h4>10</h4>
-                            <p>Users</p>
+                            <h4>{accomodations}</h4>
+                            <p>Accomodations</p>
                         </div>
                     </div>
                     <div id="users">

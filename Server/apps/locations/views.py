@@ -8,6 +8,8 @@ from apps.utils.errorMsg import customErrorMessage
 from .models import Locations
 from .serializers import LocationSerializers
 import os
+from apps.Sites.models import Sites
+from apps.Sites.views import deleteSite
 
 # Create your views here.
 
@@ -25,13 +27,16 @@ def updateLocation(req, loc):
         return Response({"message":"updated location successfully", "success":"true", "status":status.HTTP_200_OK})
     return Response({"message":customErrorMessage({"error": serializer.errors}), "success":"false", "status":status.HTTP_404_NOT_FOUND})
 
-def deleteLocation(req, loc):
+def deleteLocation(req, loc, id):
     prevImage = f"media/{loc.locationPic}"
     try:
         os.remove(prevImage)
         print("image file deleted")
     except:
         print("an error occured")
+    sites = Sites.objects.select_related('destination_location').filter(destination_location=id).order_by("created_at")
+    for i in range(len(sites)):
+        deleteSite(req, sites[i])
     loc.delete()
     return Response({"message":"location deleted", "success":"true","status":status.HTTP_200_OK})
 
@@ -53,7 +58,7 @@ def location(req):
     except Locations.DoesNotExist:
         return Response({"message":"The requested location id matches none on the database", "success":"false", "status":status.HTTP_403_FORBIDDEN})
     if req.method == "DELETE":
-        return deleteLocation(req, loc)
+        return deleteLocation(req, loc, req.data["id"])
     elif req.method == "PATCH":
         return updateLocation(req, loc)
     elif req.method == "GET":

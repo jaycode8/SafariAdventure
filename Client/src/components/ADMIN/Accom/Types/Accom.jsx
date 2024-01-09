@@ -62,7 +62,7 @@ const AccomodationTypes = () => {
 
     const deleteType = async (name, id) => {
         try {
-            const confirm = await alertMsg(`Confirm Deletion of ${name} from DB`, "Yes");
+            const confirm = await alertMsg(`Confirm Deletion of ${name} and its associated accomodations from DB`, "Yes");
             if (confirm.isConfirmed) {
                 const res = await axios({
                     method: "delete",

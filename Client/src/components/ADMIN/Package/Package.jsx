@@ -132,7 +132,7 @@ const Package = () => {
             </div>
             <div className="float floatB" id={`${isActive}`}>
                 <GiCrossMark className="close" onClick={toggleFloatB} />
-                <form className="grid-container" onSubmit={() => handleSubmit(event)}>
+                <form className="grid-container admin-form" onSubmit={() => handleSubmit(event)}>
                     <h4 className="response" id={`${msg.success}`}>{msg.message}</h4>
                     <div className="file-container flex-container full-div">
                         <div className="cover-img">

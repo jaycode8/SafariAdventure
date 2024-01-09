@@ -12,6 +12,7 @@ import Sites from "./components/ADMIN/sites/Sites";
 import Categorical from "./components/Sites/Accomodation/Categorical/Categorical";
 import Acc from "./components/Sites/Accomodation/SpecificAcc/Acc";
 import AllAcc from "./components/ADMIN/Accom/AllAcc/AllAcc";
+import SiteBookings from "./components/Packages/Bookings";
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path="/verify" element={<Otp />} />
                 <Route path="/:id" element={<LocD />} />
                 <Route path="/:id/:id" element={<Site />} />
+                <Route path="/package/:id" element={<SiteBookings />} />
                 <Route path="/accomodation/:id" element={<Categorical />} />
                 <Route path="/accomodation/:id/:id" element={<Acc />} />
                 <Route path="/dashboard" element={<Dashboard />} />

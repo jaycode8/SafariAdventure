@@ -8,6 +8,7 @@
     background-position: center;
     background-blend-mode: darken;
     background-color: #12121288;
+    background-attachment: fixed;
 }
 .landing .textbox{
     width: 100%;

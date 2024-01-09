@@ -2,7 +2,6 @@
 .properties{
     width: 100%;
     padding: 1rem;
-    /* padding-top: 4rem; */
 }
 .properties h2{
     text-transform: capitalize;
@@ -42,7 +41,7 @@
 }
 .tall{
     grid-row: span 2;
-    grid-column: span 1;
+    grid-column: span 2;
 }
 .square{
     grid-row: span 2;
@@ -54,7 +53,7 @@
     height: 2.5rem;
     color: #fff;
     bottom: -3rem;
-    z-index: 1; 
+    z-index: 1;
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -63,17 +62,6 @@
 .property-card:hover .prop-overlay{
     bottom: 0;
 }
-/* .property-card:nth-child(1){ */
-/*     grid-column: span 2; */
-/* } */
-/* .property-card:nth-child(5){ */
-/*     grid-row: span 2; */
-/*     grid-column: span 2; */
-/* } */
-/* .property-card:last-child{ */
-/*     grid-column: span 3; */
-/*     height: 15rem; */
-/* } */
 
 
 @media screen and (max-width: 500px){

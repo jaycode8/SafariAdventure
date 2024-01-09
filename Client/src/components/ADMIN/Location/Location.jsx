@@ -63,7 +63,7 @@ const Location = () => {
 
     const deleteLocation = async (name, id) => {
         try {
-            const confirm = await alertMsg(`Confirm Deletion of ${name} from DB`, "Yes");
+            const confirm = await alertMsg(`Confirm Deletion of ${name} and all its associated sites from DB`, "Yes");
             if (confirm.isConfirmed) {
                 const res = await axios({
                     method: "delete",
@@ -129,7 +129,7 @@ const Location = () => {
             </div>
             <div className="float floatB" id={`${isActive}`}>
                 <GiCrossMark className="close" onClick={toggleFloatB} />
-                <form className="grid-container" onSubmit={() => handleSubmit(event)}>
+                <form className="grid-container admin-form" onSubmit={() => handleSubmit(event)}>
                     <h4 className="response" id={`${msg.success}`}>{msg.message}</h4>
                     <div className="file-container flex-container full-div">
                         <div className="cover-img">

@@ -77,3 +77,9 @@ def specificSite(req,id):
     serializer = SitesSerializer(obj, many=True)
     return Response({"message":"details of requested site", "site": serializer.data, "status":status.HTTP_200_OK})
 
+@api_view(["GET"])
+def allSites(req):
+    obj = Sites.objects.all()
+    serializer = SitesSerializer(obj, many=True)
+    return Response({"message":"list of all sites", "sites": serializer.data, "status":status.HTTP_200_OK})
+

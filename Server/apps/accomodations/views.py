@@ -77,6 +77,12 @@ def listOfAccomodations(req, id):
     print(objType.accomodationType)
     return Response({"message":"a list of all accomodations", "accomodation": serializer.data, "type":objType.accomodationType, "status":status.HTTP_200_OK})
 
+@api_view(["GET"])
+def allAccomodations(req):
+    obj = Accomodations.objects.all()
+    serializer = AccomodationSerializers(obj, many=True)
+    return Response({"message":"All accomodations", "accomodations": serializer.data, "status":status.HTTP_200_OK})
+
 
 #----------------- accomodation type views
 
@@ -94,13 +100,16 @@ def updateAccType(req, obj):
         return Response({"message":"updated accomodation type successfully", "success":"true", "status":status.HTTP_200_OK})
     return Response({"message":customErrorMessage({"error": serializer.errors}), "success":"false", "status":status.HTTP_404_NOT_FOUND})
 
-def deleteAccType(req, obj):
+def deleteAccType(req, obj, id):
     prevImage = f"media/{obj.accomodationPic}"
     try:
         os.remove(prevImage)
         print("image file deleted")
     except:
         print("an error occured")
+    accs = Accomodations.objects.select_related('acc_type').filter(acc_type=id).order_by("created_at")
+    for i in range(len(accs)):
+        deleteAccomodation(req, accs[i])
     obj.delete()
     return Response({"message":"accomodation type deleted", "success":"true","status":status.HTTP_200_OK})
 
@@ -122,7 +131,7 @@ def accomodationtypes(req):
     except AccomodationType.DoesNotExist:
         return Response({"message":"The requested accomodation type id matches none on the database", "success":"false", "status":status.HTTP_403_FORBIDDEN})
     if req.method == "DELETE":
-        return deleteAccType(req, obj)
+        return deleteAccType(req, obj, req.data["id"])
     elif req.method == "PATCH":
         return updateAccType(req, obj)
 

@@ -1,7 +1,6 @@
 
 .packages{
     height: auto !important;
-    /* padding-block: 1rem; */
     position: relative;
 }
 .row-container .coll-1{
@@ -12,6 +11,7 @@
     background-position: center;
     background-color: #12121277;
     background-blend-mode: darken;
+    background-attachment: fixed;
 }
 .coll-1 span{
     gap: 1rem;
@@ -44,6 +44,10 @@
     position: relative;
     padding: 1rem 2rem;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+.row-container h3{
+    margin: 1rem 0rem 0rem 1rem;
+    font-size: 1.4rem;
 }
 .package-card{
     width: 20rem;

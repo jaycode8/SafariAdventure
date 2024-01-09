@@ -1,7 +1,6 @@
 
 import "./Packages.css";
 import { Link } from "react-router-dom";
-import pic from "../../resources/me.webp";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Glider from "react-glider";
@@ -12,7 +11,6 @@ const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
 const Packages = () => {
     const [pkgList, setPkgList] = useState([]);
-    const data = [1, 2, 3, 4, 5];
     const listOfPackages = async () => {
         try {
             const res = await axios({
@@ -25,9 +23,13 @@ const Packages = () => {
         }
     };
 
+    const currentWidth = window.innerWidth;
+    let slides = currentWidth >= 500 ? (currentWidth >= 1000 ? "3" : "2") : "1";
+
     useEffect(() => {
         listOfPackages();
     }, []);
+
     return (
         <div className="packages" id="packages">
             <div className="row-container">
@@ -38,17 +40,18 @@ const Packages = () => {
                         <Link className="link">Book now</Link>
                     </span>
                 </div>
+                <h3>Checkout Our Packages</h3>
                 <div className="coll-2 grid-container">
                     <Glider
                         draggable
                         hasArrows
                         hasDots
-                        slidesToShow={3}
+                        slidesToShow={slides}
                         slidesToScroll={1}
                     >
                         {
                             pkgList.map((pkg, index) => (
-                                <div className="package-card" key={index}>
+                                <Link className="package-card" key={index} to={`/package/${pkg.title}`}>
                                     <img src={`${url_api}${pkg.packagePic}`} className="full-div" />
                                     <div className="card-content full-div grid-container">
                                         <div className="type">
@@ -57,7 +60,7 @@ const Packages = () => {
                                         </div>
                                         <p className="full-div">{pkg.description}</p>
                                     </div>
-                                </div>
+                                </Link>
                             ))
                         }
                     </Glider>

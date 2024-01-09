@@ -70,6 +70,9 @@ const Navbar = () => {
                                 <a href="#home" onClick={toggleMenu}>
                                     <li>Home</li>
                                 </a>
+                                <a href="#about" onClick={toggleMenu}>
+                                    <li>About</li>
+                                </a>
                                 <a href="#services" onClick={toggleMenu}>
                                     <li>Services</li>
                                 </a>
@@ -82,10 +85,7 @@ const Navbar = () => {
                                 <a href="#accomodation" onClick={toggleMenu}>
                                     <li>accomodation</li>
                                 </a>
-                                <a href="#newsletter" onClick={toggleMenu}>
-                                    <li>newsletter</li>
-                                </a>
-                                <a href="#footer" onClick={toggleMenu}>
+                                <a href="#contact" onClick={toggleMenu}>
                                     <li>Contacts</li>
                                 </a>
                             </ul>
