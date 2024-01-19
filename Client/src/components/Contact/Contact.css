@@ -1,5 +1,4 @@
-
-.contact{
+.contact {
     height: 90vh;
     padding: 2rem 10rem;
     grid-template-columns: 1fr 1fr;
@@ -7,92 +6,131 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.contact .c-text{
+
+.contact .c-text {
     padding-inline: 2rem;
     flex-direction: column;
     gap: 1rem;
 }
-.contact .c-text h2{
+
+.contact .c-text h2 {
     font-size: 2rem;
 }
-.contact .c-text .c-icons{
+
+.contact .c-text .c-icons {
     height: auto;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
-.c-icons span{
+
+.c-icons span {
     width: 100%;
     height: 4rem;
     justify-content: start;
     gap: 1rem;
 }
-.c-icons span a{
+
+.c-icons span a {
     justify-content: start;
     gap: 1rem;
     color: #121212;
     transition: all .5s ease;
 }
-.c-icons .phone:hover a{
+
+.c-icons .phone:hover a {
     color: #0000ff;
 }
-.c-icons .email:hover a{
+
+.c-icons .email:hover a {
     color: #a42a2a;
 }
-.c-icons span div{
+
+.c-icons span div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: .5rem;
 }
-.c-icons span .ico{
+
+.c-icons span .ico {
     height: 4rem;
     width: auto;
 }
-.contact .c-form{
+
+.contact .c-form {
     padding-inline: 2rem;
     height: auto;
+    position: relative;
 }
-.c-form .forms-container{
+
+.contact .c-form .label {
+    position: absolute;
+    top: -2rem;
+    right: 1rem;
+    border-radius: .3rem;
+    color: #fff;
+}
+
+.contact .c-form #false {
+    background: #ee111a;
+    padding: .3rem .5rem;
+}
+
+.contact .c-form #true {
+    background: #28d760;
+    padding: .3rem .5rem;
+    color: #121212;
+}
+
+.c-form .forms-container {
     position: relative;
     transition: all .5s ease;
-    /* padding-inline: 2rem; */
     overflow: hidden;
-    /* transform: translateX(-100%); */
 }
-.forms-container .comments-form{
+
+.forms-container .comments-form {
     padding-inline: .5rem;
     transform: translateX(100%);
     transition: all .5s ease;
     height: 20rem;
 }
-.comments-form > *{
+
+.comments-form>* {
     margin-block: 1rem;
 }
-.comments-form p{
+
+.comments-form p {
     text-align: center;
 }
-.forms-container .contact-form{
+
+.forms-container .contact-form {
     transform: translateX(0%);
     padding: .5rem;
     transition: all .5s ease;
 }
-.forms-container .active{
+
+.forms-container .active {
     transform: translateX(0%);
 }
-.c-form .contact-form{
+
+.c-form .contact-form {
     position: absolute;
 }
-.c-form form{
+
+.c-form form {
     position: relative;
     flex-direction: column;
     gap: .5rem;
 }
-.c-form form div{
+
+.c-form form div {
     grid-auto-flow: column;
     gap: 1rem;
     height: unset;
 }
-.c-form form input, textarea{
+
+.c-form form input,
+textarea {
     width: 100%;
     padding: .8rem;
     outline: none;
@@ -101,23 +139,27 @@
     resize: none;
     box-shadow: 0 0 5px #333;
 }
-.c-form form textarea{
+
+.c-form form textarea {
     height: 100%;
 }
-.c-form form input[type="submit"]{
+
+.c-form form input[type="submit"] {
     border-radius: unset;
     box-shadow: none;
     background: #121212;
     color: #fff;
     cursor: pointer;
 }
-.c-form .choose-forms-btn{
+
+.c-form .choose-forms-btn {
     width: 100%;
     padding: 1rem .5rem;
     height: auto;
     gap: 1rem;
 }
-.choose-forms-btn button{
+
+.choose-forms-btn button {
     background: transparent;
     width: 100%;
     padding-block: .5rem;
@@ -127,64 +169,76 @@
     cursor: pointer;
     transition: all .5s ease;
 }
-.choose-forms-btn .stylebtn{
+
+.choose-forms-btn .stylebtn {
     background: #121212;
     color: #fff;
 }
 
-@media screen and (max-width: 1000px){
-    .contact{
+@media screen and (max-width: 1000px) {
+    .contact {
         grid-template-columns: unset;
-    }
-}
-
-@media screen and (max-width: 850px){
-    .contact{
-        padding: 2rem 5rem;
         height: auto;
     }
 }
 
-@media screen and (max-width: 500px){
-    .contact{
+@media screen and (max-width: 850px) {
+    .contact {
+        padding: 2rem 5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .contact {
         padding: 2rem 1rem;
     }
-    .contact .c-text{
+
+    .contact .c-text {
         padding-inline: unset;
     }
-    .contact .c-form{
+
+    .contact .c-form {
         padding-inline: unset;
         margin-top: 2rem;
     }
-    .c-icons span{
+
+    .c-icons span {
         height: 3rem;
         gap: .5rem;
     }
-    .c-icons span .ico{
+
+    .c-icons span .ico {
         height: 3rem;
     }
-    .c-icons span div{
+
+    .c-icons span div {
         gap: unset;
     }
-    .c-form form input, textarea{
+
+    .c-form form input,
+    textarea {
         border-radius: unset;
     }
-    .contact .c-text h2{
+
+    .contact .c-text h2 {
         text-align: center;
     }
-    .c-form .choose-forms-btn{
+
+    .c-form .choose-forms-btn {
         padding: 1rem .5rem;
     }
 }
 
-@media screen and (max-width: 400px){
-    .contact .c-text .c-icons{
+@media screen and (max-width: 400px) {
+    .contact .c-text .c-icons {
         gap: .5rem;
     }
-    .c-icons span a{
+
+    .c-icons span a {
         gap: .5rem;
     }
-    .c-icons span .ico{
+
+    .c-icons span .ico {
         height: 3rem;
     }
 }

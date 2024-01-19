@@ -1,5 +1,4 @@
 
-import pic from "../../../../resources/images/14.jpg";
 import { MdPinDrop } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -17,7 +16,6 @@ const Acc = () => {
     const [amenities, setAmenities] = useState([])
     const { id } = useParams();
     const classes = ["vertical", "vertical", "vertical", "horizontal", "horizontal", "square", "square"];
-    const data = [pic, pic, pic, pic, pic, pic, pic];
 
     const fetchAccomodation = async () => {
         try {
@@ -32,7 +30,6 @@ const Acc = () => {
             console.log(err);
         }
     };
-    console.log(details)
 
     useEffect(() => {
         fetchAccomodation();

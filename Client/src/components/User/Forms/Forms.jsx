@@ -60,7 +60,6 @@ const Forms = () => {
                 data: logUser,
                 method: "POST",
             });
-            console.log(res.data)
             setResponse(res.data);
             if (res.data.success == "true") {
                 localStorage.setItem("DRFAuthToken", res.data.token);

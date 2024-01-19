@@ -4,7 +4,7 @@ import axios from "axios";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
-const Budget = () => {
+const Budget = (user) => {
     const [accTypeList, setAccTypeList] = useState([]);
     const [locations, setLocations] = useState([]);
 

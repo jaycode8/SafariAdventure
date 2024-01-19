@@ -2,7 +2,6 @@
 import "./Users.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import locImg from "../../../resources/me.webp";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 const token = localStorage.getItem("DRFAuthToken");
@@ -53,7 +52,7 @@ const LsUsers = () => {
                                 )
                             }</td>
                             <td>
-                                <img src={locImg} />
+                                <img src={`${url_api}${user.profile}`} />
                             </td>
                         </tr>
                     ))

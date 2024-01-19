@@ -13,6 +13,7 @@ import Categorical from "./components/Sites/Accomodation/Categorical/Categorical
 import Acc from "./components/Sites/Accomodation/SpecificAcc/Acc";
 import AllAcc from "./components/ADMIN/Accom/AllAcc/AllAcc";
 import SiteBookings from "./components/Packages/Bookings";
+import Testimonals from "./components/Testimonials/Testimonials";
 
 const App = () => {
     return (

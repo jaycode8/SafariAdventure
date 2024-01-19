@@ -2,11 +2,13 @@
     margin: 6rem 0 1rem;
     width: 100%;
 }
-.dest .dest-heading{
+
+.dest .dest-heading {
     text-transform: uppercase;
     text-align: center;
     margin-block: 2rem;
 }
+
 .dest .destination-cards {
     width: 100%;
     display: grid;
@@ -14,6 +16,7 @@
     gap: 1rem;
     padding-inline: 10%;
 }
+
 .destination-cards .destination-card {
     height: 11rem;
     display: flex;
@@ -21,12 +24,15 @@
     border-radius: .3rem;
     box-shadow: 0 0 5px #121212;
 }
+
 .destination-cards .destination-card .card-img {
     width: 40% !important;
 }
+
 .destination-cards .card-img img {
     object-fit: cover;
 }
+
 .destination-card .card-texts {
     width: 70%;
     display: flex;
@@ -34,11 +40,20 @@
     padding: 1rem;
     gap: 10px;
 }
+
+.destination-card .card-texts .activities {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .card-texts .card-texts-header {
     display: flex;
     gap: 5px;
 }
-.card-texts .more-details{
+
+.card-texts .more-details {
     border: 1px solid #121212;
     background: transparent;
     font-size: .8rem;
@@ -50,12 +65,13 @@
     margin-top: auto;
     align-self: flex-end;
 }
-.card-texts .more-details:hover{
+
+.card-texts .more-details:hover {
     background: #121212;
     color: #fff;
 }
 
-.pagination-controls{
+.pagination-controls {
     margin-top: 1.5rem;
     width: 18rem;
     display: grid;
@@ -66,7 +82,8 @@
     position: relative;
     margin-inline: auto;
 }
-.pagination-controls button{
+
+.pagination-controls button {
     background: transparent;
     outline: none;
     border: 0;
@@ -75,68 +92,82 @@
     border-radius: .4rem;
     cursor: pointer;
 }
+
 .pagination-controls .swiper {
-	width: 100%;
-	height: 100%;
-	margin-top: 0% !important;
-	z-index: 0 !important;
+    width: 100%;
+    height: 100%;
+    margin-top: 0% !important;
+    z-index: 0 !important;
 }
+
 .pagination-controls .swiperSlide {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
-#activepg{
+
+#activepg {
     padding-bottom: 2px;
     color: red;
 }
+
 .pagination-controls .swiper-button-prev.swiper-button-disabled {
-	transform: translate(-50%);
+    transform: translate(-50%);
 }
+
 .pagination-controls .swiper-button-next.swiper-button-disabled {
-	transform: translate(50%);
+    transform: translate(50%);
 }
+
 .pagination-controls .swiper-button-prev {
-	transform: translate(-50%);
+    transform: translate(-50%);
 }
+
 .pagination-controls .swiper-button-next {
-	transform: translate(50%);
+    transform: translate(50%);
 }
-.pagination-controls .swiper-pagination-bullet{
+
+.pagination-controls .swiper-pagination-bullet {
     display: none !important;
 }
+
 .pagination-controls #chevronleft,
 .pagination-controls #chevronRight {
-	font-size: 2rem !important;
-	color: #121212;
-	position: absolute;
-	cursor: pointer;
+    font-size: 2rem !important;
+    color: #121212;
+    position: absolute;
+    cursor: pointer;
 }
+
 .pagination-controls #chevronleft {
-	left: -2rem;
+    left: -2rem;
 }
+
 .pagination-controls #chevronRight {
-	right: -2rem;
+    right: -2rem;
 }
 
 
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
     .dest .destination-cards {
         grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
         padding-inline: 3%;
     }
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
     .dest {
         margin: 4.5rem 0 1rem;
     }
+
     .destination-cards .destination-card {
         height: 9rem;
     }
-    .card-texts .more-details{
+
+    .card-texts .more-details {
         font-size: .5rem;
     }
+
     .destination-card .card-texts {
         gap: 3px;
         padding: .5rem;

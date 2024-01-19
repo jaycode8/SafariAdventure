@@ -1,11 +1,38 @@
 
 import "./Contact.css";
-import { FaPhoneSquareAlt, FaMailBulk } from "react-icons/fa";
+import { FaPhoneSquareAlt } from "react-icons/fa";
 import { BiCurrentLocation } from "react-icons/bi";
 import { HiMailOpen } from "react-icons/hi";
 import { AiFillClockCircle } from "react-icons/ai";
+import { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+
+const url_api = import.meta.env.VITE_REACT_APP_API_URL;
+const token = localStorage.getItem("DRFAuthToken")
 
 const Contact = () => {
+    const [message, setMessage] = useState({
+        fullname: "",
+        email: "",
+        msg: ""
+    });
+
+    const [comments, setComments] = useState({
+        comment: "",
+        user: ""
+    })
+
+    const [label, setLabel] = useState("");
+
+    const handleChange = ({ currentTarget: input }) => {
+        setMessage({ ...message, [input.name]: input.value });
+    };
+
+    const handleComments = ({ currentTarget: input }) => {
+        setComments({ ...comments, [input.name]: input.value });
+    };
+
     const toggleForms = () => {
         document.querySelector(".comments-form").classList.remove("active");
         document.querySelector(".contact-form").style.transform = "translateX(0%)"
@@ -17,6 +44,65 @@ const Contact = () => {
         document.querySelector(".comments-form").classList.add("active");
         document.querySelector(".commentbtnform").classList.add("stylebtn")
         document.querySelector(".mailbtnform").classList.remove("stylebtn")
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const res = await axios(`${url_api}/contacts/msg`, {
+                data: message,
+                method: "POST",
+            });
+            setLabel(res.data)
+            if (res.data.success == "true") {
+                setTimeout(() => {
+                    window.location.reload(true);
+                }, 10000);
+            }
+        } catch (err) {
+            console.log(err);
+        };
+    };
+
+    const handleSubmitComment = async (event) => {
+        event.preventDefault();
+        try {
+            if (token != null) {
+                const res = await axios(`${url_api}/contacts/comment`, {
+                    data: comments,
+                    method: "POST",
+                    headers: {
+                        Authorization: `Token ${token}`,
+                    },
+                })
+                setLabel(res.data)
+                if (res.data.success == "true") {
+                    setTimeout(() => {
+                        window.location.reload(true);
+                    }, 10000);
+                }
+            } else {
+                const response = await alertMsg("To submit a comment you have to be signed in. Proceed to Sign In", "Yes");
+                if (response.isConfirmed) {
+                    window.location.href = "/forms";
+                }
+            }
+        } catch (err) {
+            console.log(err);
+        };
+    };
+
+    const alertMsg = (text, btn) => {
+        const res = Swal.fire({
+            title: "Wild Safari",
+            text: text,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: btn,
+        });
+        return res;
     };
 
     return (
@@ -59,24 +145,52 @@ const Contact = () => {
                 </div>
             </div>
             <div className="c-form full-div">
+                <p className="label" id={`${label.success}`}>{label.message}</p>
                 <div className="choose-forms-btn flex-container">
                     <button onClick={toggleForms} className="mailbtnform stylebtn">mail us</button>
-                    <button onClick={toggleForms2} className="commentbtnform">newsletter</button>
+                    <button onClick={toggleForms2} className="commentbtnform">comments</button>
                 </div>
                 <div className="forms-container full-div">
-                    <form className="full-div flex-container contact-form">
+                    <form className="full-div flex-container contact-form" onSubmit={() => handleSubmit(event)}>
                         <div className="grid full-div">
-                            <input type="text" placeholder="Full Name*" required />
+                            <input
+                                type="text"
+                                placeholder="Full Name*"
+                                required
+                                name="fullname"
+                                onChange={handleChange}
+                            />
                         </div>
-                        <input type="email" placeholder="Email Address*" required />
-                        <textarea placeholder="Message*" cols={10} rows={10} required></textarea>
+                        <input
+                            type="email"
+                            placeholder="Email Address*"
+                            required
+                            name="email"
+                            onChange={handleChange}
+                        />
+                        <textarea
+                            placeholder="Message*"
+                            cols={10}
+                            rows={10}
+                            required
+                            name="msg"
+                            onChange={handleChange}
+                        ></textarea>
                         <input type="submit" value="Send Us Message" />
                     </form>
-                    <form className="comments-form flex-container full-div">
-                        <h2>Join Our Community</h2>
+                    <form className="comments-form flex-container full-div" onSubmit={() => handleSubmitComment(event)}>
+                        {/*<h2>Join Our Community</h2>
                         <p>We love to travel and create some amaizing memories with our clients</p>
-                        <input type="email" placeholder="Email Address*" required />
-                        <input type="submit" value="Join Now" />
+                        <input type="email" placeholder="Email Address*" required />*/}
+                        <textarea
+                            placeholder="place your comment here...*"
+                            cols={15}
+                            rows={10}
+                            required
+                            name="comment"
+                            onChange={handleComments}
+                        ></textarea>
+                        <input type="submit" value="send comment" />
                     </form>
                 </div>
             </div>

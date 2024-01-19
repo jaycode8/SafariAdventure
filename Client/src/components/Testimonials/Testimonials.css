@@ -1,0 +1,106 @@
+.testimonials {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+
+.testimonials h2 {
+    text-transform: capitalize;
+}
+
+.testimonials .test-cards {
+    grid-auto-flow: column;
+    padding: 1rem 0rem;
+}
+
+.testimonials .test-cards .swiper-two {
+    width: 100%;
+    padding-block: .5rem;
+}
+
+.testimonials .test-cards .testimony {
+    width: 22rem;
+    height: 15rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 5px #333;
+    position: relative;
+}
+
+.testimony .test-pic {
+    position: absolute;
+    width: 7rem;
+    left: -3rem;
+    border-radius: 5rem;
+    box-shadow: 0 0 5px #333;
+    overflow: hidden;
+}
+
+.testimony .test-pic img {
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.testimony .test-infor {
+    padding-left: 5rem;
+}
+
+.testimony .test-infor .test-details {
+    flex-direction: column;
+    place-items: start;
+    position: relative;
+}
+
+.test-details h4 {
+    font-style: italic;
+    position: absolute;
+    bottom: 1rem;
+}
+
+.test-details p {
+    width: 100%;
+    height: auto;
+    max-height: 14rem;
+}
+
+.test-details .quotes {
+    font-size: 3rem;
+    position: absolute;
+    top: 1rem;
+}
+
+@media screen and (max-width : 850px) {
+    .testimonials .test-cards .testimony {
+        width: 85%;
+        height: 10rem;
+        border-radius: .8rem;
+    }
+
+    .testimony .test-pic {
+        width: 5rem;
+        left: -2rem;
+        border-radius: 8rem;
+    }
+
+    .testimony .test-infor {
+        padding-left: 4rem;
+    }
+
+    .test-details .quotes {
+        font-size: 1.5rem;
+        top: .5rem;
+    }
+
+    .test-details h4 {
+        bottom: .5rem;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .testimonials .test-cards .testimony {
+        width: 90%;
+    }
+
+    .test-details .quotes {
+        font-size: 1rem;
+    }
+}

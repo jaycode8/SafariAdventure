@@ -5,7 +5,7 @@ import axios from "axios";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
-const Premier = () => {
+const Premier = (user) => {
     const [accTypeList, setAccTypeList] = useState([]);
 
     const listOfAccTypes = async () => {
@@ -23,6 +23,7 @@ const Premier = () => {
     useEffect(() => {
         listOfAccTypes();
     }, []);
+    console.log(user.user)
 
     return (
         <div>

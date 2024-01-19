@@ -6,7 +6,7 @@ import axios from "axios";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
-const Deluxe = () => {
+const Deluxe = (user) => {
     const [accTypeList, setAccTypeList] = useState([]);
     const [locations, setLocations] = useState([]);
     const [selectedChoices, setSelectedChoiices] = useState([]);

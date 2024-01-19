@@ -1,7 +1,6 @@
 
 import "./LocD.css";
 import { useEffect, useState } from "react";
-import test from "../../../../resources/images/test.jpg";
 import { MdLocationPin } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
 import "swiper/css/bundle";
@@ -17,7 +16,6 @@ const itemsPerPage = 4;
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
 const LocD = () => {
-    const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
     const [currentPage, setCurrentPage] = useState(1);
     const { id } = useParams();
     const [dest, setDest] = useState([]);
@@ -66,7 +64,7 @@ const LocD = () => {
                                     <p>{(dt.destination_location.locationName)}, Kenya</p>
                                 </span>
                                 <h3>{dt.destination_name}</h3>
-                                <p>{dt.activities}</p>
+                                <p className="activities">{dt.activities}</p>
                                 <Link to={`${dt._id}`} className="more-details">View more</Link>
                             </div>
                         </div>

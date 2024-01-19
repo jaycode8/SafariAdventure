@@ -5,7 +5,7 @@ import axios from "axios";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
-const Bronze = () => {
+const Bronze = (user) => {
     const [accTypeList, setAccTypeList] = useState([]);
     const [locations, setLocations] = useState([]);
 

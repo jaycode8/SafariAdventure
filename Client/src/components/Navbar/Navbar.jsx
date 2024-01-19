@@ -45,10 +45,10 @@ const Navbar = () => {
     useEffect(() => {
         sessionToken ? fetchLogedUser() : "";
     }, []);
-    console.log(basePath.length)
+    // console.log(basePath.length)
     let id_name = ''
     basePath.length >= 5 ? (id_name = "otherRoutes") : (id_name = "home")
-    console.log(id_name)
+    // console.log(id_name)
 
     return (
         <div className="nav-bar" id={`${basePath}`}>

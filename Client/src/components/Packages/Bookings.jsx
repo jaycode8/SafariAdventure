@@ -9,20 +9,42 @@ import Gold from "./package/Gold";
 import Silver from "./package/Silver";
 import Bronze from "./package/Bronze";
 import Budget from "./package/Budget";
+import Swal from "sweetalert2";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
+const sessionToken = localStorage.getItem("DRFAuthToken");
 
 const SiteBookings = () => {
     const { id } = useParams();
-    const [accTypeList, setAccTypeList] = useState([]);
+    const [user, setUser] = useState();
 
-    const listOfAccTypes = async () => {
+    const logIn = async () => {
+        const res = await Swal.fire({
+            title: "Wild Safari",
+            text: "You need to be loged in to proceed.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "logIn",
+        });
+        if (res.isConfirmed) {
+            window.location.href = "/forms";
+        } else {
+            location.href = "/"
+        }
+    }
+
+    const fetchLogedUser = async () => {
         try {
             const res = await axios({
                 method: "get",
-                url: `${url_api}/accomodations/typelists/`,
+                url: `${url_api}/users/user`,
+                headers: {
+                    Authorization: `Token ${sessionToken}`,
+                },
             });
-            setAccTypeList(res.data.types);
+            setUser(res.data.user);
         } catch (err) {
             console.log(err);
         }
@@ -30,19 +52,25 @@ const SiteBookings = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        listOfAccTypes();
+        sessionToken != null ? (fetchLogedUser()) : ("")
     }, []);
+
+    sessionToken == null ? (
+        logIn()
+    ) : (
+        ("")
+    )
 
     return (
         <div className="site-bookings grid-container">
             <h1>{id}</h1>
             {
-                id == "PremiumOn" ? (<Premier />) : (
-                    id == "DeluxePlus" ? (<Deluxe />) : (
-                        id == "GoldAdvantage" ? (<Gold />) : (
-                            id == "SilverExplorer" ? (<Silver />) : (
-                                id == "BronzeEssentials" ? (<Bronze />) : (
-                                    id == "BudgetGetaway" ? (<Budget />) : (
+                id == "PremiumOn" ? (<Premier user={user} />) : (
+                    id == "DeluxePlus" ? (<Deluxe user={user} />) : (
+                        id == "GoldAdvantage" ? (<Gold user={user} />) : (
+                            id == "SilverExplorer" ? (<Silver user={user} />) : (
+                                id == "BronzeEssentials" ? (<Bronze user={user} />) : (
+                                    id == "BudgetGetaway" ? (<Budget user={user} />) : (
                                         <p>comming soon</p>
                                     )
                                 )
