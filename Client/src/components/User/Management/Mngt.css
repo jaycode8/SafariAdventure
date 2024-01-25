@@ -1,110 +1,133 @@
 .mngt {
-  position: relative;
-  flex-direction: column;
+    position: relative;
+    flex-direction: column;
+    color: var(--fontColor);
 }
+
 .mngt .penEdit {
-  cursor: pointer;
-  position: absolute;
-  right: 0.3rem;
-  top: 3rem;
+    cursor: pointer;
+    position: absolute;
+    right: 0.3rem;
+    top: 3rem;
 }
+
 .mngt form {
-  justify-content: start;
-  flex-direction: column;
+    justify-content: start;
+    flex-direction: column;
 }
+
 .mngt form .img-bag {
-  width: 50%;
-  height: 15rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
+    width: 50%;
+    height: 15rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
 }
+
 .mngt form .img-bag img {
-  object-fit: cover !important;
+    object-fit: cover !important;
 }
+
 .uploadFile {
-  position: absolute;
-  right: 5rem;
-  font-size: 15rem;
-  height: 1rem;
-  cursor: pointer;
-  display: none;
+    position: absolute;
+    right: 5rem;
+    font-size: 15rem;
+    height: 1rem;
+    cursor: pointer;
+    display: none;
 }
+
+.uploadFile .icon {
+    color: var(--fontColor);
+}
+
 .img-bag #false {
-  display: unset !important;
+    display: unset !important;
 }
+
 #profile {
-  width: 0.1px;
-  height: 0.1px;
-  position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
 }
+
 .mngt form .user-info {
-  width: 100%;
-  height: auto;
-  padding: 1rem 1rem 0.5rem;
+    width: 100%;
+    height: auto;
+    padding: 1rem 1rem 0.5rem;
 }
+
 .user-info div {
-  margin: 0.8rem 0;
+    margin: 0.8rem 0;
 }
+
 .user-info div label {
-  font-weight: bold;
+    font-weight: bold;
 }
+
 .user-info input {
-  width: 90%;
-  padding: 0.5rem;
-  outline: none;
-  border: 0;
-  margin-left: 1rem;
-  background: transparent;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: default;
-  transition: all 0.5s ease;
+    width: 90%;
+    padding: 0.5rem;
+    outline: none;
+    border: 0;
+    margin-left: 1rem;
+    background: transparent;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: default;
+    color: var(--fontColor);
+    transition: all 0.5s ease;
 }
+
 .user-info .false {
-  border-bottom: 1px solid #121212;
-  cursor: unset;
+    border-bottom: 1px solid var(--fontColor);
+    cursor: unset;
 }
+
 .user-info input[type="submit"] {
-  border: none;
-  background: #121212;
-  color: #fff;
-  cursor: pointer;
-  margin-top: 1rem;
-  margin-inline: 0;
-  width: 100%;
-  transform: translateX(-200%);
-  transition: all 0.5s ease;
+    border: none;
+    background: var(--fontColor);
+    color: var(--bgColor);
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-inline: 0;
+    width: 100%;
+    transform: translateX(-200%);
+    transition: all 0.5s ease;
 }
+
 form #false {
-  transform: translateX(0);
+    transform: translateX(0);
 }
+
 .mngt .log-btn {
-  padding-inline: 1rem;
+    padding-inline: 1rem;
 }
+
 .log-btn .logout {
-  padding: 0.3rem 3rem;
-  background: #121212;
-  color: #fff;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  transform: translateX(0);
-  transition: all 0.5s ease;
+    padding: 0.3rem 3rem;
+    background: var(--fontColor);
+    color: var(--bgColor);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transform: translateX(0);
+    transition: all 0.5s ease;
 }
+
 .log-btn #false {
-  transform: translateX(-200%);
+    transform: translateX(-200%);
 }
 
 @media screen and (max-width: 500px) {
-  .mngt form .img-bag {
-    width: 70%;
-    height: 20rem;
-  }
-  .uploadFile {
-    right: 1rem;
-    font-size: 20rem;
-  }
+    .mngt form .img-bag {
+        width: 70%;
+        height: 20rem;
+    }
+
+    .uploadFile {
+        right: 1rem;
+        font-size: 20rem;
+    }
 }
 
-@media screen and (max-width: 400px) {
-}
+@media screen and (max-width: 400px) {}

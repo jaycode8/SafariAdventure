@@ -22,7 +22,7 @@
     width: 22rem;
     height: 15rem;
     border-radius: 1rem;
-    box-shadow: 0 0 5px #333;
+    background: var(--cardBg);
     position: relative;
 }
 

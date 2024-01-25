@@ -82,7 +82,7 @@ const LocD = () => {
                                         onClick={() => handlePageChange(pgnum)}
                                         style={{
                                             fontWeight: currentPage === pgnum ? "bold" : "normal",
-                                            borderBottom: currentPage === pgnum ? "3px solid red" : ""
+                                            borderBottom: currentPage === pgnum ? "3px solid #fff" : ""
                                         }}
                                     >
                                         {pgnum}

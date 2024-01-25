@@ -110,9 +110,7 @@ def user_route(req):
     user_obj = Users.objects.get(_id=req.user._id)
     if req.method == "GET":
         return Response({"message": f"{req.user}'s data Successfully fetched", "success": "true", "user": user_data.data, "status": status.HTTP_200_OK})
-    
     elif req.method == "PATCH":
-        # print(user_obj.profile)
         return modifyUser(req, user_obj)
 
 

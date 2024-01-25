@@ -22,7 +22,7 @@
     display: flex;
     overflow: hidden;
     border-radius: .3rem;
-    box-shadow: 0 0 5px #121212;
+    box-shadow: 0 0 5px #333;
 }
 
 .destination-cards .destination-card .card-img {
@@ -54,10 +54,10 @@
 }
 
 .card-texts .more-details {
-    border: 1px solid #121212;
+    border: 1px solid var(--fontColor);
     background: transparent;
     font-size: .8rem;
-    color: #121212;
+    color: var(--fontColor);
     padding: 8px 18px;
     cursor: pointer;
     text-transform: uppercase;
@@ -67,8 +67,8 @@
 }
 
 .card-texts .more-details:hover {
-    background: #121212;
-    color: #fff;
+    background: var(--fontColor);
+    color: var(--bgColor);
 }
 
 .pagination-controls {
@@ -107,7 +107,7 @@
 
 #activepg {
     padding-bottom: 2px;
-    color: red;
+    color: var(--fontColor);
 }
 
 .pagination-controls .swiper-button-prev.swiper-button-disabled {
@@ -133,7 +133,7 @@
 .pagination-controls #chevronleft,
 .pagination-controls #chevronRight {
     font-size: 2rem !important;
-    color: #121212;
+    color: var(--fontColor);
     position: absolute;
     cursor: pointer;
 }
@@ -144,6 +144,10 @@
 
 .pagination-controls #chevronRight {
     right: -2rem;
+}
+
+.pagination-controls button {
+    color: var(--fontColor);
 }
 
 

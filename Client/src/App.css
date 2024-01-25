@@ -11,6 +11,9 @@
     --blue: #0367a6;
     --lightblue: #008997;
     --brownish: #fd871d;
+    --bgColor: #0a1930;
+    --fontColor: #cbdaf7;
+    --cardBg: #172b46;
     /* RADII */
     --button-radius: 0.7rem;
 
@@ -33,6 +36,8 @@
     width: 100%;
     position: relative;
     overflow-x: hidden;
+    background: var(--bgColor);
+    color: var(--fontColor);
 }
 
 a {

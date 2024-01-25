@@ -22,7 +22,8 @@ import pic11 from "../../resources/imgs/111.jpeg";
 
 const About = () => {
 
-    const images = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10, pic11];
+    // const images = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10, pic11];
+    const images = [pic1]
 
     return (
         <div className="about grid-container" id="about">
@@ -55,12 +56,12 @@ const About = () => {
                             </SwiperSlide>
                         ))
                     }
-                    <SwiperSlide className="pic-slides full-div">
-                        <img src={pic3} className="full-div" />
-                    </SwiperSlide>
-                    <SwiperSlide className="pic-slides">
-                        <img src={pic4} className="full-div" />
-                    </SwiperSlide>
+                    {/* <SwiperSlide className="pic-slides full-div"> */}
+                    {/*     <img src={pic3} className="full-div" /> */}
+                    {/* </SwiperSlide> */}
+                    {/* <SwiperSlide className="pic-slides"> */}
+                    {/*     <img src={pic4} className="full-div" /> */}
+                    {/* </SwiperSlide> */}
                     <BiSolidChevronLeftCircle className="nav-icon" id="left-arrow-icon" />
                     <BiSolidChevronRightCircle className="nav-icon" id="right-arrow-icon" />
                 </Swiper>
