@@ -140,7 +140,7 @@ section .normal-nav nav {
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 850px) {
     .nav-bar .user-panel {
         width: 100%;
         left: -100%;

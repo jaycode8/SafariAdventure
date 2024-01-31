@@ -1,4 +1,3 @@
-
 .forms {
     align-items: center;
     background-color: var(--white);
@@ -13,35 +12,47 @@
     place-items: center;
     padding-top: .5rem;
 }
-.msg{
+
+.msg {
     position: absolute;
     top: 2rem;
-    right: 3rem; 
+    right: 3rem;
     border-radius: .3rem;
     transition: all .8s ease;
     transform-origin: right;
 }
-.true, 
-.false{
+
+.true,
+.false {
     background: green;
     padding: .3rem .7rem;
 }
-.false{
+
+.false {
     background: red;
 }
-.form{
+
+.form {
     width: 100%;
 }
+
 .form__title {
     font-weight: bolder;
     margin: 0;
     color: brown;
 }
-.form p{
+
+.form p {
     margin: 1rem 0;
     font-size: 1.2rem;
     font-weight: bolder;
+    color: var(--bgColor);
 }
+
+.remember {
+    color: var(--bgColor);
+}
+
 .container {
     background-color: var(--white);
     border-radius: var(--button-radius);
@@ -53,6 +64,7 @@
     position: relative;
     width: 100%;
 }
+
 .container__form {
     height: 100%;
     position: absolute;
@@ -60,26 +72,31 @@
     background: red;
     transition: all 0.6s ease-in-out;
 }
+
 .container--signin {
     left: 0;
     width: 50%;
     z-index: 2;
 }
+
 .container.right-panel-active .container--signin {
     transform: translateX(100%);
 }
+
 .container--signup {
     left: 0;
     opacity: 0;
     width: 50%;
     z-index: 1;
 }
+
 .container.right-panel-active .container--signup {
     animation: show 0.6s;
     opacity: 1;
     transform: translateX(100%);
     z-index: 5;
 }
+
 .container__overlay {
     height: 100%;
     left: 50%;
@@ -90,13 +107,14 @@
     width: 50%;
     z-index: 100;
 }
+
 .container.right-panel-active .container__overlay {
     transform: translateX(-100%);
 }
+
 .overlay {
     background-color: var(--lightblue);
     background: var(--formsBg);
-    /* background: url("../../../resources/images/16.jpg"); */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -108,9 +126,11 @@
     transition: transform 0.6s ease-in-out;
     width: 200%;
 }
+
 .container.right-panel-active .overlay {
     transform: translateX(50%);
 }
+
 .overlay__panel {
     align-items: center;
     display: flex;
@@ -123,7 +143,8 @@
     transition: transform 0.6s ease-in-out;
     width: 50%;
 }
-.overlay__panel .overlay_text{
+
+.overlay__panel .overlay_text {
     width: 100%;
     height: 30%;
     padding: .5rem 1rem;
@@ -134,30 +155,37 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
-.overlay_text h3{
+
+.overlay_text h3 {
     font-size: 1.4rem;
 }
-.overlay_text h4{
+
+.overlay_text h4 {
     font-size: 1.2rem;
 }
-.overlay_text span{
+
+.overlay_text span {
     text-align: end;
 }
+
 .overlay--left {
     transform: translateX(-20%);
 }
+
 .container.right-panel-active .overlay--left {
     transform: translateX(0);
 }
+
 .overlay--right {
     right: 0;
     transform: translateX(0);
 }
+
 .container.right-panel-active .overlay--right {
     transform: translateX(20%);
 }
 
-.form > .btn {
+.form>.btn {
     margin-top: 1.5rem;
 }
 
@@ -171,6 +199,7 @@
     height: 100%;
     text-align: center;
 }
+
 .form .btn {
     width: 100%;
     color: var(--white);
@@ -182,12 +211,12 @@
     outline: none;
     border: 0;
 }
-.form .signupbtn{
-    /* background: red; */
-    /* position: absolute; */
-    margin-bottom: 2rem;
+
+.form .signupbtn {
+    margin-bottom: 3rem;
 }
-.form div{
+
+.form div {
     width: 100%;
     margin-top: .5rem;
     display: flex;
@@ -195,10 +224,12 @@
     justify-content: start;
     gap: .5rem;
 }
+
 .form div input,
-.form div label{
+.form div label {
     cursor: pointer;
 }
+
 .input {
     background-color: #fff;
     border: none;
@@ -208,31 +239,37 @@
     color: var(--gray);
 }
 
-.react-tel-input{
+.react-tel-input {
     font-size: .9rem !important;
 }
-.react-tel-input .form-control{
+
+.react-tel-input .form-control {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     height: 3.5rem !important;
     position: relative;
     width: 100% !important;
 }
-.phoneInput{
+
+.phoneInput {
     color: #121212;
     border: 0;
 }
-.phoneDropDown{
+
+.phoneDropDown {
     color: #121212;
 }
-.react-tel-input .form-control{
+
+.react-tel-input .form-control {
     height: auto !important;
     padding-block: .5rem;
 }
-.react-tel-input .form-control{
+
+.react-tel-input .form-control {
     cursor: text;
     border-radius: 0 !important;
 }
+
 .react-tel-input .flag-dropdown {
     width: auto;
     background: #fff !important;
@@ -240,7 +277,9 @@
     padding-bottom: 0.9rem !important;
     bottom: .2rem !important;
 }
+
 @keyframes show {
+
     0%,
     49.99% {
         opacity: 0;
@@ -253,10 +292,13 @@
         z-index: 5;
     }
 }
-#signIn, #signUp{
+
+#signIn,
+#signUp {
     /* display: none; */
 }
-.outer_btns{
+
+.outer_btns {
     padding-inline: 1rem;
     height: 10%;
     display: grid;
@@ -266,35 +308,42 @@
     /* bottom: 1rem; */
     bottom: 0;
 }
-.container--signup .outer_btns{
+
+.container--signup .outer_btns {
     bottom: 1rem;
 }
-.page_links{
+
+.page_links {
     color: blue;
     font-weight: bold;
     font-style: italic;
 }
-.outer_btns span{
+
+.outer_btns span {
     display: flex;
     gap: .5rem;
 }
-span a{
+
+span a {
     cursor: pointer;
 }
-.outer_btns #signUp{
+
+.outer_btns #signUp {
     background: transparent;
     border: 0;
 }
+
 /* .grid{ */
 /*     display: grid; */
 /*     place-items: center; */
 /* } */
-.form2 .image_section{
+.form2 .image_section {
     position: relative;
     display: flex;
     justify-content: center;
 }
-.form2 .image_section span{
+
+.form2 .image_section span {
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
@@ -302,32 +351,38 @@ span a{
     overflow: hidden;
     position: relative;
 }
-.form2 .image_section span img{
+
+.form2 .image_section span img {
     width: 100%;
     height: 100%;
     object-position: center;
     object-fit: cover;
 }
-.form2 .image_section label{
+
+.form2 .image_section label {
     position: absolute;
     bottom: -.9rem;
     right: 7rem;
 }
-.image_section label .icon{
+
+.image_section label .icon {
     cursor: pointer;
 }
-.image_section input{
+
+.image_section input {
     width: .1rem;
     height: .1rem;
 }
-.gender-container{
+
+.gender-container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: .5rem 0;
 }
-.gender-container span{
+
+.gender-container span {
     background: #fff;
     padding: .4rem;
     width: 6rem;
@@ -338,71 +393,88 @@ span a{
     gap: .5rem;
     color: #121212;
 }
+
 .gender-container span label,
-.gender-container span input{
+.gender-container span input {
     cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {
-    .container{
+    .container {
         width: 90%;
         height: 80vh;
     }
-    #signIn, #signUp{
+
+    #signIn,
+    #signUp {
         display: block;
     }
+
     .container.right-panel-active .container--signup {
         transform: translateX(0%);
         width: 100%;
         z-index: 10;
     }
-    .container.right-panel-active .container--signin{
+
+    .container.right-panel-active .container--signin {
         width: 100%;
         transform: translateX(100%);
     }
-    .container__overlay{
+
+    .container__overlay {
         display: none;
     }
-    .container__form{
+
+    .container__form {
         width: 100%;
     }
-    .form{
+
+    .form {
         padding: 0 1rem;
         height: 100%;
     }
-    #form2 .input{
+
+    #form2 .input {
         margin: .3rem 0;
         padding: 0.7rem;
     }
-    .image_section{
+
+    .image_section {
         margin-bottom: 1rem;
     }
-    .image_section span{
+
+    .image_section span {
         width: 7rem;
         height: 7rem;
     }
-    .image_section label{
+
+    .image_section label {
         font-size: .5rem;
     }
-    .gender-container span{
+
+    .gender-container span {
         padding: .3rem;
     }
-    .btn{
+
+    .btn {
         width: 100%;
         padding: .6rem 4rem;
     }
-    #form2 .btn{
+
+    #form2 .btn {
         margin-top: 1rem !important;
     }
-    .phoneContainer{
+
+    .phoneContainer {
         padding: .1rem 0;
     }
 }
 
-@media screen and (max-width: 370px){
-    .container{
+@media screen and (max-width: 370px) {
+    .container {
         height: 65vh;
     }
+
     /* .btns{ */
     /*     position: absolute; */
     /*     width: 50%; */

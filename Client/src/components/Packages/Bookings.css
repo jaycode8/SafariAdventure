@@ -18,7 +18,7 @@
     width: 38rem;
     padding: 2rem 1rem;
     border-radius: .5rem;
-    box-shadow: 0 0 5px #333;
+    background: var(--cardBg);
 }
 
 .site-bookings form div {

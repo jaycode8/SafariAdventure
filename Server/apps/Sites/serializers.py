@@ -10,3 +10,7 @@ class SitesSerializer(ModelSerializer):
         depth = 1
 
 
+class CreateASitesSerializer(ModelSerializer):
+    class Meta:
+        model = Sites
+        fields = "__all__"

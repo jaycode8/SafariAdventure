@@ -1,30 +1,37 @@
-
-.admin-form{
+.admin-form {
     height: 60%;
     width: 80%;
     display: flex;
     position: relative;
 }
-.admin-form .response{
+
+.admin-form .response {
     position: absolute;
     left: 50%;
     top: -10%;
 }
-.admin-form #false{
+
+.admin-form #false {
     background: #ff0800;
     padding: .3rem 2rem;
 }
-.admin-form #true{
+
+.admin-form #true {
     background: #2ad883;
     padding: .3rem 2rem;
 }
-.admin-form .other-inputs{
+
+.admin-form .other-inputs {
     flex-direction: column;
     gap: 1.5rem;
     padding-inline: 1rem;
     height: 100%;
 }
-.other-inputs input,.other-inputs textarea, .other-inputs select, .file-container textarea{
+
+.other-inputs input,
+.other-inputs textarea,
+.other-inputs select,
+.file-container textarea {
     width: 100%;
     background: transparent;
     border: 0;
@@ -32,10 +39,13 @@
     padding: .5rem;
     border-bottom: 1px solid #121212;
 }
-input::placeholder,textarea::placeholder{
+
+input::placeholder,
+textarea::placeholder {
     color: #121212;
 }
-.other-inputs input[type="submit"]{
+
+.other-inputs input[type="submit"] {
     border: none;
     text-transform: uppercase;
     background: #121212;
@@ -44,36 +54,45 @@ input::placeholder,textarea::placeholder{
     cursor: pointer;
     padding: .5rem;
 }
-.other-inputs textarea, .file-container textarea{
+
+.other-inputs textarea,
+.file-container textarea {
     height: 100%;
     resize: none;
     border: 1px solid #121212;
 }
-.file-container textarea{
+
+.file-container textarea {
     height: 30%;
 }
-.file-container{
+
+.file-container {
     flex-direction: column;
 }
-.file-container .cover-img{
+
+.file-container .cover-img {
     overflow: hidden;
     height: 18rem;
     width: 100%;
 }
-.cover-img img{
+
+.cover-img img {
     object-fit: cover;
 }
-.file-container input[type="file"]{
+
+.file-container input[type="file"] {
     display: none;
 }
-.file-container label .cam{
+
+.file-container label .cam {
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--bgColor);
 }
 
 
-@media screen and (max-width: 500px){
-    .admin-form{
+@media screen and (max-width: 500px) {
+    .admin-form {
         flex-direction: column;
     }
 }

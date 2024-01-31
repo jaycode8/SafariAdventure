@@ -1,30 +1,36 @@
-
 .dashboard {
     height: 100vh;
     grid-template-columns: .5fr 1.5fr;
     overflow: hidden;
 }
-.dashboard .sidebar{
+
+.dashboard .sidebar {
     border-right: 1px solid #121212;
     position: relative;
 }
-.sidebar .exit-icon{
+
+.sidebar .exit-icon {
     position: absolute;
     top: 1rem;
     right: 1rem;
 }
-.mainwindow .header{
+
+.mainwindow .header {
     width: 100%;
     height: 8vh;
     justify-content: flex-end;
     padding-inline: 2rem;
 }
-.header .menu-icon, .sidebar .exit-icon{
+
+.header .menu-icon,
+.sidebar .exit-icon {
     display: none;
     cursor: pointer;
 }
-.admin-btn{
-    border: 1px solid #121212;
+
+.admin-btn {
+    border: 1px solid var(--fontColor);
+    color: var(--fontColor);
     outline: none;
     padding: .5rem 1.5rem;
     cursor: pointer;
@@ -34,27 +40,32 @@
     z-index: 1;
     transition: all .5s ease;
 }
-.admin-btn:hover{
-    background: #121212;
-    color: #fff;
+
+.admin-btn:hover {
+    background: var(--fontColor);
+    color: var(--bgColor);
 }
-.mainwindow .wrapper{
+
+.mainwindow .wrapper {
     /* background: blue; */
     height: 100vh;
     padding: 2rem;
     overflow-y: scroll !important;
 }
-.wrapper h3{
+
+.wrapper h3 {
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 1rem;
 }
-.wrapper .graphs-container{
+
+.wrapper .graphs-container {
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 2rem;
 }
-.graphs-container .stats{
+
+.graphs-container .stats {
     width: 10rem;
     height: 8rem;
     border-radius: .5rem;
@@ -63,37 +74,45 @@
     box-shadow: 0 0 10px #333;
     flex-direction: column;
 }
-.stats h4{
+
+.stats h4 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
 
-@media screen and (max-width: 500px){
-    .dashboard{
+@media screen and (max-width: 500px) {
+    .dashboard {
         grid-template-columns: unset;
     }
-    .mainwindow .header{
+
+    .mainwindow .header {
         justify-content: space-between;
     }
-    .header .menu-icon, .sidebar .exit-icon{
+
+    .header .menu-icon,
+    .sidebar .exit-icon {
         display: block;
         font-size: 2rem;
     }
-    .sidebar .exit-icon{
+
+    .sidebar .exit-icon {
         font-size: 1.5rem;
     }
-    .dashboard .sidebar{
+
+    .dashboard .sidebar {
         border-right: unset;
         position: absolute;
         width: 80%;
         left: -100%;
         transition: all .5s ease;
     }
-    .dashboard .sidebar.activated{
+
+    .dashboard .sidebar.activated {
         left: 0;
     }
-    .mainwindow .wrapper{
+
+    .mainwindow .wrapper {
         grid-template-columns: unset;
     }
 }

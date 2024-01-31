@@ -1,75 +1,86 @@
-
-.destinations{
+.destinations {
     width: 100%;
     height: auto;
     padding-inline: 1rem;
 }
-.destinations h2{
+
+.destinations h2 {
     text-transform: capitalize;
 }
-.destinations .dest-cards{
+
+.destinations .dest-cards {
     padding: 1rem;
 }
-.destinations .dest-cards .swiper{
+
+.destinations .dest-cards .swiper {
     width: 100%;
     padding-inline: 1.5rem;
 }
-.dest-cards .swiper .arrow-icon{
-    color: #121212;
+
+.dest-cards .swiper .arrow-icon {
+    color: #ffffff;
     position: absolute;
     z-index: 10;
     top: 35%;
     font-size: 2rem;
     cursor: pointer;
 }
-.dest-cards .swiper #arrow-right{
+
+.dest-cards .swiper #arrow-right {
     right: 2rem;
 }
-.destinations .dest-cards .swiper .swiper-slide{
+
+.destinations .dest-cards .swiper .swiper-slide {
     height: 100%;
 }
-.destinations .dest-cards .swiper .swiper-slide .d-card{
+
+.destinations .dest-cards .swiper .swiper-slide .d-card {
     height: 25rem;
     position: relative;
     grid-template-rows: 80% 20%;
 }
-.d-card .card-img{
+
+.d-card .card-img {
     border-radius: .8rem;
     overflow: hidden;
 }
-.d-card .card-img img{
+
+.d-card .card-img img {
     object-fit: cover;
 }
-.d-card .card-details{
+
+.d-card .card-details {
     place-items: start;
     justify-content: start;
     padding-block: 1rem;
     position: relative;
 }
-.d-card .card-details .more-btn{
+
+.d-card .card-details .more-btn {
     position: absolute;
     bottom: .1rem;
     right: .1rem;
-    background: var(--brownish);
-    color: #121212;
+    background: var(--fontColor);
+    color: var(--cardBg);
+    font-weight: bolder;
     text-transform: capitalize;
     padding: .5rem .8rem;
     border-radius: .3rem;
 }
-.d-card .card-details h3{
+
+.d-card .card-details h3 {
     text-transform: capitalize;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {}
 
-}
-
-@media screen and (max-width: 500px){
-    .destinations .dest-cards{
+@media screen and (max-width: 500px) {
+    .destinations .dest-cards {
         padding: 0;
         margin: 1rem 0;
     }
-    .destinations .dest-cards .swiper .swiper-slide .d-card{
+
+    .destinations .dest-cards .swiper .swiper-slide .d-card {
         height: 25rem;
     }
 }

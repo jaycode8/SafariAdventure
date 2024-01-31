@@ -22,7 +22,7 @@
     display: flex;
     overflow: hidden;
     border-radius: .3rem;
-    box-shadow: 0 0 5px #333;
+    background: var(--cardBg);
 }
 
 .destination-cards .destination-card .card-img {

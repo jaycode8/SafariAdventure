@@ -35,7 +35,7 @@ const Testimonals = () => {
     console.log(comments)
 
     return (
-        <div className="testimonials grid-containers">
+        <div className="testimonials grid-containers" id="testimonials">
             <h2>testimonials</h2>
             <div className="test-cards full-div grid-container">
                 <Swiper

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
-from .serializers import SitesSerializer
+from .serializers import SitesSerializer, CreateASitesSerializer
 from .models import Sites, Images
 from rest_framework.decorators import api_view, authentication_classes,permission_classes
 from rest_framework.authentication import TokenAuthentication
@@ -30,7 +30,7 @@ def deleteSite(req, obj):
     return Response({"message":"site was deleted succeddfully", "success":"true","status":status.HTTP_200_OK})
 
 def newSite(req):
-    serializer = SitesSerializer(data=req.data)
+    serializer = CreateASitesSerializer(data=req.data)
     if serializer.is_valid():
         files = req.FILES.getlist("files")
         file_list = []

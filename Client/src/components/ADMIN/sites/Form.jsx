@@ -3,6 +3,7 @@ import "./Form.css"
 import { TiCamera } from "react-icons/ti";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 const token = localStorage.getItem("DRFAuthToken")
@@ -18,7 +19,8 @@ const Form = () => {
     });
     const [msg, setMsg] = useState({});
     const [locations, setLocations] = useState([]);
-
+    const [location, setLocation] = useState([]);
+    const { id } = useParams();
 
     const fileChange = (event) => {
         const images = event.target.files;
@@ -70,8 +72,20 @@ const Form = () => {
         }
     };
 
+    const fetchLocation = async () => {
+        try {
+            const res = await axios({
+                method: "get",
+                url: `${url_api}/locations/loc/${id}`,
+            });
+            setLocation(res.data.location);
+        } catch (err) {
+            console.log(err);
+        }
+    };
     useEffect(() => {
         listOfLocations();
+        fetchLocation();
     }, []);
 
     const renderImages = () => {
@@ -111,7 +125,7 @@ const Form = () => {
             </div>
             <div className="other-inputs flex-container full-div">
                 <select required name="destination_location" onChange={handleChange}>
-                    <option value=''>Destination Location</option>
+                    <option value="">choose location</option>)
                     {
                         locations.map((data, index) => (
                             <option key={index} value={data._id}>{data.locationName}</option>

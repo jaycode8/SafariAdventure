@@ -2,9 +2,10 @@
     height: 90vh;
     padding: 2rem 10rem;
     grid-template-columns: 1fr 1fr;
-    background: url("../../resources/images/savannah.avif");
+    background: linear-gradient(180deg, rgba(27, 39, 66, 0.699), #121212), url("../../resources/images/savannah.avif");
     background-repeat: no-repeat;
     background-size: cover;
+    background-blend-mode: multiply;
 }
 
 .contact .c-text {
@@ -14,7 +15,7 @@
 }
 
 .contact .c-text h2 {
-    font-size: 2rem;
+    /* font-size: 2rem; */
 }
 
 .contact .c-text .c-icons {
@@ -33,7 +34,6 @@
 .c-icons span a {
     justify-content: start;
     gap: 1rem;
-    color: #121212;
     transition: all .5s ease;
 }
 
@@ -134,10 +134,18 @@ textarea {
     width: 100%;
     padding: .8rem;
     outline: none;
-    border: 0;
+    border: 1px solid var(--fontColor);
+    color: var(--fontColor);
+    font-weight: bolder;
     border-radius: .5rem;
     resize: none;
-    box-shadow: 0 0 5px #333;
+    background: transparent;
+}
+
+.c-form form input::placeholder,
+.c-form form textarea::placeholder {
+    color: var(--fontColor);
+    font-weight: bolder;
 }
 
 .c-form form textarea {
@@ -147,9 +155,10 @@ textarea {
 .c-form form input[type="submit"] {
     border-radius: unset;
     box-shadow: none;
-    background: #121212;
-    color: #fff;
+    background: var(--fontColor);
+    color: var(--bgColor);
     cursor: pointer;
+    text-transform: uppercase;
 }
 
 .c-form .choose-forms-btn {
@@ -164,15 +173,16 @@ textarea {
     width: 100%;
     padding-block: .5rem;
     outline: none;
-    border: 1px solid #121212;
+    border: 1px solid var(--fontColor);
+    color: var(--fontColor);
     text-transform: capitalize;
     cursor: pointer;
     transition: all .5s ease;
 }
 
 .choose-forms-btn .stylebtn {
-    background: #121212;
-    color: #fff;
+    background: var(--fontColor);
+    color: var(--bgColor);
 }
 
 @media screen and (max-width: 1000px) {
@@ -185,6 +195,12 @@ textarea {
 @media screen and (max-width: 850px) {
     .contact {
         padding: 2rem 5rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contact {
+        padding: 2rem 0rem;
     }
 }
 
@@ -230,8 +246,13 @@ textarea {
 }
 
 @media screen and (max-width: 400px) {
+    .c-form form {
+        width: 100%;
+    }
+
     .contact .c-text .c-icons {
-        gap: .5rem;
+        grid-template-columns: 1fr;
+        padding-inline: .5rem;
     }
 
     .c-icons span a {
@@ -240,5 +261,16 @@ textarea {
 
     .c-icons span .ico {
         height: 3rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .contact {
+        padding: unset;
+    }
+
+
+    .c-icons span .ico {
+        height: 2rem;
     }
 }

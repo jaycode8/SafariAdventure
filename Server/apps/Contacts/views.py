@@ -7,14 +7,16 @@ from rest_framework.views import Response
 import json
 from apps.utils.emails import send_messages
 from .models import Comments
-from .serializers import CommentSerializers
+from .serializers import CommentSerializers, CreateACommentSerializers
+from django.db.models import F, OuterRef, Subquery
 
 # Create your views here.
 
 def listOfComments():
     # obj = Comments.objects.all().order_by("created_at").depth(1)
     obj = Comments.objects.select_related("user").all().order_by("created_at")
-    # obj = Comments.objects.select_related("user").values('_id', 'user_id').order_by("created_at")
+    # obj2 = Comments.objects.filter(user=OuterRef("user")).order_by("created_at").values('comment')[:1]
+    # obj = Comments.objects.annotate(obj3=Subquery(obj2)).values('user','obj3').distinct('user')
     serializer = CommentSerializers(obj, many=True)
     return Response({"message":"Succeesfully fetched all comments", "comments":serializer.data,"success":"true","status":status.HTTP_200_OK})
 
@@ -30,7 +32,7 @@ def newComment(req):
     req.body = req.body.decode("utf-8")
     data = json.loads(req.body)
     data["user"] = req.user._id
-    serializer = CommentSerializers(data=data)
+    serializer = CreateACommentSerializers(data=data)
     if serializer.is_valid():
         serializer.save()
         return Response({"message":"Your comment was succeesfully received", "success":"true","status":status.HTTP_200_OK})

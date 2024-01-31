@@ -55,12 +55,11 @@ const Contact = () => {
             });
             setLabel(res.data)
             if (res.data.success == "true") {
-                setTimeout(() => {
-                    window.location.reload(true);
-                }, 10000);
+                await success("Your message has been sent successfully");
+                setMessage({ fullname: "", email: "", msg: "" });
             }
         } catch (err) {
-            console.log(err);
+            await connections()
         };
     };
 
@@ -75,11 +74,12 @@ const Contact = () => {
                         Authorization: `Token ${token}`,
                     },
                 })
-                setLabel(res.data)
+                // setLabel(res.data)
                 if (res.data.success == "true") {
+                    await success("your comment was received successfully");
                     setTimeout(() => {
                         window.location.reload(true);
-                    }, 10000);
+                    }, 2000);
                 }
             } else {
                 const response = await alertMsg("To submit a comment you have to be signed in. Proceed to Sign In", "Yes");
@@ -88,22 +88,45 @@ const Contact = () => {
                 }
             }
         } catch (err) {
-            console.log(err);
+            await connections()
         };
     };
 
     const alertMsg = (text, btn) => {
         const res = Swal.fire({
-            title: "Wild Safari",
+            title: "Safari Adventure",
             text: text,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: btn,
+            background: "#0a1930",
+            color: "#cbdaf7"
         });
         return res;
     };
+
+    const connections = () => {
+        Swal.fire({
+            title: "Safari Adventure",
+            text: "Check your connection",
+            icon: "error", //question, error
+            background: "#0a1930",
+            color: "#cbdaf7"
+        })
+    }
+    const success = (text) => {
+        Swal.fire({
+            title: "Safari Adventure",
+            text: text,
+            icon: "success", //question, error
+            showConfirmButton: false,
+            timer: 1500,
+            background: "#0a1930",
+            color: "#cbdaf7"
+        })
+    }
 
     return (
         <div className="contact full-div grid-container" id="contact">
@@ -158,6 +181,7 @@ const Contact = () => {
                                 placeholder="Full Name*"
                                 required
                                 name="fullname"
+                                value={message.fullname}
                                 onChange={handleChange}
                             />
                         </div>
@@ -166,6 +190,7 @@ const Contact = () => {
                             placeholder="Email Address*"
                             required
                             name="email"
+                            value={message.email}
                             onChange={handleChange}
                         />
                         <textarea
@@ -174,14 +199,12 @@ const Contact = () => {
                             rows={10}
                             required
                             name="msg"
+                            value={message.msg}
                             onChange={handleChange}
                         ></textarea>
                         <input type="submit" value="Send Us Message" />
                     </form>
                     <form className="comments-form flex-container full-div" onSubmit={() => handleSubmitComment(event)}>
-                        {/*<h2>Join Our Community</h2>
-                        <p>We love to travel and create some amaizing memories with our clients</p>
-                        <input type="email" placeholder="Email Address*" required />*/}
                         <textarea
                             placeholder="place your comment here...*"
                             cols={15}

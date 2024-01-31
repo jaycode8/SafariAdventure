@@ -1,34 +1,40 @@
-
-.about{
+.about {
     width: 100%;
     height: 100vh;
     grid-template-columns: 50% 50%;
 }
-.about-text{
+
+.about-text {
     padding: 5rem;
     flex-direction: column;
     place-items: start;
     gap: .5rem;
 }
-.about-text h3{
+
+.about-text h3 {
     font-size: 1.5rem;
 }
-.about-text p{
+
+.about-text p {
     font-size: 1rem;
     line-height: 1.5;
 }
-.pictorals{
+
+.pictorals {
     width: 100%;
 }
-.pictorals .pic-swiper{
+
+.pictorals .pic-swiper {
     width: 100%;
     height: 100%;
     position: relative;
 }
-.pictorals .pic-swiper .pic-slides img{
+
+.pictorals .pic-swiper .pic-slides img {
     object-fit: cover;
 }
-.pic-swiper .nav-icon{
+
+.pic-swiper .nav-icon {
     color: #fff;
     position: absolute;
     z-index: 10;
@@ -36,33 +42,44 @@
     font-size: 2rem;
     cursor: pointer;
 }
-.pic-swiper #right-arrow-icon{
+
+.pic-swiper #right-arrow-icon {
     right: 2rem;
 }
-.pic-swiper #left-arrow-icon{
+
+.pic-swiper #left-arrow-icon {
     left: 2rem;
 }
 
-
-@media screen and (max-width: 800px){
-    .about{
-        display: flex;
-        flex-direction: column;
+@media screen and (max-width: 1000px) {
+    .about {
+        overflow: hidden;
     }
-    .about-text{
+
+    .about-text {
         padding: 1rem;
         height: auto;
     }
 }
 
-@media screen and (max-width: 400px){
-    .about{
+@media screen and (max-width: 800px) {
+    .about {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .about {
         padding-bottom: 3rem;
     }
-    .pic-swiper #right-arrow-icon{
+
+    .pic-swiper #right-arrow-icon {
         right: .5rem;
     }
-    .pic-swiper #left-arrow-icon{
+
+    .pic-swiper #left-arrow-icon {
         left: .5rem;
     }
 }

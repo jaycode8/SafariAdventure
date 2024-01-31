@@ -1,65 +1,74 @@
-
-.packages{
+.packages {
     height: auto !important;
     position: relative;
 }
-.row-container .coll-1{
+
+.row-container .coll-1 {
     width: 100%;
     height: 70vh;
     background: var(--flamingo);
     background-size: cover;
     background-position: center;
-    background-color: #12121277;
+    background-color: #0a1930aa;
     background-blend-mode: darken;
     background-attachment: fixed;
 }
-.coll-1 span{
+
+.coll-1 span {
     gap: 1rem;
     margin-bottom: 5rem;
 }
-.coll-1 span h3{
+
+.coll-1 span h3 {
     font-size: 1.5rem;
 }
-.coll-1 span h2{
+
+.coll-1 span h2 {
     font-size: 3rem;
     text-transform: capitalize;
 }
-.coll-1 span .link{
+
+.coll-1 span .link {
     padding: .7rem 5rem;
     font-size: 1rem;
     font-weight: bolder;
     text-transform: uppercase;
     margin-top: 1rem;
     cursor: pointer;
-    border: 1px solid #121212;
+    border: 1px solid var(--cardBg);
     border-radius: 2rem;
     transition: all .5s ease;
 }
-.coll-1 span .link:hover{
-    color: #121212;
-    background: var(--brownish);
-    border: 1px solid var(--brownish);
+
+.coll-1 span .link:hover {
+    background: var(--cardBg);
+    border: 1px solid var(--cardBg);
 }
-.packages .coll-2{
+
+.packages .coll-2 {
     position: relative;
     padding: 1rem 2rem;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
-.row-container h3{
+
+.row-container h3 {
     margin: 1rem 0rem 0rem 1rem;
     font-size: 1.4rem;
 }
-.package-card{
+
+.package-card {
     width: 20rem;
     height: 15rem;
     border-radius: .5rem;
     overflow: hidden;
     position: relative;
 }
-.package-card img{
+
+.package-card img {
     object-fit: cover;
 }
-.package-card .card-content{
+
+.package-card .card-content {
     position: absolute;
     top: 0;
     place-items: unset;
@@ -67,45 +76,51 @@
     background: #121212aa;
     color: #ccc;
 }
-.card-content .type{
+
+.card-content .type {
     width: 50%;
     height: 100%;
     padding: 2rem .5rem 0;
 }
-.type > *{
+
+.type>* {
     margin-block: .5rem;
 }
-.card-content p{
+
+.card-content p {
     padding: .5rem;
     line-height: 1.3rem;
 }
 
 
-@media screen and (max-width: 1000px){
-    .row-container .coll-1{
+@media screen and (max-width: 1000px) {
+    .row-container .coll-1 {
         height: 45vh;
     }
-    .coll-2 .swiper{
+
+    .coll-2 .swiper {
         height: auto;
         width: 100%;
     }
-    .coll-1 span h2{
+
+    .coll-1 span h2 {
         font-size: 2.5rem;
         text-align: center;
     }
 }
 
-@media screen and (max-width:500px){
-    .coll-1 span h2{
+@media screen and (max-width:500px) {
+    .coll-1 span h2 {
         font-size: 2rem;
     }
-    .package-card{
+
+    .package-card {
         width: 100%;
     }
 }
 
-@media screen and (max-width:400px){
-    .coll-1 span h2{
+@media screen and (max-width:400px) {
+    .coll-1 span h2 {
         font-size: 2rem;
     }
 }

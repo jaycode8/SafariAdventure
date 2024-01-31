@@ -71,5 +71,11 @@ def listOfLocations(req):
     return Response({"message":"a list of all locations", "locations": serializer.data, "status":status.HTTP_200_OK})
 
 @api_view(["GET"])
+def specificLocation(req, id):
+    obj = Locations.objects.all().filter(_id=id)
+    serializer = LocationSerializers(obj, many=True)
+    return Response({"message":"fetched the specified location", "location": serializer.data, "status":status.HTTP_200_OK})
+
+@api_view(["GET"])
 def test(req):
     return Response({"msg":"hello from locations"})

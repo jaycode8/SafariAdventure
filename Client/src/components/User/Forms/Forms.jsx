@@ -126,7 +126,7 @@ const Forms = () => {
                             onChange={handleLogChange}
                             required
                         />
-                        <div>
+                        <div className="remember">
                             <input
                                 type="checkbox"
                                 id="check"

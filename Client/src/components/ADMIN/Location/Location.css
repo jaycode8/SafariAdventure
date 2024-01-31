@@ -1,5 +1,4 @@
-
-.location{
+.location {
     width: 100%;
     height: auto;
     min-height: 80vh;
@@ -7,28 +6,34 @@
     position: relative;
     overflow: hidden;
 }
-.head h3{
+
+.head h3 {
     text-transform: uppercase;
 }
-.head .new{
+
+.head .new {
     position: absolute;
     right: 1rem;
     padding: .3rem 1.3rem;
     gap: .5rem;
 }
-.location .location-list{
+
+.location .location-list {
     padding: 1rem 0;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 1rem;
 }
-.l-card{
+
+.l-card {
     width: 20rem;
     height: 13rem;
     position: relative;
     border-radius: .4rem;
     overflow: hidden;
 }
-.l-card .pencil, .l-card .trash{
+
+.l-card .pencil,
+.l-card .trash {
     position: absolute;
     right: 0;
     background: #121212;
@@ -37,17 +42,22 @@
     aspect-ratio: 1;
     z-index: 10;
 }
-.l-card .pencil, .l-card .trash{
+
+.l-card .pencil,
+.l-card .trash {
     font-size: 1.3rem;
     cursor: pointer;
 }
-.l-card .trash{
+
+.l-card .trash {
     left: 0;
 }
-.l-card img{
+
+.l-card img {
     object-fit: cover;
 }
-.l-card .l-info{
+
+.l-card .l-info {
     position: absolute;
     bottom: 0;
     padding-block: .5rem;
@@ -57,50 +67,57 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
+
 .location .float {
-	background: #ccc;
-	position: absolute;
-	width: 100%;
-	height: 90vh;
-	display: grid;
-	place-items: center;
+    background: #ccc;
+    position: absolute;
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    place-items: center;
     right: -100%;
     border-radius: .4rem;
     z-index: 10;
-	transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
-.location .float#true, .location .float#true {
-	right: 0;
+
+.location .float#true,
+.location .float#true {
+    right: 0;
 }
+
 .float .close {
-	position: absolute;
-	top: 1rem;
-	right: 1rem;
-	cursor: pointer;
-	z-index: 10;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    color: var(--bgColor);
 }
 
 
-@media screen and (max-width: 1000px){
-    .location .float{
+@media screen and (max-width: 1000px) {
+    .location .float {
         height: 50vh;
     }
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
     .head {
         justify-content: start;
     }
-    .l-card{
+
+    .l-card {
         width: 100%;
     }
-    .location .float{
+
+    .location .float {
         height: 80vh;
     }
 }
 
-@media screen and (max-width: 400px){
-    .location .float{
+@media screen and (max-width: 400px) {
+    .location .float {
         height: 100vh;
     }
 }

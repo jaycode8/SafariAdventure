@@ -1,27 +1,36 @@
-
-.other-inputs select{
+.other-inputs select {
     cursor: pointer;
     padding-inline: .3rem;
 }
-.dest-form{
+
+.dest-form {
     height: 90%;
 }
-#mlimgs{
+
+.dest-form textarea {
+    color: var(--bgColor);
+}
+
+#mlimgs {
     border: 1px solid #121212;
 }
-#mlimgs{
+
+#mlimgs {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
 }
+
 #mlimgs img {
-  object-fit: cover;
-  width: 50%;
-  height: auto;
+    object-fit: cover;
+    width: 50%;
+    height: auto;
 }
-.imgs2{
+
+.imgs2 {
     overflow-y: scroll !important;
 }
-.imgs2 img{
+
+.imgs2 img {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;

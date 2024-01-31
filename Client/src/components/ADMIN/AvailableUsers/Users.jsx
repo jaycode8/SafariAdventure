@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 const token = localStorage.getItem("DRFAuthToken");
 
+const link = 'http://127.0.0.1:8000/users/lsusers/'
 const LsUsers = () => {
     const [lsusers, setLsUsers] = useState([]);
 
@@ -14,6 +15,7 @@ const LsUsers = () => {
             const res = await axios({
                 method: "get",
                 url: `${url_api}/users/lsusers/`,
+                // url: link
             });
             setLsUsers(res.data.data);
         } catch (err) {
@@ -24,6 +26,8 @@ const LsUsers = () => {
     useEffect(() => {
         fetchUsers();
     }, [])
+    console.log('http://127.0.0.1:8000/users/lsusers/')
+    console.log(`${url_api}/users/lsusers/`)
 
     return (
         <div className="lsusers grid-container">

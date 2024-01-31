@@ -17,7 +17,7 @@ class Sites(models.Model):
     _id = models.UUIDField(default=uuid4, primary_key=True, editable=False)
     destination_name = models.CharField(max_length=200, unique=True)
     destination_location = models.ForeignKey(Locations,on_delete=models.CASCADE)
-    activities = models.CharField(max_length=200)
+    activities = models.TextField()
     description = models.TextField()
     pictures = models.JSONField(blank=True, null=True)
     dest_map = models.TextField(blank=True, null=True)
