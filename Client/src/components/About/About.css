@@ -32,6 +32,7 @@
 
 .pictorals .pic-swiper .pic-slides img {
     object-fit: cover;
+    height: 100% !important;
 }
 
 .pic-swiper .nav-icon {

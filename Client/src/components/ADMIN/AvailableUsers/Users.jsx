@@ -15,7 +15,6 @@ const LsUsers = () => {
             const res = await axios({
                 method: "get",
                 url: `${url_api}/users/lsusers/`,
-                // url: link
             });
             setLsUsers(res.data.data);
         } catch (err) {
@@ -26,8 +25,6 @@ const LsUsers = () => {
     useEffect(() => {
         fetchUsers();
     }, [])
-    console.log('http://127.0.0.1:8000/users/lsusers/')
-    console.log(`${url_api}/users/lsusers/`)
 
     return (
         <div className="lsusers grid-container">
@@ -44,7 +41,7 @@ const LsUsers = () => {
                 </tr>
                 {
                     lsusers.map((user, index) => (
-                        <tr key={index}>
+                        <tr key={index} className="tr">
                             <td>#{index + 1}</td>
                             <td>{user.username}</td>
                             <td>{user.email}</td>

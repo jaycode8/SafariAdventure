@@ -116,6 +116,7 @@ const Contact = () => {
             color: "#cbdaf7"
         })
     }
+
     const success = (text) => {
         Swal.fire({
             title: "Safari Adventure",

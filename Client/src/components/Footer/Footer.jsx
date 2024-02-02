@@ -6,7 +6,9 @@ import naivas from "../../resources/sponsors/naivas.png";
 import forests from "../../resources/sponsors/forests.png";
 import kempinski from "../../resources/sponsors/kempinski.png";
 import cocacola from "../../resources/sponsors/cocacola.png";
-import mtkenya from "../../resources/sponsors/mtkenya.png";
+import aga from "../../resources/sponsors/aga.png";
+import nrb from "../../resources/sponsors/nrb.png";
+import cic from "../../resources/sponsors/cic.png";
 
 const Footer = () => {
     const currentPath = window.location.pathname;
@@ -39,14 +41,20 @@ const Footer = () => {
                                     <img src={cocacola} className="full-div" />
                                 </div>
                                 <div className="logos">
-                                    <img src={mtkenya} className="full-div" />
+                                    <img src={aga} className="full-div" />
+                                </div>
+                                <div className="logos">
+                                    <img src={nrb} className="full-div" />
+                                </div>
+                                <div className="logos">
+                                    <img src={cic} className="full-div" />
                                 </div>
                             </div>
                         </div >
                         <div className="copyright grid-container">
                             <span className="flex-container">
                                 &copy;<small> {new Date().getFullYear()}</small>
-                                <a href="https://james-mumo.web.app" target="_blank"> JayTech </a> | All Rights Reserved.
+                                <a href="https://jamesmumo.vercel.app/" target="_blank"> JayTech </a> | All Rights Reserved.
                             </span>
                         </div>
                     </div >

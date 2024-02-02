@@ -1,5 +1,4 @@
 
-import locImg from "../../../../resources/me.webp";
 import { TiCamera } from "react-icons/ti";
 import { useEffect, useState } from "react";
 import axios from "axios";

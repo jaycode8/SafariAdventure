@@ -20,13 +20,15 @@ const SiteBookings = () => {
 
     const logIn = async () => {
         const res = await Swal.fire({
-            title: "Wild Safari",
-            text: "You need to be loged in to proceed.",
+            title: "Safari Adventure",
+            text: "You need to be logged in to proceed.",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "logIn",
+            background: "#0a1930",
+            color: "#cbdaf7"
         });
         if (res.isConfirmed) {
             window.location.href = "/forms";

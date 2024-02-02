@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./otp.css";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
@@ -27,14 +28,41 @@ const Otp = () => {
                 method: "post",
                 data: OTP,
             });
-            setResponse(res.data);
+            // setResponse(res.data);
             if (res.data.success == "true") {
-                window.location = "/forms";
+                await success(`Successfully setup your account`);
+                setTimeout(() => {
+                    window.location = "/forms";
+                }, 2000);
+            } else {
+                await alertMsg("The OTP code you provided is incorect !");
             }
         } catch (error) {
-            console.log(error);
+            await alertMsg("fatal error occured...")
         }
     };
+
+    const alertMsg = (text) => {
+        Swal.fire({
+            title: "Safari Adventure",
+            text: text,
+            icon: "warning",
+            background: "#0a1930",
+            color: "#cbdaf7"
+        });
+    };
+
+    const success = (text) => {
+        Swal.fire({
+            title: "Safari Adventure",
+            text: text,
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+            background: "#0a1930",
+            color: "#cbdaf7"
+        })
+    }
 
     return (
         <div className="otp-container">

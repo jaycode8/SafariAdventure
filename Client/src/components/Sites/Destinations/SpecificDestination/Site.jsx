@@ -32,7 +32,7 @@ const Site = () => {
     }, []);
 
     return (
-        <div className="site full-div">
+        <div className="site full-divs">
             {
                 details[0] != undefined ? (
                     <div className="site-box full-div grid-container">

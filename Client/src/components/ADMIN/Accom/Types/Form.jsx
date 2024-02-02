@@ -1,5 +1,4 @@
 
-import locImg from "../../../../resources/me.webp";
 import { TiCamera } from "react-icons/ti";
 import { useState } from "react";
 import axios from "axios";
@@ -53,7 +52,7 @@ const Form = () => {
             <h4 className="response" id={`${msg.success}`}>{msg.message}</h4>
             <div className="file-container flex-container full-div">
                 <div className="cover-img">
-                    <img src={locImg} className="full-div" id="accomodationfile" />
+                    <img src="" className="full-div" id="accomodationfile" />
                 </div>
                 <label htmlFor="accomodationImg">
                     <TiCamera className="cam" />

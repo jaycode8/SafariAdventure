@@ -8,6 +8,7 @@ import {
     BiSolidChevronLeftCircle,
     BiSolidChevronRightCircle,
 } from "react-icons/bi";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -63,8 +64,8 @@ const Destinations = () => {
                             </SwiperSlide>
                         ))
                     }
-                    <BiSolidChevronLeftCircle className="arrow-icon" id="arrow-left" />
-                    <BiSolidChevronRightCircle className="arrow-icon" id="arrow-right" />
+                    <FaArrowCircleLeft className="arrow-icon" id="arrow-left" />
+                    <FaArrowCircleRight className="arrow-icon" id="arrow-right" />
                 </Swiper>
             </div>
         </div>

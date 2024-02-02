@@ -47,7 +47,6 @@
 }
 
 .mainwindow .wrapper {
-    /* background: blue; */
     height: 100vh;
     padding: 2rem;
     overflow-y: scroll !important;
@@ -71,7 +70,7 @@
     border-radius: .5rem;
     cursor: pointer;
     padding: 1rem;
-    box-shadow: 0 0 10px #333;
+    background: var(--cardBg);
     flex-direction: column;
 }
 

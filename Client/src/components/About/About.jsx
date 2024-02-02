@@ -8,22 +8,14 @@ import {
     BiSolidChevronLeftCircle,
     BiSolidChevronRightCircle,
 } from "react-icons/bi";
-import pic1 from "../../resources/imgs/12.jpg";
-import pic2 from "../../resources/imgs/13.jpg";
-import pic3 from "../../resources/imgs/14.jpg";
-import pic4 from "../../resources/imgs/16.jpg";
-import pic5 from "../../resources/imgs/17.jpg";
-import pic6 from "../../resources/imgs/18.jpg";
-import pic7 from "../../resources/imgs/19.jpg";
-import pic8 from "../../resources/imgs/12.jpeg";
-import pic9 from "../../resources/imgs/15.jpg";
-import pic10 from "../../resources/imgs/111.jpeg";
-import pic11 from "../../resources/imgs/111.jpeg";
+import pic1 from "../../resources/images/about1.jpg";
+import pic2 from "../../resources/images/about2.jpg";
+import pic3 from "../../resources/images/about3.jpg";
+import pic4 from "../../resources/images/about4.webp";
 
 const About = () => {
 
-    // const images = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10, pic11];
-    const images = [pic1]
+    const images = [pic1, pic2, pic3, pic4]
 
     return (
         <div className="about grid-container" id="about">

@@ -1,77 +1,96 @@
-
-.site{
-    height: auto;
+.site {
     padding: 4.5rem 1rem 1rem 1rem;
+    height: auto;
 }
-.site .site-box{
+
+.site .site-box {
     padding: 1rem 4rem;
     gap: 1rem;
+    height: auto;
 }
-.site-box .pictorals{
+
+.site-box .pictorals {
     width: 100%;
     height: 30rem;
     overflow: hidden;
 }
-.pictorals .s-swiper{
+
+.pictorals .s-swiper {
     width: 100%;
     height: 100%;
 }
-.pictorals .s-slide{
-}
-.pictorals .s-slide img{
+
+.pictorals .s-slide {}
+
+.pictorals .s-slide img {
     object-fit: cover;
 }
-.site-box .site-content{
+
+.site-box .site-content {
     width: 100%;
-    height: 40rem;
+    /* height: 40rem; */
     margin-top: 3rem;
 }
-.site-content .upper{
+
+.site-content .upper {
     grid-template-columns: 1fr 1fr;
 }
-.upper .det, .upper .maps{
+
+.upper .det,
+.upper .maps {
     padding: .5rem;
 }
-.upper .det>*{
+
+.upper .det>* {
     margin-block: .5rem;
 }
-.upper .det h3{
+
+.upper .det h3 {
     font-size: 2rem;
 }
-.upper .det div{
+
+.upper .det div {
     justify-content: start;
 }
-.upper .maps{
+
+.upper .maps {
+    height: 30rem;
 }
-.site-content .lower{
+
+.site-content .lower {
     padding: .5rem;
 }
-.lower ul{
+
+.lower ul {
     padding-inline: 3rem;
     list-style-type: circle;
 }
 
-@media screen and (max-width: 1000px){
-    .site .site-box{
+@media screen and (max-width: 1000px) {
+    .site .site-box {
         padding-inline: 5%;
     }
 }
 
 
-@media screen and (max-width: 500px){
-    .site{
+@media screen and (max-width: 500px) {
+    .site {
         padding-inline: .5rem;
     }
-    .site .site-box{
+
+    .site .site-box {
         padding-inline: 0rem;
     }
-    .site-box .site-content{
+
+    .site-box .site-content {
         margin-top: unset;
     }
-    .site-content .upper{
+
+    .site-content .upper {
         grid-template-columns: unset;
     }
-    .site-content .upper .maps{
+
+    .site-content .upper .maps {
         padding: unset;
     }
 }

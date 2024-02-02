@@ -1,61 +1,74 @@
-
-.all-destination{
+.all-destination {
     width: 100%;
     height: 100vh;
     padding: 1rem;
 }
-.top-bar h3{
+
+.top-bar h3 {
     text-transform: uppercase;
 }
-.top-bar .new{
+
+.top-bar .new {
     position: absolute;
     right: 1rem;
     padding: .3rem 1.3rem;
     gap: .5rem;
 }
+
 .all-destination .float {
-	background: #ccc;
-	position: absolute;
-	width: 100%;
-	height: 90vh;
-	display: grid;
-	place-items: center;
+    background: #ccc;
+    position: absolute;
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    place-items: center;
     right: -100%;
     border-radius: .4rem;
     z-index: 10;
-	transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
-.all-destination .float#true, .all-destination .float#true {
-	right: 0;
+
+.all-destination .float#true,
+.all-destination .float#true {
+    right: 0;
 }
+
 .float .close {
-	position: absolute;
-	top: 1rem;
-	right: 1rem;
-	cursor: pointer;
-	z-index: 10;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    z-index: 10;
 }
-.all-destination .dst-list{
+
+.all-destination .dst-list {
     padding: 1rem;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
-.dst-list .site_card{
+
+.dst-list .site_card {
     width: 20rem;
     height: 15rem;
     position: relative;
 }
-.site_card p{
+
+.site_card p {
     position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;
+    color: var(--bgColor);
+    font-weight: bolder;
+    text-transform: uppercase;
     padding: .5rem;
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
-.site_card .trash, .site_card .edit{
+
+.site_card .trash,
+.site_card .edit {
     position: absolute;
     right: 0;
     background: #121212;
@@ -63,13 +76,17 @@
     width: 2rem;
     height: 2rem;
 }
-.site_card .edit{
+
+.site_card .edit {
     left: 0;
 }
-.trash > *, .edit > * {
+
+.trash>*,
+.edit>* {
     font-size: 1.4rem;
     cursor: pointer;
 }
-.site_card img{
+
+.site_card img {
     object-fit: cover;
 }

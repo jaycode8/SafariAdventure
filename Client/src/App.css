@@ -2,7 +2,6 @@
 @import url("https://fonts.cdnfonts.com/css/borsok");
 
 :root {
-    --bgCover: url("/src/resources/images/bg3.jpg");
     --formsBg: url("/src/resources/images/forms.jpg");
     --flamingo: url("./src/resources/images/18.jpg");
     /* COLORS */

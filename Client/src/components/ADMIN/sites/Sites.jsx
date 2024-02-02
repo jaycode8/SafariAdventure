@@ -39,15 +39,18 @@ const Sites = () => {
     const handleChange = ({ currentTarget: input }) => {
         setUpdateData({ ...updateData, [input.name]: input.value });
     };
+
     const alertMsg = (text, btn) => {
         const res = Swal.fire({
-            title: "Wild Safari",
+            title: "Safari Adventure",
             text: text,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: btn,
+            background: "#0a1930",
+            color: "#cbdaf7"
         });
         return res;
     };

@@ -4,6 +4,7 @@ import axios from "axios";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import avatar from "../../../resources/images/avatar.jpeg";
+import Swal from "sweetalert2";
 
 const url_api = import.meta.env.VITE_REACT_APP_API_URL;
 
@@ -60,14 +61,19 @@ const Forms = () => {
                 data: logUser,
                 method: "POST",
             });
-            setResponse(res.data);
+            // setResponse(res.data);
             if (res.data.success == "true") {
                 localStorage.setItem("DRFAuthToken", res.data.token);
-                if (res.data.user == "superuser") {
-                    window.location.href = "/dashboard";
-                } else {
-                    window.location.href = "/";
-                }
+                await success("You have successfully signed In");
+                setTimeout(() => {
+                    if (res.data.user == "superuser") {
+                        window.location.href = "/dashboard";
+                    } else {
+                        window.location.href = "/";
+                    }
+                }, 2000);
+            } else {
+                await alertMsg(res.data.message)
             }
         } catch (error) {
             console.log(error);
@@ -92,15 +98,39 @@ const Forms = () => {
                     "Content-Type": "multipart/form-data",
                 },
             });
-            setResponse(res.data);
-            console.log(res.data)
+            // setResponse(res.data);
             if (res.data.success == "true") {
-                window.location = "/verify";
+                await success(`We have sent a verification code to ${user.email}`);
+                setTimeout(() => {
+                    window.location = "/verify";
+                }, 2000);
             }
         } catch (error) {
             console.log(error);
         }
     };
+
+    const alertMsg = (text) => {
+        Swal.fire({
+            title: "Safari Adventure",
+            text: text,
+            icon: "warning",
+            background: "#0a1930",
+            color: "#cbdaf7"
+        });
+    };
+
+    const success = (text) => {
+        Swal.fire({
+            title: "Safari Adventure",
+            text: text,
+            icon: "success", //question, error
+            showConfirmButton: false,
+            timer: 1500,
+            background: "#0a1930",
+            color: "#cbdaf7"
+        })
+    }
 
     return (
         <div className="forms">

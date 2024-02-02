@@ -40,6 +40,8 @@ const AccomodationTypes = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: btn,
+            background: "#0a1930",
+            color: "#cbdaf7"
         });
         return res;
     };
@@ -128,7 +130,7 @@ const AccomodationTypes = () => {
             </div>
             <div className="float floatB" id={`${isActive}`}>
                 <GiCrossMark className="close" onClick={toggleFloatB} />
-                <form className="grid-container" onSubmit={() => handleSubmit(event)}>
+                <form className="grid-container updateForm" onSubmit={() => handleSubmit(event)}>
                     <h4 className="response" id={`${msg.success}`}>{msg.message}</h4>
                     <div className="file-container flex-container full-div">
                         <div className="cover-img">

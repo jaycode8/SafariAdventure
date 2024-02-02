@@ -6,11 +6,10 @@
 .row-container .coll-1 {
     width: 100%;
     height: 70vh;
-    background: var(--flamingo);
+    background: linear-gradient(180deg, rgba(27, 39, 66, 0.699), #121212), var(--flamingo);
     background-size: cover;
     background-position: center;
-    background-color: #0a1930aa;
-    background-blend-mode: darken;
+    background-blend-mode: multiply;
     background-attachment: fixed;
 }
 
@@ -35,14 +34,8 @@
     text-transform: uppercase;
     margin-top: 1rem;
     cursor: pointer;
-    border: 1px solid var(--cardBg);
-    border-radius: 2rem;
-    transition: all .5s ease;
-}
-
-.coll-1 span .link:hover {
-    background: var(--cardBg);
-    border: 1px solid var(--cardBg);
+    background: var(--fontColor);
+    color: var(--bgColor);
 }
 
 .packages .coll-2 {

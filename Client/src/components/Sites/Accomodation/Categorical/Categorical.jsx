@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from "react";
-import test from "../../../../resources/images/test.jpg";
 import { MdLocationPin } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
 import "swiper/css/bundle";
