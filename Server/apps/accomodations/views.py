@@ -71,7 +71,9 @@ def specificAccomodation(req, id):
 
 @api_view(["GET"])
 def listOfAccomodations(req, id):
-    obj = Accomodations.objects.select_related('acc_type').filter(acc_type=id).order_by("created_at")
+    #============ the commented line fetches specific accomodation accoding to the accomodation type (uncomment later in precesse of large data)
+    # obj = Accomodations.objects.select_related('acc_type').filter(acc_type=id).order_by("created_at")
+    obj = Accomodations.objects.select_related('acc_type').all().order_by("created_at")
     serializer = AccomodationSerializers(obj, many=True)
     objType = AccomodationType.objects.get(_id=id)
     print(objType.accomodationType)

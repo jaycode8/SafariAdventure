@@ -62,7 +62,7 @@ const Sites = () => {
             formData.append("destination_name", updateData.destination_name);
             formData.append("activities", updateData.activities);
             formData.append("description", updateData.description);
-            formData.append("dest_map", updateData.map);
+            formData.append("dest_map", updateData.dest_map);
             formData.append("id", updateData._id)
             const res = await axios({
                 method: "patch",

@@ -15,6 +15,9 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
 from apps.utils.emails import transporter
+from apps.utils.createSuperUser import admin_user
+
+admin_user()
 
 # Create your views here.
 def customErrorMessage(error_data):
@@ -25,12 +28,6 @@ def customErrorMessage(error_data):
             error_message = messages[0]
         return error_message
         break
-
-def create_super_user():
-    username = "admin"
-    password = "admin"
-    email = "admin.app@gmail.com"
-
 
 def modifyUser(req, obj):
     serializer = usersSerializer(obj, data=req.data, partial=True)

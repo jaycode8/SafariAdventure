@@ -8,14 +8,15 @@ import {
     BiSolidChevronLeftCircle,
     BiSolidChevronRightCircle,
 } from "react-icons/bi";
-import pic1 from "../../resources/images/about1.jpg";
-import pic2 from "../../resources/images/about2.jpg";
-import pic3 from "../../resources/images/about3.jpg";
-import pic4 from "../../resources/images/about4.webp";
+import pic1 from "../../resources/images/m1.jpg";
+import pic2 from "../../resources/images/m2.jpg";
+import pic3 from "../../resources/images/m3.webp";
+import pic4 from "../../resources/images/m4.jpg";
+import pic5 from "../../resources/images/m5.jpg";
 
 const About = () => {
 
-    const images = [pic1, pic2, pic3, pic4]
+    const images = [pic1, pic2, pic3, pic4, pic5];
 
     return (
         <div className="about grid-container" id="about">

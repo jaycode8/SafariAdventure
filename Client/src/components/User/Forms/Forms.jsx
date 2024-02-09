@@ -61,7 +61,7 @@ const Forms = () => {
                 data: logUser,
                 method: "POST",
             });
-            // setResponse(res.data);
+            //setResponse(res.data);
             if (res.data.success == "true") {
                 localStorage.setItem("DRFAuthToken", res.data.token);
                 await success("You have successfully signed In");
@@ -76,7 +76,7 @@ const Forms = () => {
                 await alertMsg(res.data.message)
             }
         } catch (error) {
-            console.log(error);
+            await alertMsg("Something went wrong")
         }
     };
 
@@ -104,9 +104,11 @@ const Forms = () => {
                 setTimeout(() => {
                     window.location = "/verify";
                 }, 2000);
+            }else {
+                await alertMsg(res.data.message)
             }
         } catch (error) {
-            console.log(error);
+            await alertMsg("Something went wrong")
         }
     };
 

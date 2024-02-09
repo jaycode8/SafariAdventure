@@ -14,47 +14,30 @@
     gap: 1rem;
 }
 
-.contact .c-text h2 {
-    /* font-size: 2rem; */
-}
-
 .contact .c-text .c-icons {
     height: auto;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
 
-.c-icons span {
-    width: 100%;
-    height: 4rem;
-    justify-content: start;
-    gap: 1rem;
-}
-
-.c-icons span a {
-    justify-content: start;
-    gap: 1rem;
-    transition: all .5s ease;
-}
-
-.c-icons .phone:hover a {
-    color: #0000ff;
-}
-
-.c-icons .email:hover a {
-    color: #a42a2a;
-}
-
-.c-icons span div {
-    display: flex;
+.c-icons .contact_card {
+    width: 10rem;
+    height: 8rem;
+    background-color: var(--cardBg);
+    border-radius: 0.4rem;
+    padding: 1rem;
     flex-direction: column;
-    justify-content: center;
-    gap: .5rem;
+    gap: 1rem;
 }
 
-.c-icons span .ico {
-    height: 4rem;
-    width: auto;
+.contact_card .contact_card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+}
+
+.contact_card .contact_card-title {
+    font-weight: 500;
+    font-size: 0.875rem;
 }
 
 .contact .c-form {
@@ -251,7 +234,6 @@ textarea {
     }
 
     .contact .c-text .c-icons {
-        grid-template-columns: 1fr;
         padding-inline: .5rem;
     }
 
@@ -272,5 +254,9 @@ textarea {
 
     .c-icons span .ico {
         height: 2rem;
+    }
+
+    .c-icons .contact_card {
+        width: 100%;
     }
 }

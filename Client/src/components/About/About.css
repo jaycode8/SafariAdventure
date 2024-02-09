@@ -71,6 +71,12 @@
     }
 }
 
+@media screen and (max-width: 500px) {
+    .pictorals .pic-swiper .pic-slides {
+        height: 25rem;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .about {
         padding-bottom: 3rem;

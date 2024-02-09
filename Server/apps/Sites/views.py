@@ -14,7 +14,7 @@ def updateSite(req, obj):
     serializer = SitesSerializer(obj, data=req.data, partial=True)
     if serializer.is_valid():
         serializer.save()
-        print("updated successfully")
+        print(serializer.data)
         return Response({"message":"updated site successfull", "success":"true", "status":status.HTTP_200_OK})
     return Response({"message":customErrorMessage({"error": serializer.errors}), "success":"false", "status":status.HTTP_404_NOT_FOUND})
 

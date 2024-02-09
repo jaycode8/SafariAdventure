@@ -14,41 +14,23 @@ const Footer = () => {
     const currentPath = window.location.pathname;
     const basePath = currentPath.split("/")[1];
 
+    const patners = [kws, forests, kq, kempinski, naivas, cocacola, aga, nrb, cic];
+
     return (
         <div>
             {
                 basePath == "dashboard" ? ("") : (
                     <div className="footer" id="footer">
                         <div className="footer-section grid-container full-div">
-                            <h3>Our sponsors</h3>
+                            <h3>Our patners</h3>
                             <div className="partners grid-container">
-                                <div className="logos">
-                                    <img src={kws} className="full-div" />
-                                </div>
-                                <div className="logos">
-                                    <img src={forests} className="full-div" />
-                                </div>
-                                <div className="logos">
-                                    <img src={kq} className="full-div" />
-                                </div>
-                                <div className="logos">
-                                    <img src={kempinski} className="full-div" />
-                                </div>
-                                <div className="logos">
-                                    <img src={naivas} className="full-div" />
-                                </div>
-                                <div className="logos">
-                                    <img src={cocacola} className="full-div" />
-                                </div>
-                                <div className="logos">
-                                    <img src={aga} className="full-div" />
-                                </div>
-                                <div className="logos">
-                                    <img src={nrb} className="full-div" />
-                                </div>
-                                <div className="logos">
-                                    <img src={cic} className="full-div" />
-                                </div>
+                                {
+                                    patners.map((patner, index) => (
+                                        <div className="logos" key={index}>
+                                            <img src={patner} className="full-div" />
+                                        </div>
+                                    ))
+                                }
                             </div>
                         </div >
                         <div className="copyright grid-container">

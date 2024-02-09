@@ -1,10 +1,7 @@
 
 import "./Contact.css";
-import { FaPhoneSquareAlt } from "react-icons/fa";
-import { BiCurrentLocation } from "react-icons/bi";
-import { HiMailOpen } from "react-icons/hi";
-import { AiFillClockCircle } from "react-icons/ai";
-import { useState } from "react";
+import { FaPhoneSquareAlt, FaWhatsapp, FaFacebookF, FaInstagram } from "react-icons/fa";
+import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -24,6 +21,12 @@ const Contact = () => {
     })
 
     const [label, setLabel] = useState("");
+    const contacts = [
+        { name: "WhatsApp us", icon: FaWhatsapp, link: "https://wa.me/254111482180" },
+        { name: "make a Call", icon: FaPhoneSquareAlt, link: "tel:+254111482180" },
+        { name: "Follow us", icon: FaFacebookF, link: "https://www.facebook.com/james.mumo.9803" },
+        { name: "Follow us", icon: FaInstagram, link: "https://www.instagram.com/jaymoh__254/" }
+    ]
 
     const handleChange = ({ currentTarget: input }) => {
         setMessage({ ...message, [input.name]: input.value });
@@ -134,38 +137,14 @@ const Contact = () => {
             <div className="c-text full-div flex-container">
                 <h2>Feel Free to Contact With Us</h2>
                 <div className="c-icons full-div grid-container">
-                    <span className="full-div flex-container phone">
-                        <a href="tel:0726933261" className="full-div flex-container">
-                            <FaPhoneSquareAlt className="ico full-div" />
-                            <div className="full-div">
-                                <h4>Phone</h4>
-                                <p>+254 71200000000</p>
-                            </div>
-                        </a>
-                    </span>
-                    <span className="full-div flex-container email">
-                        <a href="mailto:test@gmail.com" className="full-div flex-container">
-                            <HiMailOpen className="ico full-divs" />
-                            <div className="full-div">
-                                <h4>Mail</h4>
-                                <p>test@gmail.com</p>
-                            </div>
-                        </a>
-                    </span>
-                    <span className="full-div flex-container">
-                        <BiCurrentLocation className="ico full-divs" />
-                        <div className="full-div">
-                            <h4>Location</h4>
-                            <p>4th street Tom Mboya Avenue, Nairobi</p>
-                        </div>
-                    </span>
-                    <span className="full-div flex-container">
-                        <AiFillClockCircle className="ico full-divs" />
-                        <div className="full-div">
-                            <h4>Open</h4>
-                            <p>8:00 am-5:00 pm</p>
-                        </div>
-                    </span>
+                    {
+                        contacts.map((ct, i) => (
+                            <a href={`${ct.link}`} target="_blank" className="contact_card flex-container" key={i}>
+                                {React.createElement(ct.icon, { className: "contact_card-icon" })}
+                                <h3 className="contact_card-title">{ct.name}</h3>
+                            </a>
+                        ))
+                    }
                 </div>
             </div>
             <div className="c-form full-div">

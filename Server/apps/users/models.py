@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 from uuid import uuid4
@@ -46,7 +47,7 @@ class Users(AbstractBaseUser):
     email = models.EmailField(max_length=255, unique=True)
     phone = models.CharField(max_length=15, unique=True)
     country = models.CharField(max_length=20 )
-    gender = models.SmallIntegerField(choices=GENDER_CHOICES)
+    gender = models.SmallIntegerField(choices=GENDER_CHOICES, default=3)
     password = models.CharField(max_length=200)
     profile = models.ImageField(upload_to=path_and_rename)
     created_at = models.DateTimeField(auto_now_add=True)
