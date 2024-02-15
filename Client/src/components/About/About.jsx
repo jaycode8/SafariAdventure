@@ -49,12 +49,6 @@ const About = () => {
                             </SwiperSlide>
                         ))
                     }
-                    {/* <SwiperSlide className="pic-slides full-div"> */}
-                    {/*     <img src={pic3} className="full-div" /> */}
-                    {/* </SwiperSlide> */}
-                    {/* <SwiperSlide className="pic-slides"> */}
-                    {/*     <img src={pic4} className="full-div" /> */}
-                    {/* </SwiperSlide> */}
                     <BiSolidChevronLeftCircle className="nav-icon" id="left-arrow-icon" />
                     <BiSolidChevronRightCircle className="nav-icon" id="right-arrow-icon" />
                 </Swiper>

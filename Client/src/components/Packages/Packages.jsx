@@ -29,7 +29,7 @@ const Packages = () => {
     useEffect(() => {
         listOfPackages();
     }, []);
-
+    
     return (
         <div className="packages" id="packages">
             <div className="row-container">

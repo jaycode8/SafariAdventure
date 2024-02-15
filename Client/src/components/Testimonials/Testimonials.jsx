@@ -32,8 +32,6 @@ const Testimonals = () => {
         listOfTestimonials();
     }, []);
 
-    console.log(comments)
-
     return (
         <div className="testimonials grid-containers" id="testimonials">
             <h2>testimonials</h2>

@@ -308,6 +308,9 @@
     /* bottom: 1rem; */
     bottom: 0;
 }
+.outer_btns span{
+    color: #121212;
+}
 
 .container--signup .outer_btns {
     bottom: 1rem;

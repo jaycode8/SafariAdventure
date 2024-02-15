@@ -21,7 +21,7 @@
     "react-router-dom": "^6.16.0",
     "react-simple-typewriter": "^5.0.1",
     "sweetalert": "^2.1.2",
-    "sweetalert2": "^11.9.0",
+    "sweetalert2": "^11.10.5",
     "swiper": "^9.1.0",
     "typed.js": "^2.0.16"
   },

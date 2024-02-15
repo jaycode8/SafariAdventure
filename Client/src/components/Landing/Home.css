@@ -23,6 +23,9 @@
 }
 
 .textbox h1 {
+    font-family: "borsok";
+    font-weight: unset;
+    line-height: 4rem;
     font-size: 4rem;
 }
 

@@ -60,6 +60,12 @@ def packages(req):
         return Response({"user": req.user.username})
 
 @api_view(["GET"])
+def getSpecificPackage(req, title):
+    pkg = Packages.objects.get(title=title);
+    serializer = PackageSerializers(pkg)
+    return Response({"message":"package details fetched", "package": serializer.data, "status":status.HTTP_200_OK})
+
+@api_view(["GET"])
 def listOfPackages(req):
     pkg = Packages.objects.all().order_by("created_at")
     serializer = PackageSerializers(pkg,many=True)
