@@ -116,12 +116,12 @@ const Navbar = () => {
 
                 )
                 }
-            </section >
+            </section>
             <div className="user-panel">
                 <BiCross className="cross" onClick={toggleUserProfile} />
                 <Mngt data={sessionToken} />
             </div>
-        </div >
+        </div>
     );
 };
 

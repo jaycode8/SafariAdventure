@@ -168,7 +168,6 @@ const Forms = () => {
                         <button className="btn" type="submit">
                             Sign In
                         </button>
-
                     </form>
 
                     <div className="outer_btns">

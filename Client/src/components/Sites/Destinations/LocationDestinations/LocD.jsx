@@ -31,6 +31,7 @@ const LocD = () => {
             console.log(err);
         }
     };
+    console.log(id)
 
     useEffect(() => {
         window.scrollTo(0, 0);

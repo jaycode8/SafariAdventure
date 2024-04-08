@@ -3,6 +3,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from .serializers import SitesSerializer, CreateASitesSerializer
 from .models import Sites, Images
+from apps.locations.models import Locations
 from rest_framework.decorators import api_view, authentication_classes,permission_classes
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
@@ -13,7 +14,16 @@ import os
 def updateSite(req, obj):
     serializer = SitesSerializer(obj, data=req.data, partial=True)
     if serializer.is_valid():
-        serializer.save()
+        files = req.FILES.getlist("files")
+        file_list = []
+        if files:
+            for file in files:
+                new_file = Images(image = file)
+                new_file.save()
+                file_list.append(new_file.image.url)
+        instance = serializer.save()
+        instance.pictures = file_list
+        instance.save()
         print(serializer.data)
         return Response({"message":"updated site successfull", "success":"true", "status":status.HTTP_200_OK})
     return Response({"message":customErrorMessage({"error": serializer.errors}), "success":"false", "status":status.HTTP_404_NOT_FOUND})

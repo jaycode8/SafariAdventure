@@ -9,6 +9,8 @@
     position: absolute;
     left: 50%;
     top: -10%;
+    color: #121212;
+    font-weight: lighter;
 }
 
 .admin-form #false {
@@ -61,6 +63,7 @@ textarea::placeholder {
     resize: none;
     border: 1px solid #121212;
     color: #121212 !important;
+    font-weight: lighter;
 }
 
 .file-container textarea {

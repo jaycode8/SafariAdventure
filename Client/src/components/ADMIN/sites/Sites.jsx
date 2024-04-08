@@ -20,6 +20,7 @@ const Sites = () => {
     const [msg, setMsg] = useState({});
     const [isActive, setIsActive] = useState(false);
     const [images, setImages] = useState([]);
+    const [files, setFiles] = useState([]);
     const [updateData, setUpdateData] = useState({
         destination_name: "",
         activities: "",
@@ -55,6 +56,11 @@ const Sites = () => {
         return res;
     };
 
+    const fileChange = (event) => {
+        const images = event.target.files;
+        setFiles(images);
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -63,7 +69,12 @@ const Sites = () => {
             formData.append("activities", updateData.activities);
             formData.append("description", updateData.description);
             formData.append("dest_map", updateData.dest_map);
-            formData.append("id", updateData._id)
+            formData.append("id", updateData._id);
+            if (files.length > 0) {
+                for (let i = 0; i < files.length; i++) {
+                    formData.append("files", files[i]);
+                }
+            } 
             const res = await axios({
                 method: "patch",
                 url: `${url_api}/sites/sites`,
@@ -145,14 +156,15 @@ const Sites = () => {
                                 ) : ("")
                             }
                         </div>
-                        <label htmlFor="pkgImg">
+                        <label htmlFor="siteImg">
                             <TiCamera className="cam" />
                         </label>
                         <input
                             type="file"
-                            id="pkgImg"
+                            id="siteImg"
                             name="destinationPic"
                             className="multiFileInput"
+                            onChange={fileChange}
                             multiple
                         />
                         <textarea

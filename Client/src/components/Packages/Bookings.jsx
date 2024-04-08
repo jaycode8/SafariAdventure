@@ -19,8 +19,8 @@ const SiteBookings = () => {
     const [user, setUser] = useState();
     const [pkgPrice, setPkgPrice] = useState();
 
-    const logIn = async () => {
-        const res = await Swal.fire({
+    const logIn = () => {
+        Swal.fire({
             title: "Safari Adventure",
             text: "You need to be logged in to proceed.",
             icon: "warning",
@@ -30,12 +30,13 @@ const SiteBookings = () => {
             confirmButtonText: "logIn",
             background: "#0a1930",
             color: "#cbdaf7"
-        });
-        if (res.isConfirmed) {
-            window.location.href = "/forms";
-        } else {
-            location.href = "/"
-        }
+        }).then((res) => {
+            if (res.isConfirmed) {
+                window.location.href = "/forms";
+            } else if (res.dismiss){
+                location.href = "/";
+            }
+        })
     }
 
     const fetchLogedUser = async () => {

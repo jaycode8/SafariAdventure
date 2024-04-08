@@ -18,6 +18,7 @@
 }
 
 .destination-cards .destination-card {
+    max-width: 35rem;
     height: 11rem;
     display: flex;
     overflow: hidden;
