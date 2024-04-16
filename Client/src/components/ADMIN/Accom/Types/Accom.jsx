@@ -134,7 +134,7 @@ const AccomodationTypes = () => {
                     <h4 className="response" id={`${msg.success}`}>{msg.message}</h4>
                     <div className="file-container flex-container full-div">
                         <div className="cover-img">
-                            <img src={`${url_api}${data.accomodationPic}`} className="full-div" id="accfile" />
+                            <img src={`${data.accomodationPic}`} className="full-div" id="accfile" />
                         </div>
                         <label htmlFor="accImgs">
                             <TiCamera className="cam" />
@@ -176,7 +176,7 @@ const AccomodationTypes = () => {
                                 <CiTrash onClick={() => deleteType(`${data.accomodationType}`, `${data._id}`)} />
                             </div>
                             <Link to={`accomodation/${data._id}`}>
-                                <img src={`${url_api}${data.accomodationPic}`} className="full-div" />
+                                <img src={`${data.accomodationPic}`} className="full-div" />
                                 <div className="l-info">
                                     <h3>{data.accomodationType}</h3>
                                 </div>

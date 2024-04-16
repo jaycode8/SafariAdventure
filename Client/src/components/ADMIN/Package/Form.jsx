@@ -32,7 +32,7 @@ const Form = () => {
             formData.append("title", pkg.title);
             formData.append("price", pkg.price);
             formData.append("description", pkg.description);
-            formData.append("packagePic", file);
+            formData.append("package_pic", file);
             const res = await axios({
                 method: "post",
                 url: `${url_api}/packages/packages`,
@@ -65,6 +65,7 @@ const Form = () => {
                     type="file"
                     id="pkgImg"
                     name="PackagePic"
+                    accept="image/*"
                     onChange={fileChange}
                 />
             </div>

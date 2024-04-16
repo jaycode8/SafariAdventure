@@ -134,7 +134,7 @@ const AllAcc = () => {
                             {
                                 images ? (
                                     images.map((img, index) => (
-                                        <img src={`${url_api}${img}`} className="full-div" key={index} />
+                                        <img src={`${img}`} className="full-div" key={index} />
                                     ))
                                 ) : ("")
                             }
@@ -196,7 +196,6 @@ const AllAcc = () => {
             </div>
             <div className="dst-list full-div grid-container">
                 {
-
                     accomodations.map((data, index) => (
                         <div className="site_card" key={index}>
                             <div className="trash grid-container">
@@ -205,7 +204,7 @@ const AllAcc = () => {
                             <div className="edit grid-container">
                                 <GiPencil onClick={() => toggleFloatB(data)} />
                             </div>
-                            <img src={`${url_api}${data.pictures[0]}`} alt={data.acc_name} className="full-div" />
+                            <img src={`${data.pictures[0]}`} alt={data.acc_name} className="full-div" />
                             <p>{data.acc_name}</p>
                         </div>)
                     )

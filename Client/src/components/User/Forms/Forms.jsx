@@ -45,8 +45,6 @@ const Forms = () => {
         document.getElementById("imgDisplay").src = URL.createObjectURL(image);
     };
 
-
-
     const toggleForm = () => {
         const container = document.querySelector(".container");
         container.classList.contains("right-panel-active")
@@ -90,7 +88,7 @@ const Forms = () => {
             formData.append("phone", phone);
             formData.append("country", country);
             formData.append("gender", user.gender);
-            formData.append("profile", file);
+            formData.append("profile_pic", file);
             const res = await axios(`${url_api}/users/signup`, {
                 method: "post",
                 data: formData,
@@ -224,6 +222,7 @@ const Forms = () => {
                             <input
                                 type="file"
                                 name="img"
+                                accept="image/*"
                                 id="profile"
                                 onChange={fileChange}
                             />
@@ -233,6 +232,7 @@ const Forms = () => {
                             placeholder="User Name"
                             className="input"
                             name="username"
+                            minLength={5}
                             onChange={handleChange}
                             required
                         />
@@ -298,6 +298,7 @@ const Forms = () => {
                             placeholder="Password"
                             className="input"
                             name="password"
+                            minLength={8}
                             onChange={handleChange}
                             required
                         />

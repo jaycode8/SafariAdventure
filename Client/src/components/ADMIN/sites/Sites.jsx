@@ -151,7 +151,7 @@ const Sites = () => {
                             {
                                 images ? (
                                     images.map((img, index) => (
-                                        <img src={`${url_api}${img}`} className="full-div" key={index} />
+                                        <img src={`${img}`} className="full-div" key={index} />
                                     ))
                                 ) : ("")
                             }
@@ -216,7 +216,7 @@ const Sites = () => {
                                 <div className="edit grid-container">
                                     <GiPencil onClick={() => toggleFloatB(site)} />
                                 </div>
-                                <img src={`${url_api}${site.pictures[0]}`} alt={site.destination_name} className="full-div" />
+                                <img src={`${site.pictures[0]}`} alt={site.destination_name} className="full-div" />
                                 <p>{site.destination_name}</p>
                             </div>)
                         )) : ("")

@@ -49,7 +49,7 @@ const Testimonals = () => {
                             <SwiperSlide key={index}>
                                 <div className="testimony flex-container">
                                     <div className="test-pic full-div">
-                                        <img src={`${url_api}${ts.user.profile}`} className="full-div" />
+                                        <img src={`${ts.user.profile}`} className="full-div" />
                                     </div>
                                     <div className="test-infor full-div">
                                         <div className="test-details full-div flex-container">

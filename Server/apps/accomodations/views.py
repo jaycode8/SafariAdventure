@@ -9,6 +9,8 @@ from .models import AccomodationType, Accomodations, ImageFiles
 from .serializers import AccTypeSerializers, AccomodationSerializers
 import os
 
+from cloudinary.uploader import destroy, upload
+
 # Create your views here.
 
 #-------------------- accomodations views
@@ -37,9 +39,12 @@ def newAccomodation(req):
         files = req.FILES.getlist("files")
         file_list = []
         for file in files:
-            new_file = ImageFiles(image = file)
+            upload_file = file
+            result = upload(upload_file, folder="safari_adventure/accomodations")
+            img_url = result['url']
+            new_file = ImageFiles(image = img_url)
             new_file.save()
-            file_list.append(new_file.image.url)
+            file_list.append(img_url)
         instance = serializer.save()
         instance.pictures = file_list
         instance.save()
@@ -118,7 +123,12 @@ def deleteAccType(req, obj, id):
 def newAccomodationType(req):
     serializer = AccTypeSerializers(data=req.data)
     if serializer.is_valid():
-        serializer.save()
+        instance = serializer.save()
+        upload_file = req.FILES['accomodation_pic']
+        result = upload(upload_file, folder="safari_adventure/accomodations")
+        img_url = result['url']
+        instance.accomodationPic = img_url
+        instance.save()
         return Response({"message":"Accomodation Type successfully added to DB", "success":"true", "status":status.HTTP_200_OK})
     return Response({"message":customErrorMessage({"error": serializer.errors}), "success":"false", "status":status.HTTP_404_NOT_FOUND})
 

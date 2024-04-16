@@ -57,7 +57,7 @@ const LocD = () => {
                     currentItems.map((dt, index) => (
                         <div className="destination-card" key={index}>
                             <div className="card-img">
-                                <img src={`${url_api}${dt.pictures[0]}`} alt={dt.destination_name} className="full-div" />
+                                <img src={`${dt.pictures[0]}`} alt={dt.destination_name} className="full-div" />
                             </div>
                             <div className="card-texts">
                                 <span className="card-texts-header">

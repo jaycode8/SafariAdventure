@@ -49,7 +49,7 @@ class Users(AbstractBaseUser):
     country = models.CharField(max_length=20 )
     gender = models.SmallIntegerField(choices=GENDER_CHOICES, default=3)
     password = models.CharField(max_length=200)
-    profile = models.ImageField(upload_to=path_and_rename)
+    profile = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_staff = models.BooleanField(default=False)

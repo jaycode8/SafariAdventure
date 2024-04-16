@@ -10,6 +10,8 @@ from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from apps.utils.errorMsg import customErrorMessage
 import os
 
+from cloudinary.uploader import destroy, upload
+
 # Create your views here.
 def updateSite(req, obj):
     serializer = SitesSerializer(obj, data=req.data, partial=True)
@@ -45,9 +47,12 @@ def newSite(req):
         files = req.FILES.getlist("files")
         file_list = []
         for file in files:
-            new_file = Images(image = file)
+            upload_file = file
+            result = upload(upload_file, folder="safari_adventure/destinations")
+            img_url = result['url']
+            new_file = Images(image = img_url)
             new_file.save()
-            file_list.append(new_file.image.url)
+            file_list.append(img_url)
         instance = serializer.save()
         instance.pictures = file_list
         instance.save()

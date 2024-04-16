@@ -121,7 +121,7 @@ const Mngt = (token) => {
                 <form className="full-div flex-container" onSubmit={handleSubmit}>
                     <div className="img-bag">
                         <img
-                            src={`${url_api}/${user.profile}`}
+                            src={`${user.profile}`}
                             className="full-div"
                             id="img-data"
                         />

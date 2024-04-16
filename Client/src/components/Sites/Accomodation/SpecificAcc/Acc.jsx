@@ -54,7 +54,7 @@ const Acc = () => {
                                     pictures.length != [] ? (
                                         pictures.map((pic, index) => (
                                             <SwiperSlide key={index} className="full-div s-slide">
-                                                <img src={`${url_api}${pic}`} className="full-div" />
+                                                <img src={`${pic}`} className="full-div" />
                                             </SwiperSlide>))
                                     ) : ("")
                                 }

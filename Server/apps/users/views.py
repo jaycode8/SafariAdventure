@@ -17,6 +17,8 @@ from django.conf import settings
 from apps.utils.emails import transporter
 from apps.utils.createSuperUser import admin_user
 
+from cloudinary.uploader import destroy, upload
+
 admin_user()
 
 # Create your views here.
@@ -79,7 +81,12 @@ def SignUp(req):
     global OTP
     global username
     if serializer.is_valid():
-        serializer.save()
+        instance = serializer.save()
+        upload_file = req.FILES['profile_pic']
+        result = upload(upload_file, folder="safari_adventure/users")
+        img_url = result['url']
+        instance.profile = img_url
+        instance.save()
         OTP = randint(1000, 9999)
         username = serializer.data["username"]
         transporter(serializer.data["email"], OTP)

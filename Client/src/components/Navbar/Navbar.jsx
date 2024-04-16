@@ -96,7 +96,7 @@ const Navbar = () => {
                                     <div className="users-profile" onClick={toggleUserProfile}>
                                         {user ? (
                                             <img
-                                                src={`${url_api}/${user.profile}`}
+                                                src={`${user.profile}`}
                                                 className="full-div"
                                             />
                                         ) : (

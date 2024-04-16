@@ -135,7 +135,7 @@ const Location = () => {
                     <h4 className="response" id={`${msg.success}`}>{msg.message}</h4>
                     <div className="file-container flex-container full-div">
                         <div className="cover-img">
-                            <img src={`${url_api}${updateData.locationPic}`} className="full-div" id="imageFile" />
+                            <img src={`${updateData.locationPic}`} className="full-div" id="imageFile" />
                         </div>
                         <label htmlFor="locationImgs">
                             <TiCamera className="cam" />
@@ -177,7 +177,7 @@ const Location = () => {
                                 <CiTrash onClick={() => deleteLocation(`${data.locationName}`, `${data._id}`)} />
                             </div>
                             <Link to={`/dashboard/${data._id}`}>
-                                <img src={`${url_api}${data.locationPic}`} className="full-div" />
+                                <img src={`${data.locationPic}`} className="full-div" />
                                 <div className="l-info">
                                     <h3>{data.locationName}</h3>
                                 </div>

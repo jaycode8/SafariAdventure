@@ -36,7 +36,7 @@ const PropertyTypes = () => {
                         accTypeList.map((data, index) => (
                             <div className={`property-card ${classes[index % classes.length]}`} key={index}>
                                 <Link to={`/accomodation/${data._id}`}>
-                                    <img src={`${url_api}${data.accomodationPic}`} />
+                                    <img src={`${data.accomodationPic}`} />
                                     <div className="prop-overlay grid-container">
                                         <h3>{data.accomodationType}</h3>
                                     </div>

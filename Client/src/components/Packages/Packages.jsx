@@ -37,11 +37,11 @@ const Packages = () => {
                     <span className="grid-container">
                         <h3>why choose us?</h3>
                         <h2>Let us show you the beauty of Kenya</h2>
-                        <Link className="link">Book now</Link>
+                        <a href="#pkgs" className="link">Book now</a>
                     </span>
                 </div>
                 <h3>Checkout Our Packages</h3>
-                <div className="coll-2 grid-container">
+                <div className="coll-2 grid-container" id="pkgs">
                     <Glider
                         draggable
                         hasArrows
@@ -52,7 +52,7 @@ const Packages = () => {
                         {
                             pkgList.map((pkg, index) => (
                                 <Link className="package-card" key={index} to={`/package/${pkg.title}`}>
-                                    <img src={`${url_api}${pkg.packagePic}`} className="full-div" />
+                                    <img src={`${pkg.packagePic}`} className="full-div" />
                                     <div className="card-content full-div grid-container">
                                         <div className="type">
                                             <h2>{pkg.title}</h2>

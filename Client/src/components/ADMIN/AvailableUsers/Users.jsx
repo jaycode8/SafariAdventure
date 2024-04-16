@@ -53,7 +53,7 @@ const LsUsers = () => {
                                 )
                             }</td>
                             <td>
-                                <img src={`${url_api}${user.profile}`} />
+                                <img src={`${user.profile}`} />
                             </td>
                         </tr>
                     ))

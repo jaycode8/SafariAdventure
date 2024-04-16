@@ -11,6 +11,8 @@ import os
 from apps.Sites.models import Sites
 from apps.Sites.views import deleteSite
 
+from cloudinary.uploader import destroy, upload
+
 # Create your views here.
 
 def updateLocation(req, loc):
@@ -43,7 +45,12 @@ def deleteLocation(req, loc, id):
 def newLocation(req):
     serializer = LocationSerializers(data=req.data)
     if serializer.is_valid():
-        serializer.save()
+        instance = serializer.save()
+        upload_file = req.FILES['location_pic']
+        result = upload(upload_file, folder="safari_adventure/locations")
+        img_url = result['url']
+        instance.locationPic = img_url
+        instance.save()
         return Response({"message":"location successfully added to DB", "success":"true", "status":status.HTTP_200_OK})
     return Response({"message":customErrorMessage({"error": serializer.errors}), "success":"false", "status":status.HTTP_404_NOT_FOUND})
 

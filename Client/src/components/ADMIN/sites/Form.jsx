@@ -114,6 +114,7 @@ const Form = () => {
                     id="pkgImg"
                     name="destinationPic"
                     className="multiFileInput"
+                    accept="image/*"
                     multiple
                     onChange={fileChange}
                 />
@@ -125,7 +126,7 @@ const Form = () => {
             </div>
             <div className="other-inputs flex-container full-div">
                 <select required name="destination_location" onChange={handleChange}>
-                    <option value="">choose location</option>)
+                    <option value="">choose location</option>
                     {
                         locations.map((data, index) => (
                             <option key={index} value={data._id}>{data.locationName}</option>

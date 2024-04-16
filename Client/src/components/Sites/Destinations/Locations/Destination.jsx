@@ -52,7 +52,7 @@ const Destinations = () => {
                             <SwiperSlide className="swiper-slide" key={index}>
                                 <div className="d-card grid-container">
                                     <div className="card-img full-div">
-                                        <img src={`${url_api}${data.locationPic}`} className="full-div" />
+                                        <img src={`${data.locationPic}`} className="full-div" />
                                     </div>
                                     <div className="card-details flex-container full-div">
                                         <h3>Enjoy the beauty place in {data.locationName}</h3>

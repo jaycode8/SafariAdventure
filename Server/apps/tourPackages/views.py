@@ -9,6 +9,8 @@ from .models import Packages
 from .serializers import PackageSerializers
 import os
 
+from cloudinary.uploader import destroy, upload
+
 # Create your views here.
 
 def updatePackage(req, pkg):
@@ -38,7 +40,12 @@ def deletePackage(req, pkg):
 def newPackage(req):
     serializer = PackageSerializers(data=req.data)
     if serializer.is_valid():
-        serializer.save()
+        instance = serializer.save()
+        upload_file = req.FILES['package_pic']
+        result = upload(upload_file, folder="safari_adventure/packages")
+        img_url = result['url']
+        instance.packagePic = img_url
+        instance.save()
         return Response({"message":"Package successfully added to DB", "success":"true", "status":status.HTTP_200_OK})
     return Response({"message":customErrorMessage({"error": serializer.errors}), "success":"false", "status":status.HTTP_404_NOT_FOUND})
 

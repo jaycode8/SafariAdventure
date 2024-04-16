@@ -14,7 +14,7 @@ def path_and_rename(instance,filename):
 class AccomodationType(models.Model):
     _id = models.UUIDField(default=uuid4, primary_key=True, editable=False)
     accomodationType = models.CharField(max_length=200, unique=True)
-    accomodationPic = models.ImageField(upload_to=path_and_rename)
+    accomodationPic = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 
@@ -31,4 +31,4 @@ class Accomodations(models.Model):
 
 class ImageFiles(models.Model):
     _id = models.UUIDField(default=uuid4, primary_key=True, editable=False)
-    image = models.FileField(upload_to=path_and_rename)
+    image = models.TextField(blank=True, null=True)

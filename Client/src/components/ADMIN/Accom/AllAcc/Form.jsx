@@ -86,6 +86,7 @@ const Form = () => {
                     name="image"
                     className="multiFileInput"
                     multiple
+                    accept="image/*"
                     onChange={fileChange}
                 />
                 <textarea

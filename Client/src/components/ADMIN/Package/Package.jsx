@@ -136,7 +136,7 @@ const Package = () => {
                     <h4 className="response" id={`${msg.success}`}>{msg.message}</h4>
                     <div className="file-container flex-container full-div">
                         <div className="cover-img">
-                            <img src={`${url_api}${updateData.packagePic}`} className="full-div" id="imgsfile" />
+                            <img src={`${updateData.packagePic}`} className="full-div" id="imgsfile" />
                         </div>
                         <label htmlFor="pkgImgs">
                             <TiCamera className="cam" />
@@ -190,7 +190,7 @@ const Package = () => {
                             <div className="trash grid-container">
                                 <CiTrash onClick={() => deletePackage(`${data.title}`, `${data._id}`)} />
                             </div>
-                            <img src={`${url_api}${data.packagePic}`} className="full-div" />
+                            <img src={`${data.packagePic}`} className="full-div" />
                             <div className="card-content full-div grid-container">
                                 <div className="type">
                                     <h2>{data.title}</h2>

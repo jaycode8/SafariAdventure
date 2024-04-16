@@ -16,5 +16,5 @@ class Packages(models.Model):
     title = models.CharField(max_length=200, unique=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.CharField(max_length=200)
-    packagePic = models.ImageField(upload_to=path_and_rename)
+    packagePic = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)

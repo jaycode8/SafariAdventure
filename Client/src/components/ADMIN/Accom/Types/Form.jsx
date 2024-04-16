@@ -28,7 +28,7 @@ const Form = () => {
         try {
             const formData = new FormData();
             formData.append("accomodationType", accomodation.type);
-            formData.append("accomodationPic", file);
+            formData.append("accomodation_pic", file);
             const res = await axios({
                 method: "post",
                 url: `${url_api}/accomodations/types`,
@@ -61,6 +61,7 @@ const Form = () => {
                     type="file"
                     id="accomodationImg"
                     name="accomodationPic"
+                    accept="image/*"
                     onChange={fileChange}
                 />
             </div>

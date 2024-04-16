@@ -25,4 +25,4 @@ class Sites(models.Model):
 
 class Images(models.Model):
     _id = models.UUIDField(default=uuid4, primary_key=True, editable=False)
-    image = models.FileField(upload_to=path_and_rename)
+    image = models.TextField(blank=True, null=True)

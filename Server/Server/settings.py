@@ -15,6 +15,10 @@ from pathlib import Path
 from django.conf.global_settings import AUTH_USER_MODEL, MEDIA_ROOT, MEDIA_URL
 from dotenv import load_dotenv
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,7 +34,7 @@ SECRET_KEY = 'django-insecure-#69(-69n)56f(4%9*-440(5a8j=hb-p1wmk37vj$uv&1p-qq7i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["safariadventure.vercel.app", 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -147,9 +151,16 @@ AUTH_USER_MODEL = 'users.Users'
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:5173",
+    "https://safariadventure.vercel.app"
 ]
 
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUD_NM"),
+    api_key=os.getenv("CLOUD_KEY"),
+    api_secret=os.getenv("CLOUD_SEC")
+)
 
