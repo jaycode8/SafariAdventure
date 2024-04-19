@@ -34,8 +34,9 @@ SECRET_KEY = 'django-insecure-#69(-69n)56f(4%9*-440(5a8j=hb-p1wmk37vj$uv&1p-qq7i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["safariadventure.vercel.app", 'localhost', '127.0.0.1']
+# ALLOWED_HOSTS = ["safariadventure.vercel.app", 'localhost', '127.0.0.1']
 
+ALLOWED_HOSTS  = ["*"]
 
 # Application definition
 
@@ -149,10 +150,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.Users'
 
-CORS_ORIGIN_WHITELIST = [
-    "http://localhost:5173",
-    "https://safariadventure.vercel.app"
-]
+# CORS_ORIGIN_WHITELIST = [
+#     "http://localhost:5173",
+#     "https://safariadventure.vercel.app"
+# ]
+
+CORS_ORIGIN_WHITELIST = ["*"]
 
 MEDIA_URL = "/media/"
 
