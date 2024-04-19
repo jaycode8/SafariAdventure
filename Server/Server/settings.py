@@ -150,12 +150,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.Users'
 
-# CORS_ORIGIN_WHITELIST = [
-#     "http://localhost:5173",
-#     "https://safariadventure.vercel.app"
-# ]
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:5173",
+    "https://safariadventure.vercel.app"
+]
 
-CORS_ORIGIN_WHITELIST = ["*"]
+# CORS_ORIGIN_WHITELIST = ["*"]
 
 MEDIA_URL = "/media/"
 
