@@ -142,7 +142,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
+# STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -153,7 +153,8 @@ AUTH_USER_MODEL = 'users.Users'
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:5173",
-    "https://safariadventure.vercel.app"
+    "https://safariadventure.vercel.app",
+    "https://safariadventure-ke.web.app"
 ]
 
 # CORS_ORIGIN_WHITELIST = ["*"]
