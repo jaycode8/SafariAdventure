@@ -1,7 +1,7 @@
 
 <div align="center">
    <h1>SafariAdventure</h1>
-   <p>A fully responsive ReactJS , Django + PostgreSql project</p>
+   <p>A full stack responsive ReactJS , Django + PostgreSql project</p>
    <a href="https://safariadventure-ke.web.app/"><strong>➥ LiveDemo</strong></a>
 </div>
 
