@@ -42,25 +42,19 @@
  git clone https://github.com/jaycode8/SafariAdventure.git
  ```
 
-Head to where the project was downloaded
+Head to the directory where the project was downloaded
 
-Run the web app in the terminal or cmd with
+Run folowing commands in the terminal or cmd
  ```
  cd SafariAdventure
  ```
- ```
- cd Client
- npm install
- ```
 
-now that the Client is running lets deal with the Server
- ```
- cd ../
- ```
+Lets setup the Server first
+
  ```
  cd Server
  ```
-Installing the dependacies
+Start the python environment 
 Windows:
  ```
  .\env\Scripts\activate
@@ -69,17 +63,26 @@ Unix:
  ```
  source env/bin/activate
  ```
+Install required dependancies
 ```
  pip install
  ```
+Start up the PostgreSQL and create SafariAdventure db
+Finally run the server
 ```
  python manage.py runserver
  ```
 
-Head to start the PostgreSQL
+Now that the server is running lets config the Client
+
+ ```
+ cd ../
+ cd Client
+ npm install
+ ```
 
 
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:5180](http://localhost:5180) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
