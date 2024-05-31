@@ -79,10 +79,11 @@ Now that the server is running lets config the Client
  cd ../
  cd Client
  npm install
+ npm run dev
  ```
 
 
-Open [http://localhost:5180](http://localhost:5180) to view it in your browser.
+Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
