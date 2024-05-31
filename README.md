@@ -54,7 +54,8 @@ Lets setup the Server first
  ```
  cd Server
  ```
-Start the python environment 
+Start the python environment
+
 Windows:
  ```
  .\env\Scripts\activate
@@ -68,6 +69,7 @@ Install required dependancies
  pip install
  ```
 Start up the PostgreSQL and create SafariAdventure db
+
 Finally run the server
 ```
  python manage.py runserver
